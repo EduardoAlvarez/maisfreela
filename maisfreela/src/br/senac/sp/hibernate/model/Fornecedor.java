@@ -20,7 +20,7 @@ public class Fornecedor {
 	
 	private String nome;
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
+	@Column(name="id_fornecedor")
 	private int id;
 	
 	@OneToMany(mappedBy="fornecedor", fetch=FetchType.LAZY)
