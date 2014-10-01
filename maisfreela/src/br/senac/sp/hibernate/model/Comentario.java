@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class Comentario {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
+	@Column(name="id_comentario")
 	private int id;
 	
 	private String conteudo;
