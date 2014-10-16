@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,22 +18,22 @@ import org.hibernate.annotations.CascadeType;
 public class Desenvolvedor extends Usuario{
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_desenvolvedor")
-	private int id;
+	private long id;
 
 	
 	@OneToMany(mappedBy="desenvolvedor", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
-	private List<Tag> tags;
+	private List<Tag> tags = new ArrayList<Tag>();
 	
 	@OneToMany(mappedBy="desenvolvedor", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
-	private List<Projeto> projetosAtuados;
+	private List<Projeto> projetosAtuados = new ArrayList<Projeto>();
 
 	public List<Tag> getTags() {
 		return tags;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -48,7 +49,7 @@ public class Desenvolvedor extends Usuario{
 		this.projetosAtuados = projetosAtuados;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	} 
 }

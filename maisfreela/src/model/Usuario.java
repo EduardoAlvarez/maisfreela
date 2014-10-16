@@ -1,23 +1,29 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 @Entity
 public class Usuario {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_usuario")
-	private int id;
+	private long id;
+	
+	
+	@OneToMany(mappedBy="usuario_notificacao")
+	private List<Notificacao> notificacoes = new ArrayList<Notificacao>();  ;
+	
+	@OneToMany(mappedBy="usuario_avaliacao")
+	private List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();  ;; 	
+	
+	@Column
 	private String nome;
 	private int perfil;
 	private int cpf;
@@ -28,7 +34,10 @@ public class Usuario {
 	private String senha;
 	private String sobre;
 	
-	public void setId(int id) {
+	
+	private double avaliacao;
+	
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -68,19 +77,19 @@ public class Usuario {
 		this.sobre = sobre;
 	}
 
-	public void setNotificacoes(List<Notificacao> notificacoes) {
-		this.notificacoes = notificacoes;
+	public void setNotificacoes(Notificacao notificacoes) {
+		this.notificacoes.add(notificacoes);
 	}
 
-	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
-		this.avaliacoes = avaliacoes;
+	public void setAvaliacoes(Avaliacao avaliacoes) {
+		this.avaliacoes.add(avaliacoes);
 	}
 
 	public void setAvaliacao(double avaliacao) {
 		this.avaliacao = avaliacao;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -132,13 +141,5 @@ public class Usuario {
 		return avaliacao;
 	}
 
-	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
-	private List<Notificacao> notificacoes;
 	
-	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
-	private List<Avaliacao> avaliacoes;
-	
-	private double avaliacao;
 }

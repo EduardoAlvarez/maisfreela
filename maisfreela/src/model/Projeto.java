@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class Projeto {
 	
 	@OneToMany(mappedBy="projeto", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
-	private List<Tag> tags;
+	private List<Tag> tags = new ArrayList<Tag>();
 	
 	private double valor;
 	private Date prazo;
@@ -34,7 +35,7 @@ public class Projeto {
 	
 	@OneToMany(mappedBy="projeto", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
-	private List<Lance> lances;
+	private List<Lance> lances = new ArrayList<Lance>();
 	
 	public void setId(int id) {
 		this.id = id;

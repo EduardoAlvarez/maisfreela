@@ -5,9 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Foundation | Welcome</title>
 	<link rel="stylesheet" href="css/foundation.css" />
-	<link rel="stylesheet" href="css/menu.css" />
+	<link rel="stylesheet" href="css/menu.css"t />
 </head>
 <body>
+
+<form method="post" action="/maisfreela/ServletUsuario">
+	teste
+	<input type='submit' value="Enviar"></input>
+</form>
+
 	<script src="js/vendor/jquery.js" type="text/javascript"></script>
 	<script src="js/vendor/modernizr.js" type="text/javascript"></script>
 	<script src="js/foundation.min.js" type="text/javascript"></script>

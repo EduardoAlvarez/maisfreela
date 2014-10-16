@@ -1,10 +1,20 @@
 package servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.Avaliacao;
+import model.Notificacao;
+import model.Usuario;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 /**
  * Servlet implementation class ServletUsuario
@@ -18,19 +28,15 @@ public class ServletUsuario extends HttpServlet {
     public ServletUsuario() {
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		SessionFactory sf = new AnnotationConfiguration().configure(
+				"hibernate.cfg.xml").buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+ 		
+		tx.commit();
+		session.close();
+		session = sf.openSession();
 	}
 
 }

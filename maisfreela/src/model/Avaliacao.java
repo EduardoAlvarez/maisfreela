@@ -16,22 +16,17 @@ import org.hibernate.annotations.CascadeType;
 public class Avaliacao {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_avaliacao")
-	private int id;
+	private long id;
 	
 	private double grau;
 	private String comentario;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_usuario")
-	@Cascade(CascadeType.SAVE_UPDATE)
-	private Usuario usuarioOrigem;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_usuario")
-	@Cascade(CascadeType.SAVE_UPDATE)
 	private Usuario usuarioDestino;
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -43,7 +38,7 @@ public class Avaliacao {
 		this.comentario = comentario;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -55,17 +50,17 @@ public class Avaliacao {
 		return comentario;
 	}
 
-	public Usuario getUsuarioOrigem() {
+	/*public Usuario getUsuarioOrigem() {
 		return usuarioOrigem;
 	}
-
+	*/
 	public Usuario getUsuarioDestino() {
 		return usuarioDestino;
 	}
 
-	public void setUsuarioOrigem(Usuario usuarioOrigem) {
+	/*public void setUsuarioOrigem(Usuario usuarioOrigem) {
 		this.usuarioOrigem = usuarioOrigem;
-	}
+	}*/
 
 	public void setUsuarioDestino(Usuario usuarioDestino) {
 		this.usuarioDestino = usuarioDestino;

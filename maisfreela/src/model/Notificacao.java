@@ -10,7 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -48,9 +49,7 @@ public class Notificacao {
 		this.usuario = usuario;
 	}
 
-	public void setProjeto(Projeto projeto) {
-		this.projeto = projeto;
-	}
+	
 
 	public String getDescricao() {
 		return descricao;
@@ -64,21 +63,17 @@ public class Notificacao {
 		return usuario;
 	}
 
-	public Projeto getProjeto() {
-		return projeto;
-	}
+
 
 	private String titulo;
 	private String descricao;
 	private Date data;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name="id_usuario" , nullable=true)
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Usuario usuario;
 	
-	@OneToMany(mappedBy="notificacao", fetch=FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
-	private Projeto projeto;
+	
 	
 }

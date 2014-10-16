@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ public class Tag {
     @JoinTable(name="usuario_has_tags", joinColumns=
     {@JoinColumn(name="id_usuario")}, inverseJoinColumns=
     {@JoinColumn(name="id_tags")})
-	private List<Usuario> usuario;
+	private List<Usuario> usuario = new ArrayList<Usuario>();  ;;
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -51,5 +52,5 @@ public class Tag {
     @JoinTable(name="projeto_has_tags", joinColumns=
     {@JoinColumn(name="id_projeto")}, inverseJoinColumns=
     {@JoinColumn(name="id_tags")})
-	private List<Projeto> projeto;
+	private List<Projeto> projeto = new ArrayList<Projeto>();
 }
