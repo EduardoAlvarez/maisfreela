@@ -25,6 +25,9 @@ public class ServletUsuario extends HttpServlet {
     public ServletUsuario() {
         // TODO Auto-generated constructor stub
     }
+    protected void goPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	this.doGet(request, response);
+    }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		SessionFactory sf = new AnnotationConfiguration().configure(
 				"hibernate.cfg.xml").buildSessionFactory();
