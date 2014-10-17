@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import br.senac.sp.hibernate.model.Fornecedor;
+
 @Entity
 public class Avaliacao {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,8 +24,9 @@ public class Avaliacao {
 	private String comentario;
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_usuario")
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private Usuario usuarioDestino;
 
 	public void setId(long id) {

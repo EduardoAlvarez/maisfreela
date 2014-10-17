@@ -7,10 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Avaliacao;
-import model.Notificacao;
-import model.Usuario;
-
+ 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -28,7 +25,7 @@ public class ServletUsuario extends HttpServlet {
     public ServletUsuario() {
         // TODO Auto-generated constructor stub
     }
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		SessionFactory sf = new AnnotationConfiguration().configure(
 				"hibernate.cfg.xml").buildSessionFactory();
 		Session session = sf.openSession();

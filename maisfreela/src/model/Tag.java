@@ -23,7 +23,7 @@ public class Tag {
     @JoinTable(name="usuario_has_tags", joinColumns=
     {@JoinColumn(name="id_usuario")}, inverseJoinColumns=
     {@JoinColumn(name="id_tags")})
-	private List<Usuario> usuario = new ArrayList<Usuario>();  ;;
+	private List<Usuario> usuario;
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -52,5 +52,5 @@ public class Tag {
     @JoinTable(name="projeto_has_tags", joinColumns=
     {@JoinColumn(name="id_projeto")}, inverseJoinColumns=
     {@JoinColumn(name="id_tags")})
-	private List<Projeto> projeto = new ArrayList<Projeto>();
+	private List<Projeto> projeto;
 }
