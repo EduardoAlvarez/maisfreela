@@ -20,6 +20,21 @@ public class Lance {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	private double valor;
+	private String comentario;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="id_projeto")
+	@Cascade(CascadeType.SAVE_UPDATE)
+	private Projeto projeto;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="id_usuario")
+	@Cascade(CascadeType.SAVE_UPDATE)
+	private Usuario usuario;
+	
+	
 
 	public void setValor(double valor) {
 		this.valor = valor;
@@ -49,11 +64,5 @@ public class Lance {
 		this.projeto = projeto;
 	}
 
-	private double valor;
-	private String comentario;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_projeto")
-	@Cascade(CascadeType.SAVE_UPDATE)
-	private Projeto projeto;
 }
