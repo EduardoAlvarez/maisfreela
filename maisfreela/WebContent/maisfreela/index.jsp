@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Foundation | Welcome</title>
+	<title>Mais Freela | Seja bem vindo</title>
 	<link rel="stylesheet" href="css/foundation.css" />
 	<link rel="stylesheet" href="css/menu.css" />
 	<link rel="stylesheet" href="css/maisfreela/menu.css" />
@@ -105,20 +105,20 @@
   <div class="row">
     <div class="large-4 columns">
       <img src="http://placehold.it/400x300&text=[Freela1]"/>
-      <h4>This is a content section.</h4>
-      <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+      <h4>Eduardo Alvarez</h4>
+      <p>Desenvolvedor PHP a 3 anos</p>
     </div>
     
     <div class="large-4 columns">
       <img src="http://placehold.it/400x300&text=[Freela2]"/>
-      <h4>This is a content section.</h4>
-      <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+      <h4>Henrique Barjas</h4>
+      <p>Desenvolvedor Java que já participou de 2 projetos através do mais freela</p>
     </div>
     
     <div class="large-4 columns">
       <img src="http://placehold.it/400x300&text=[Freela3]"/>
-      <h4>This is a content section.</h4>
-      <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+      <h4>Anderson Cardoso</h4>
+      <p>Programador .NET com especialidade em SharePoint</p>
     </div>
     <hr/>
  </div>

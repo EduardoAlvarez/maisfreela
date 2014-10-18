@@ -17,8 +17,7 @@ import br.senac.sp.hibernate.model.Produto;
 public class Teste {
 
 	public static void main(String[] args) {
-		SessionFactory sf = new AnnotationConfiguration().configure(
-				"hibernate.cfg.xml").buildSessionFactory();
+		SessionFactory sf = new AnnotationConfiguration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
 

@@ -7,36 +7,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
- 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
+import model.Desenvolvedor;
+import model.Usuario;
+import dao.UsuarioDAO;
 
 /**
  * Servlet implementation class ServletUsuario
  */
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private UsuarioDAO userDao;
     /**
      * Default constructor. 
      */
     public ServletUsuario() {
         // TODO Auto-generated constructor stub
     }
-    protected void goPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	this.doGet(request, response);
-    }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SessionFactory sf = new AnnotationConfiguration().configure(
-				"hibernate.cfg.xml").buildSessionFactory();
-		Session session = sf.openSession();
-		Transaction tx = session.beginTransaction();
- 		
-		tx.commit();
-		session.close();
-		session = sf.openSession();
+			Usuario usuario = new Desenvolvedor();
+			usuario.setNome("Eduardo Alvarez");
+			usuario.setCpf("40536468800");
+			usuario.setLogin("eduardo.alvarez");
+			usuario.setSenha("123456");
+			usuario.setSobre("Desenvolvedor PHP a 3 anos");
+			userDao.save(usuario);
 	}
 
 }
