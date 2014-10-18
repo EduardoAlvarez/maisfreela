@@ -1,0 +1,15 @@
+.menu{
+	padding-left:15px;
+	padding-right:15px;
+}
+.menu a{
+	width:100%;
+	
+}
+.menu div{
+	border-left:1px solid white;
+	padding:0px;
+}
+.columns.center{
+	text-align:center;
+}
