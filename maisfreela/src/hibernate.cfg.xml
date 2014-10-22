@@ -12,8 +12,6 @@
 		
 		<mapping class="model.Avaliacao" />
 		<mapping class="model.Usuario" />
-		<mapping class="model.Email" />
-		<mapping class="model.Telefone" />
 		<mapping class="model.Notificacao" />
 		<mapping class="model.Projeto" />
 		<mapping class="model.Lance" />

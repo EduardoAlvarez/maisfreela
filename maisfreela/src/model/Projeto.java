@@ -13,31 +13,34 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
+@Table(name = "projeto")  
 public class Projeto {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_projeto")
 	private int id;
 	private String titulo;
 	
-	//@OneToMany(mappedBy="projeto", fetch=FetchType.LAZY)
-	//@Cascade(CascadeType.ALL)
-	//private List<Tag> tags;
+	@OneToMany(mappedBy="projeto", fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private List<Tag> tags;
 	
-	private double valor;
+	private float valor;
 	private Date prazo;
 	private String descricao;
-	private String status; //arrumar depois!!!
 	
-	//@OneToMany(mappedBy="projeto", fetch=FetchType.LAZY)
-	//@Cascade(CascadeType.ALL)
-	//private List<Lance> lances;
+	private String status; //arrumar depois!!! ENUM
 	
-	/*@ManyToOne(fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="projeto", fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private List<Lance> lances;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_desenvolvedor")
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Desenvolvedor freelancer;
@@ -45,19 +48,14 @@ public class Projeto {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_empresario")
 	@Cascade(CascadeType.SAVE_UPDATE)
-	private Empresario empresario;*/
+	private Empresario empresario;
 	
-	
-	 
+	@Column(nullable=true) 
 	private boolean pagamento1;
+	
+	@Column(nullable=true)
+	
 	private boolean pagamento2;
+	
 	private Date dataInicio;
-	private Date dataTermino;
-	
-	 
-	
-
-	
-	
-	
 }

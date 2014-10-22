@@ -8,20 +8,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
+@Table(name = "lance")  
 public class Lance {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_lance")
 	private int id;
-	public void setId(int id) {
-		this.id = id;
-	}
 	
-	private double valor;
+	private float valor;
 	private String comentario;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
@@ -32,37 +31,5 @@ public class Lance {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_usuario")
 	@Cascade(CascadeType.SAVE_UPDATE)
-	private Usuario usuario;
-	
-	
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public double getValor() {
-		return valor;
-	}
-
-	public String getComentario() {
-		return comentario;
-	}
-
-	public Projeto getProjeto() {
-		return projeto;
-	}
-
-	public void setProjeto(Projeto projeto) {
-		this.projeto = projeto;
-	}
-
-	
+	private Usuario usuario;	
 }

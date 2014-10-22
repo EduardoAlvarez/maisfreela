@@ -29,4 +29,14 @@
     <servlet-name>ServletProjeto</servlet-name>
     <url-pattern>/projeto/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProjetoDAO</display-name>
+    <servlet-name>ProjetoDAO</servlet-name>
+    <servlet-class>dao.ProjetoDAO</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProjetoDAO</servlet-name>
+    <url-pattern>/ProjetoDAO</url-pattern>
+  </servlet-mapping>
 </web-app>

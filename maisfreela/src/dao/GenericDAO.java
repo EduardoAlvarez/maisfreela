@@ -20,4 +20,10 @@ public class GenericDAO{
 		tx.commit();
 		session.close();
 	}
+	public void delete(Object obj){
+		//TODO
+	}
+	public void update(Object obj){
+		//TODO
+	}
 }

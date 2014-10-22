@@ -11,8 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "tag")  
 public class Tag {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_tag")
@@ -20,34 +22,11 @@ public class Tag {
 	private String nome;
 	
 	@ManyToMany
-    @JoinTable(name="usuario_has_tags", joinColumns=
-    {@JoinColumn(name="id_usuario")}, inverseJoinColumns=
+    @JoinTable(name="desenvolvedor_has_tags", joinColumns=
+    {@JoinColumn(name="id_desenvolvedor")}, inverseJoinColumns=
     {@JoinColumn(name="id_tags")})
-	private List<Usuario> usuario;
-	public void setId(int id) {
-		this.id = id;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public void setUsuario(List<Usuario> usuario) {
-		this.usuario = usuario;
-	}
-	public void setProjeto(List<Projeto> projeto) {
-		this.projeto = projeto;
-	}
-	public int getId() {
-		return id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public List<Usuario> getUsuario() {
-		return usuario;
-	}
-	public List<Projeto> getProjeto() {
-		return projeto;
-	}
+	private List<Desenvolvedor> desenvolvedor;
+	
 	@ManyToMany
     @JoinTable(name="projeto_has_tags", joinColumns=
     {@JoinColumn(name="id_projeto")}, inverseJoinColumns=

@@ -17,6 +17,7 @@ import dao.UsuarioDAO;
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO userDao = new UsuarioDAO();
+	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
     /**
      * Default constructor. 
      */
@@ -24,14 +25,16 @@ public class ServletUsuario extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			Usuario usuario = new Desenvolvedor();
+			Usuario usuario = new Usuario();
 			usuario.setNome("Henrique Barjas");
 			usuario.setCpf("123456543300");
 			usuario.setLogin("henrique.barjar");
 			usuario.setSenha("54321");
 			usuario.setSobre("Descriçao do usuário");
-			usuario.setTipoUsuario(1);
 			userDao.save(usuario);
+			
+			Desenvolvedor dev = new Desenvolvedor(usuario);
+			devDao.save(dev);
 	}
 
 }
