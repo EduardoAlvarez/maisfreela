@@ -16,7 +16,7 @@ import dao.UsuarioDAO;
  */
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UsuarioDAO userDao;
+	private UsuarioDAO userDao = new UsuarioDAO();
     /**
      * Default constructor. 
      */
@@ -25,11 +25,12 @@ public class ServletUsuario extends HttpServlet {
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			Usuario usuario = new Desenvolvedor();
-			usuario.setNome("Eduardo Alvarez");
-			usuario.setCpf("40536468800");
-			usuario.setLogin("eduardo.alvarez");
-			usuario.setSenha("123456");
-			usuario.setSobre("Desenvolvedor PHP a 3 anos");
+			usuario.setNome("Henrique Barjas");
+			usuario.setCpf("123456543300");
+			usuario.setLogin("henrique.barjar");
+			usuario.setSenha("54321");
+			usuario.setSobre("Descriçao do usuário");
+			usuario.setTipoUsuario(1);
 			userDao.save(usuario);
 	}
 

@@ -29,7 +29,7 @@ public class Usuario  {
 	private long id;
 	
 	@Column(name = "tipo_usuario", length = 1, nullable = false, insertable = true, updatable = true)
-	private Character tipoUsuario;
+	private int tipoUsuario;
 	
 	
 	public long getId() {
@@ -40,11 +40,11 @@ public class Usuario  {
 		this.id = id;
 	}
 
-	public Character getTipoUsuario() {
+	public int getTipoUsuario() {
 		return tipoUsuario;
 	}
 
-	public void setTipoUsuario(Character tipoUsuario) {
+	public void setTipoUsuario(int tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 
