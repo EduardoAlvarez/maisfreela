@@ -17,7 +17,6 @@ import dao.UsuarioDAO;
  * @WebServlet("/projeto/*")
  */
 public class ServletProjeto extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private UsuarioDAO userDao = new UsuarioDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

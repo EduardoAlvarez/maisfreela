@@ -1,6 +1,4 @@
-package servlets;
-
-import dao.GenericDAO;
+package dao;
 
 public class DesenvolvedorDAO extends GenericDAO{
 
