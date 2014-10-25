@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,16 +27,19 @@ public class Desenvolvedor{
 	public Desenvolvedor(Usuario user) {
 		this.usuario =  user;
 	}
-	@OneToMany
+	@OneToMany(mappedBy="desenvolvedorDestino", fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
 	private List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
 	
-	@OneToMany
+	@OneToMany(mappedBy="desenvolvedor" , fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
 	private List<Tag> tags;
 	
-	@OneToMany
+	
+	@OneToMany(mappedBy="desenvolvedor", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
 	private List<Projeto> projetosAtuados;
+	
 	
 	private float avaliacao;
 	

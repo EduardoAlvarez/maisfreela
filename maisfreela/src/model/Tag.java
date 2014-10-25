@@ -22,14 +22,14 @@ public class Tag {
 	private String nome;
 	
 	@ManyToMany
-    @JoinTable(name="desenvolvedor_has_tags", joinColumns=
-    {@JoinColumn(name="id_desenvolvedor")}, inverseJoinColumns=
-    {@JoinColumn(name="id_tags")})
+    @JoinTable(name="desenvolvedor_has_tags", 
+    joinColumns={@JoinColumn(name="id_tag")}, 
+    inverseJoinColumns={@JoinColumn(name="id_desenvolvedor")})
 	private List<Desenvolvedor> desenvolvedor;
 	
 	@ManyToMany
-    @JoinTable(name="projeto_has_tags", joinColumns=
-    {@JoinColumn(name="id_projeto")}, inverseJoinColumns=
-    {@JoinColumn(name="id_tags")})
+    @JoinTable(name="projeto_has_tags", 
+    joinColumns={@JoinColumn(name="id_tag")}, 
+    inverseJoinColumns={@JoinColumn(name="id_projeto")})
 	private List<Projeto> projeto;
 }

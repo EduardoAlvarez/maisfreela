@@ -26,12 +26,12 @@ public class Projeto {
 	private int id;
 	private String titulo;
 	
-	@OneToMany(mappedBy="projeto", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="projeto" , fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
 	private List<Tag> tags;
 	
 	private float valor;
-	private Date prazo;
+	private int prazo;
 	private String descricao;
 	
 	private String status; //arrumar depois!!! ENUM
@@ -43,7 +43,7 @@ public class Projeto {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_desenvolvedor")
 	@Cascade(CascadeType.SAVE_UPDATE)
-	private Desenvolvedor freelancer;
+	private Desenvolvedor desenvolvedor;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_empresario")

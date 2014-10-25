@@ -31,9 +31,11 @@ public class Notificacao {
 	private Date data;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_usuario" , nullable=true)
+	@JoinColumn(name="id_usuario")
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Usuario usuario;
+	
+	
 	
 	
 	

@@ -20,7 +20,6 @@ public class ServletUsuario extends HttpServlet {
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
     		Usuario usuario = new Usuario();
 			usuario.setNome("Henrique Barjas");
 			usuario.setCpf("123456543300"); 
@@ -28,8 +27,8 @@ public class ServletUsuario extends HttpServlet {
 			usuario.setSenha("54321");
 			usuario.setSobre("Descriçao do usuário");
 			userDao.save(usuario);
-			Desenvolvedor dev = new Desenvolvedor(usuario);
-			devDao.save(dev);
+			//Desenvolvedor dev = new Desenvolvedor(usuario);
+			//devDao.save(dev);
 	}
 
 }

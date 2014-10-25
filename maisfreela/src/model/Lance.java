@@ -29,7 +29,7 @@ public class Lance {
 	private Projeto projeto;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name="id_desenvolvedor")
 	@Cascade(CascadeType.SAVE_UPDATE)
-	private Usuario usuario;	
+	private Desenvolvedor desenvolvedor;	
 }
