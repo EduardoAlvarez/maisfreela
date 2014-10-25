@@ -10,7 +10,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 public class GenericDAO{
 	private Session Connection(){
 		SessionFactory sf = new AnnotationConfiguration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session session = sf.openSession();
+		Session session = sf.openSession(); //
 		return session;
 	}
 	public void save(Object obj){
