@@ -27,7 +27,7 @@ public class ServletUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			Usuario usuario = new Usuario();
 			usuario.setNome("Henrique Barjas");
-			usuario.setCpf("123456543300");
+			usuario.setCpf("123456543300"); 
 			usuario.setLogin("henrique.barjar");
 			usuario.setSenha("54321");
 			usuario.setSobre("Descriçao do usuário");
