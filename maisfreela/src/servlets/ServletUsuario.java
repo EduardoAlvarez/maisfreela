@@ -25,7 +25,7 @@ public class ServletUsuario extends HttpServlet {
 			usuario.setCpf("123456543300"); 
 			usuario.setLogin("henrique.barjar");
 			usuario.setSenha("54321");
-			usuario.setSobre("DescriÁ„o do us·rio");
+			usuario.setSobre("Descri√ß√£o do usu√°rio");
 			userDao.save(usuario);
 			//Desenvolvedor dev = new Desenvolvedor(usuario);
 			//devDao.save(dev);
