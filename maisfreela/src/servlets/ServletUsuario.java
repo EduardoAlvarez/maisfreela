@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +15,8 @@ import dao.UsuarioDAO;
 
 /**
  * Servlet implementation class ServletUsuario
- * @WebServlet("/usuario/*")
  */
+@WebServlet("/usuario/*/")
 public class ServletUsuario extends HttpServlet {
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
@@ -29,13 +30,8 @@ public class ServletUsuario extends HttpServlet {
 			userDao.save(usuario);
 			Desenvolvedor dev = new Desenvolvedor(usuario);
 			devDao.save(dev);*/
-    		
-			
 			ArrayList<Desenvolvedor> lista = devDao.getAll();
-    		for (Desenvolvedor devl : lista) {
-    			System.out.println(devl.getUsuario().getNome());
-    		}
-	    	
+    		request.setAttribute("desenvolvedor", lista);
 	}
 
 }

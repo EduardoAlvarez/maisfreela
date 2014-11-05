@@ -1,13 +1,17 @@
-
+<%@ page language="java" contentType="text/html;charset=ISO-8859-1" pageEncoding="ISO-8859-1" 
+	import="java.util.ArrayList"
+	import="model.Desenvolvedor"
+	
+	%>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Mais Freela | Seja bem vindo</title>
-	<link rel="stylesheet" href="css/foundation.css" />
-	<link rel="stylesheet" href="css/menu.css" />
-	<link rel="stylesheet" href="css/maisfreela/menu.css" />
+	<link rel="stylesheet" href="/maisfreela/maisfreela/css/foundation.css" />
+	<link rel="stylesheet" href="/maisfreela/maisfreela/css/menu.css" />
+	<link rel="stylesheet" href="/maisfreela/maisfreela/css/maisfreela/menu.css" />
 	<style>
 		.login{
 			background:gray;
@@ -50,7 +54,7 @@
     <nav>
 	    <div class="row">
 		    <div class="large-3 columns">
-		      <img src='img/logo_maisfreela.png'>
+		      <img src='/maisfreela/maisfreela/img/logo_maisfreela.png'>
 		    </div>
 		    <div class="large-2 columns right">
 		    	<div class='login ' id='btn-logar'>
@@ -98,10 +102,22 @@
  
  	<div class='row'>
  		<div class='large-12 columns center'>
- 			<h2>Desenvolvedores em destaque</h2>
+ 			<h2>Desenvolvedores em deustaque</h2>
  		</div>
  	</div>
  
+ <%
+ ArrayList<Desenvolvedor> desenvolvedores = (ArrayList<Desenvolvedor>)request.getAttribute("desenvolvedores");
+try{
+	 for(Desenvolvedor dev : desenvolvedores){	 
+		 out.println(dev.getUsuario().getNome());	 
+	 }		
+} catch (Exception e) {
+	out.print("SEM DESENVOLVEDORES NO MOMENTE!");
+}
+ //aqui nos vamos fazer um foreahc 
+ %>
+
   <div class="row">
     <div class="large-4 columns">
       <img src="http://placehold.it/400x300&text=[Freela1]"/>
