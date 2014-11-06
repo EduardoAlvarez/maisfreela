@@ -17,7 +17,6 @@ import dao.ProjetoDAO;
 /**
  * Servlet implementaton class ServletHome 
  */
-@WebServlet("/")
 
 public class ServletHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;

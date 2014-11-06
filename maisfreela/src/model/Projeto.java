@@ -24,6 +24,110 @@ public class Projeto {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_projeto")
 	private int id;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public float getValor() {
+		return valor;
+	}
+
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+
+	public int getPrazo() {
+		return prazo;
+	}
+
+	public void setPrazo(int prazo) {
+		this.prazo = prazo;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public List<Lance> getLances() {
+		return lances;
+	}
+
+	public void setLances(List<Lance> lances) {
+		this.lances = lances;
+	}
+
+	public Desenvolvedor getDesenvolvedor() {
+		return desenvolvedor;
+	}
+
+	public void setDesenvolvedor(Desenvolvedor desenvolvedor) {
+		this.desenvolvedor = desenvolvedor;
+	}
+
+	public Empresario getEmpresario() {
+		return empresario;
+	}
+
+	public void setEmpresario(Empresario empresario) {
+		this.empresario = empresario;
+	}
+
+	public boolean isPagamento1() {
+		return pagamento1;
+	}
+
+	public void setPagamento1(boolean pagamento1) {
+		this.pagamento1 = pagamento1;
+	}
+
+	public boolean isPagamento2() {
+		return pagamento2;
+	}
+
+	public void setPagamento2(boolean pagamento2) {
+		this.pagamento2 = pagamento2;
+	}
+
+	public Date getDataInicio() {
+		return dataInicio;
+	}
+
+	public void setDataInicio(Date dataInicio) {
+		this.dataInicio = dataInicio;
+	}
+
 	private String titulo;
 	
 	@OneToMany(mappedBy="projeto" , fetch=FetchType.LAZY)

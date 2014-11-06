@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=ISO-8859-1" pageEncoding="ISO-8859-1" 
 	import="java.util.ArrayList"
 	import="model.Desenvolvedor"
+	import="model.Projeto"
 	
 	%>
 <!doctype html>
@@ -9,9 +10,9 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Mais Freela | Seja bem vindo</title>
-	<link rel="stylesheet" href="/maisfreela/maisfreela/css/foundation.css" />
-	<link rel="stylesheet" href="/maisfreela/maisfreela/css/menu.css" />
-	<link rel="stylesheet" href="/maisfreela/maisfreela/css/maisfreela/menu.css" />
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/foundation.css" />
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/menu.css" />
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/menu.css" />
 	<style>
 		.login{
 			background:gray;
@@ -37,9 +38,9 @@
 	
 	
 
-	<script src="js/vendor/jquery.js" type="text/javascript"></script>
-	<script src="js/vendor/modernizr.js" type="text/javascript"></script>
-	<script src="js/foundation.min.js" type="text/javascript"></script>
+	<script src="<%=request.getContextPath()%>/maisfreela/js/vendor/jquery.js" type="text/javascript"></script>
+	<script src="<%=request.getContextPath()%>/maisfreela/js/vendor/modernizr.js" type="text/javascript"></script>
+	<script src="<%=request.getContextPath()%>/maisfreela/js/foundation.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){
 			$(document).foundation();
@@ -54,17 +55,18 @@
     <nav>
 	    <div class="row">
 		    <div class="large-3 columns">
-		      <img src='/maisfreela/maisfreela/img/logo_maisfreela.png'>
+		      <img src='<%=request.getContextPath()%>/maisfreela/img/logo_maisfreela.png'>
 		    </div>
 		    <div class="large-2 columns right">
 		    	<div class='login ' id='btn-logar'>
 			    	<div class='login-icon'>
-			    		<img src='img/user.png'>
+			    		<img src='<%=request.getContextPath()%>/maisfreela/img/user.png'>
 			    	</div>
 			    	<div class='login-label'>Entrar</div>
 		    	</div>  
 		    </div>
 		</div>
+		
 		<div class="row menu">
 	    	<div class="large-3 columns"><a href="#" class="button">Como funciona?</a></div>
 	     	<div class="large-3 columns"><a href="#" class="button">Projetos</a></div>
@@ -77,17 +79,17 @@
 	    <div id="slider">
 	      	<ul data-orbit>
 			    <li>
-			        <img src="img/como_funciona.png"/>
+			        <img src="<%=request.getContextPath()%>/maisfreela/img/como_funciona.png"/>
 			        <div class="orbit-caption">Como funciona?</div>
 			    </li>
 			    <li>
-			        <img src="img/working_home.png"/>
+			        <img src="<%=request.getContextPath()%>/maisfreela/img/working_home.png"/>
 			        <div class="orbit-caption">
 			        	Está com tempo livre? Comece a trabalhar de casa agora!
 			        </div>
 			    </li>
 			    <li>
-			        <img src="img/realidade.png"/>
+			        <img src="<%=request.getContextPath()%>/maisfreela/img/realidade.png"/>
 			        <div class="orbit-caption">
 			        	Tem alguma idéia? Faça ela virar realidade aqui!   
 					</div>
@@ -102,68 +104,54 @@
  
  	<div class='row'>
  		<div class='large-12 columns center'>
- 			<h2>Desenvolvedores em deustaque</h2>
+ 			<h2>Desenvolvedores em Destaque</h2>
  		</div>
  	</div>
- 
- <%
- ArrayList<Desenvolvedor> desenvolvedores = (ArrayList<Desenvolvedor>)request.getAttribute("desenvolvedores");
-try{
-	 for(Desenvolvedor dev : desenvolvedores){	 
-		 out.println(dev.getUsuario().getNome());	 
-	 }		
-} catch (Exception e) {
-	out.print("SEM DESENVOLVEDORES NO MOMENTE!");
-}
- //aqui nos vamos fazer um foreahc 
- %>
-
   <div class="row">
-    <div class="large-4 columns">
-      <img src="http://placehold.it/400x300&text=[Freela1]"/>
-      <h4>Eduardo Alvarez</h4>
-      <p>Desenvolvedor PHP a 3 anos</p>
-    </div>
-    
-    <div class="large-4 columns">
-      <img src="http://placehold.it/400x300&text=[Freela2]"/>
-      <h4>Henrique Barjas</h4>
-      <p>Desenvolvedor Java que já participou de 2 projetos através do mais freela</p>
-    </div>
-    
-    <div class="large-4 columns">
-      <img src="http://placehold.it/400x300&text=[Freela3]"/>
-      <h4>Anderson Cardoso</h4>
-      <p>Programador .NET com especialidade em SharePoint</p>
-    </div>
+	 <%
+	 ArrayList<Desenvolvedor> desenvolvedores = (ArrayList<Desenvolvedor>)request.getAttribute("desenvolvedores");
+	try{
+		 for(Desenvolvedor dev : desenvolvedores){
+			 %>
+			 <div class="large-4 columns">
+		      <img src="http://placehold.it/400x300&text=[Freela1]"/>
+		      <h4><%out.println(dev.getUsuario().getNome());%></h4>
+		      <p><h4><%out.println(dev.getUsuario().getSobre());%></h4></p>
+		    </div>
+			 <% 	 
+		 }		
+	} catch (Exception e) {
+		out.print("Sem desenvolvedores...");
+	} 
+	 %>
     <hr/>
  </div>
     
     <div class='row'>
  		<div class='large-12 columns center'>
- 			<h2>Projetos em destaque</h2>
+ 			<h2>Projetos em Destaque</h2>
  		</div>
  	</div>
-   <div class="row">
-    <div class="large-4 columns">
-      <img src="http://placehold.it/400x300&text=[Projeto1]"/>
-      <h4>This is a content section.</h4>
-      <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-    </div>
+     <div class="row">
+	 <%
+	 ArrayList<Projeto> projetos = (ArrayList<Projeto>)request.getAttribute("projetos");
+	try{
+		 for(Projeto proj : projetos){
+			 %>
+			 <div class="large-4 columns">
+		      <img src="http://placehold.it/400x300&text=[Freela1]"/>
+		      <h4><%out.println(proj.getTitulo());%></h4>
+		      <p><h4><%out.println(proj.getDescricao());%></h4></p>
+		    </div>
+			 <% 	 
+		 }		
+	} catch (Exception e) {
+		out.print("Sem desenvolvedores...");
+	} 
+	 %>
+    <hr/>
+ </div>
     
-    <div class="large-4 columns">
-      <img src="http://placehold.it/400x300&text=[Projeto2]"/>
-      <h4>This is a content section.</h4>
-      <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-    </div>
-    
-    <div class="large-4 columns">
-      <img src="http://placehold.it/400x300&text=[Projeto3]"/>
-      <h4>This is a content section.</h4>
-      <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-    </div>
- </div> 
-  
   <footer class="row">
     <div class="large-12 columns">
       <hr/>
