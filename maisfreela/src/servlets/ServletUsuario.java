@@ -16,7 +16,7 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletUsuario
  */
-@WebServlet({"/usuario/cadastraUsuario/" , "/usuario/visualizaUsuario/"})
+@WebServlet({"/usuario/cadastraUsuario" , "/usuario/visualizaUsuario"})
 public class ServletUsuario extends HttpServlet {
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
