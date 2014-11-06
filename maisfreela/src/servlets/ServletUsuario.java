@@ -16,7 +16,7 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletUsuario
  */
-@WebServlet("/user/*/")
+@WebServlet({"/usuario/cadastraUsuario/" , "/usuario/visualizaUsuario/"})
 public class ServletUsuario extends HttpServlet {
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
@@ -32,6 +32,20 @@ public class ServletUsuario extends HttpServlet {
 			devDao.save(dev);*/
 			ArrayList<Desenvolvedor> lista = devDao.getAll();
     		request.setAttribute("desenvolvedor", lista);
+    		String url = request.getRequestURI();
+    		String[] aux = url.split("/");
+    		String acao = aux[aux.length-1];
+    		switch (acao) {
+			case "cadastraUsuario":
+				
+			break;
+			case "visualizaUsuario":
+				
+			break;
+			default:
+				System.out.println("Ação não encontrada!!");
+				break;
+			}
 	}
 
 }
