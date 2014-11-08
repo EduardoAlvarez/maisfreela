@@ -89,7 +89,7 @@
 						<div class='nome-desenvolvedor'>Nome</div>
 						<div class='estrelas'>Avaliações</div>
 						<div class='desc-desenvolvedor'>Resumo Profissional</div>
-						<div class='tags-projeto'>
+						<div class='tags'>
 							<span class='tag-label'>Tags:</span> 
 							<span class='tag'>HTML</span>
 						</div>
