@@ -33,6 +33,13 @@ public class Usuario  {
 	@Column(name="id_usuario")
 	private long id;
 	
+	@OneToOne(mappedBy="usuario",fetch=FetchType.EAGER)
+	@JoinColumn(name="id_desenvolvedor", nullable=true)
+	private Desenvolvedor desenvolvedor = new Desenvolvedor();
+	
+	@OneToOne(mappedBy="usuario", fetch=FetchType.EAGER)
+	@JoinColumn(name="id_empresario", nullable=true)
+	private Empresario empresario = new Empresario();
 	
 	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
