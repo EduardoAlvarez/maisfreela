@@ -220,7 +220,7 @@ CREATE TABLE `projeto` (
 
 LOCK TABLES `projeto` WRITE;
 /*!40000 ALTER TABLE `projeto` DISABLE KEYS */;
-INSERT INTO `projeto` VALUES (1,'2014-11-08 00:00:00','Pagina web em php',1,NULL,10,'andamento','pagina web',350,2,1),(2,NULL,'Sistema de estoque em JAVA',0,0,18,NULL,'Sistema estoque',50,NULL,3),(3,NULL,'Rede Social igual Facebook sÃ³ que melhor',0,0,27,NULL,'Rede Social',600,NULL,2);
+INSERT INTO `projeto` VALUES (1,'2014-11-08 00:00:00','Pagina web em php',1,0,10,'andamento','pagina web',350,2,1),(2,NULL,'Sistema de estoque em JAVA',0,0,18,NULL,'Sistema estoque',50,NULL,3),(3,NULL,'Rede Social igual Facebook sÃ³ que melhor',0,0,27,NULL,'Rede Social',600,NULL,2);
 /*!40000 ALTER TABLE `projeto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,4 +321,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-08 21:07:01
+-- Dump completed on 2014-11-08 21:08:41
