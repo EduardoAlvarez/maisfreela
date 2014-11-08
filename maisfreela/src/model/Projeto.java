@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -130,8 +132,10 @@ public class Projeto {
 
 	private String titulo;
 	
-	@OneToMany(mappedBy="projeto" , fetch=FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="projeto_has_tags", 
+    joinColumns={@JoinColumn(name="id_projeto")}, 
+    inverseJoinColumns={@JoinColumn(name="id_tag")})
 	private List<Tag> tags;
 	
 	private float valor;

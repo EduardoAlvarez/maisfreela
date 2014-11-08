@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -33,10 +35,13 @@ public class Desenvolvedor{
 	@Cascade(CascadeType.ALL)
 	private List<Avaliacao> avaliacoes;
 	
-	@OneToMany(mappedBy="desenvolvedor" , fetch=FetchType.EAGER)
-	@Cascade(CascadeType.ALL)
-	private List<Tag> tags;
 	
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="desenvolvedor_has_tags", 
+    joinColumns={@JoinColumn(name="id_desenvolvedor")}, 
+    inverseJoinColumns={@JoinColumn(name="id_tag")})
+	private List<Tag> tags;
 	
 	@OneToMany(mappedBy="desenvolvedor", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
