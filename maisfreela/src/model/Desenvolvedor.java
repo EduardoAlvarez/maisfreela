@@ -1,6 +1,6 @@
 package model;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -31,9 +31,9 @@ public class Desenvolvedor{
 	}
 	@OneToMany(mappedBy="desenvolvedorDestino", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
-	private List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
+	private List<Avaliacao> avaliacoes;
 	
-	@OneToMany(mappedBy="desenvolvedor" , fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="desenvolvedor" , fetch=FetchType.EAGER)
 	@Cascade(CascadeType.ALL)
 	private List<Tag> tags;
 	

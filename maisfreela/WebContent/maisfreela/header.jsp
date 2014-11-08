@@ -70,7 +70,7 @@
 				<a href="<%=request.getContextPath()%>/projetos/visualizaProjetos" class="button">Projetos</a>
 			</div>
 			<div class="large-3 columns">
-				<a href="<%=request.getContextPath()%>/usuario/visualizaUsuario" class="button">Desenvolvedores</a>
+				<a href="<%=request.getContextPath()%>/usuario/visualizaDesenvolvedores" class="button">Desenvolvedores</a>
 			</div>
 			<div class="large-3 columns">
 				<a href="<%=request.getContextPath()%>/usuario/cadastraUsuario" class="button">Quero me cadastrar</a>

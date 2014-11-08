@@ -32,4 +32,36 @@ public class Tag {
     joinColumns={@JoinColumn(name="id_tag")}, 
     inverseJoinColumns={@JoinColumn(name="id_projeto")})
 	private List<Projeto> projeto;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Desenvolvedor> getDesenvolvedor() {
+		return desenvolvedor;
+	}
+
+	public void setDesenvolvedor(List<Desenvolvedor> desenvolvedor) {
+		this.desenvolvedor = desenvolvedor;
+	}
+
+	public List<Projeto> getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(List<Projeto> projeto) {
+		this.projeto = projeto;
+	}
 }

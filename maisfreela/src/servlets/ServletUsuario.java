@@ -44,6 +44,8 @@ public class ServletUsuario extends HttpServlet {
 				
 			break;
 			case "visualizaDesenvolvedores":
+				ArrayList<Desenvolvedor> lista = devDao.getAll();
+				request.setAttribute("desenvolvedores", lista);
 				request.getRequestDispatcher("/maisfreela/desenvolvedores.jsp").forward(request,response);
 			break;
 			case "login":
