@@ -14,7 +14,7 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
-@WebServlet({"/projeto/cadastraProjeto" , "/usuario/visualizaProjetos"})
+@WebServlet({"/projeto/cadastraProjeto" , "/projeto/visualizaProjetos"})
 public class ServletProjeto extends HttpServlet {
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private UsuarioDAO userDao = new UsuarioDAO();
@@ -22,9 +22,10 @@ public class ServletProjeto extends HttpServlet {
 		String url = request.getRequestURI();
 		String[] aux = url.split("/");
 		String acao = aux[aux.length-1];
+		System.out.println(acao);
 		switch (acao) {
 			case "visualizaProjetos":
-				request.getRequestDispatcher("/maisfreela/projetos").forward(request,response);
+				request.getRequestDispatcher("/maisfreela/projetos.jsp").forward(request,response);
 			break;
 		}
 	}
