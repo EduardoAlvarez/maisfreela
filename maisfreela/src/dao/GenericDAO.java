@@ -15,7 +15,7 @@ import br.senac.sp.hibernate.model.Produto;
 @SuppressWarnings("deprecation")
 public class GenericDAO{
 	private Class clazz;
-	private Session Connection(){
+	protected Session Connection(){
 		SessionFactory sf = new AnnotationConfiguration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session session = sf.openSession(); //
 		return session;

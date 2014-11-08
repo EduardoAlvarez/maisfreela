@@ -11,3 +11,19 @@ form button{
 	border-radius:7px !important;
 	font-size:15px;
 }
+form .erro{
+	border:1px solid red;
+}
+.message{
+	padding:5px;
+}
+.message.message-error{
+	background:rgb(255, 126, 126);
+	border:1px solid red;
+	color:white;
+} 
+.message.message-success{
+	border:1px solid green;
+	color:white;
+	background:rgb(192, 246, 192);
+}
