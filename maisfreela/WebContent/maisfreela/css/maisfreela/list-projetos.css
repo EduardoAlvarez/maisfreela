@@ -4,12 +4,20 @@
 	cursor:pointer;	
 	font-size:16px;
 }	
-.panel-list .info-projeto{
+.panel-list .valor-projeto{
+	float: left;
 	color:blue;
 	cursor:pointer;
 	font-size:12px;
 	line-height:10px
 }	
+.panel-list .prazo-projeto{
+	float:left;
+	color:blue;
+	cursor:pointer;
+	font-size:12px;
+	line-height:10px
+}
 .panel-list .desc-projeto{
 	text-align: justify;
 	font-size: 14px;
