@@ -14,4 +14,25 @@
 	text-align: justify;
 	font-size: 14px;
 	margin:10px 0;
+	margin-top: 25px;
+}
+
+.estrela-full{
+	padding: 6px;
+	float: left;
+	margin-left: 4px;
+	
+	background:yellow;
+}
+.estrela-half{
+	padding: 6px;
+	float: left;
+	margin-left: 4px;
+	background:brown;
+}
+.estrela-empty{
+	padding: 6px;
+	float: left;
+	margin-left: 4px;
+	background:gray;
 }

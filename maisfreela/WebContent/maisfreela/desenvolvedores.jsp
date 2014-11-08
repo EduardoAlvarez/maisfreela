@@ -20,7 +20,25 @@
 						<img class='imagem'
 							src="http://placehold.it/150x150&text=[Freela1]" />
 						<div class='nome-desenvolvedor'><%=dev.getUsuario().getNome()%></div>
-						<div class='estrelas'><%=String.valueOf(dev.getAvaliacao())%></div>
+						<div class='estrelas'>
+						<%
+							Float nota = dev.getAvaliacao();
+							Integer i = (int)((double)nota); //isso é muito feio!
+							Float fnota = (nota - i); //0.5 por exemplo
+							Integer meia = 0;
+							for(Integer b = 0 ; b < i ; b++){
+								out.print("<div class='estrela-full'></div>");
+							}
+							if(nota%2 >= 0.5){
+								meia = 1;
+								out.print("<div class='estrela-half'></div>");
+							}
+							for(Integer b = 5-meia; b > i ; b--){
+								out.print("<div class='estrela-empty'></div>");
+							}
+						 %>
+						</div>
+
 						<div class='desc-desenvolvedor'><%=dev.getUsuario().getSobre()%></div>
 						<%
 						List<Tag> tags = dev.getTags();

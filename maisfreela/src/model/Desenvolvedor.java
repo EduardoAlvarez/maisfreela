@@ -22,11 +22,12 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 @Table(name = "desenvolvedor")  
 public class Desenvolvedor{
+	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_desenvolvedor")
 	private long id;
 	public Desenvolvedor(){
-	
+		
 	}
 	public Desenvolvedor(Usuario user) {
 		this.usuario =  user;
@@ -60,6 +61,7 @@ public class Desenvolvedor{
 
 	public void setId(long id) {
 		this.id = id;
+
 	}
 
 	public List<Avaliacao> getAvaliacoes() {
