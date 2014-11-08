@@ -22,6 +22,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import dao.UsuarioDAO;
+
 
 
 @Entity
@@ -30,6 +32,7 @@ public class Usuario  {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_usuario")
 	private long id;
+	
 	
 	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
@@ -40,6 +43,10 @@ public class Usuario  {
 	public long getId() {
 		return id;
 	}
+	
+	
+	
+	
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -103,6 +110,15 @@ public class Usuario  {
 	private String login;
 	private String senha;
 	private String sobre;
+	
+	public static boolean logar(String login, String senha) {
+		UsuarioDAO userDao = new UsuarioDAO();
+		Usuario usuario = userDao.getUsuarioByLoginAndSenha(login,senha);
+		if(usuario != null){
+			return true;
+		}
+		return false;
+	}
 
 	
 }

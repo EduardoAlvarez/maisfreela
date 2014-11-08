@@ -10,32 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Desenvolvedor;
+import model.Usuario;
 import dao.DesenvolvedorDAO;
 import dao.UsuarioDAO;
 
 /**
  * Servlet implementation class ServletUsuario
  */
-@WebServlet({"/usuario/cadastraUsuario" , "/usuario/visualizaUsuario" , "/usuario/login" , "/usuario/logar/"})
+@WebServlet({"/usuario/cadastraUsuario" , "/usuario/visualizaUsuario" , "/usuario/login" , "/usuario/logar"})
 public class ServletUsuario extends HttpServlet {
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    		/*Usuario usuario = new Usuario();
-			usuario.setNome("Henrique Barjas");
-			usuario.setCpf("123456543300"); 
-			usuario.setLogin("henrique.barjar");
-			usuario.setSenha("54321");
-			usuario.setSobre("Descrição do usuário");
-			userDao.save(usuario);
-			Desenvolvedor dev = new Desenvolvedor(usuario);
-			devDao.save(dev);
-			ArrayList<Desenvolvedor> lista = devDao.getAll();
-    		request.setAttribute("desenvolvedor", lista);*/
-    		String url = request.getRequestURI();
-    		String[] aux = url.split("/");
-    		String acao = aux[aux.length-1];
-    		switch (acao) {
+		String url = request.getRequestURI();
+		String[] aux = url.split("/");
+		String acao = aux[aux.length-1];
+		System.out.println(acao);
+		switch (acao) {
 			case "cadastraUsuario":
 				
 			break;
@@ -45,27 +36,22 @@ public class ServletUsuario extends HttpServlet {
 			case "login":
 				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request,response);
 			break;
-			default:
-				System.out.println("Ação não encontrada!!");
-				break;
-			}
+		}
 	}
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String url = request.getRequestURI();
 		String[] aux = url.split("/");
 		String acao = aux[aux.length-1];
 		switch (acao) {
-		case "logar":
-			String login = (String)request.getAttribute("login");
-			String senha = (String)request.getAttribute("senha");
-			if(login.equals("eduardo") && senha.equals("1234")){
-				request.setAttribute("status", "1");
-			}else{
-				request.setAttribute("status", login);
-			}
-			request.getRequestDispatcher("/maisfreela/login.jsp").forward(request,response);
-		break;
-		default:
+			case "logar":
+				String login = request.getParameter("login");
+				String senha = request.getParameter("senha");
+				if(Usuario.logar(login,senha)){
+					request.setAttribute("status", "1");
+				}else{
+					request.setAttribute("status", "0");
+				}
+				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request,response);
 			break;
 		}
     }
