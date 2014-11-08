@@ -67,7 +67,7 @@
 				<a href="<%=request.getContextPath()%>/home/comoFunciona" class="button">Como funciona?</a>
 			</div>
 			<div class="large-3 columns">
-				<a href="<%=request.getContextPath()%>/projetos/visualizaProjetos" class="button">Projetos</a>
+				<a href="<%=request.getContextPath()%>/projeto/visualizaProjetos" class="button">Projetos</a>
 			</div>
 			<div class="large-3 columns">
 				<a href="<%=request.getContextPath()%>/usuario/visualizaDesenvolvedores" class="button">Desenvolvedores</a>
