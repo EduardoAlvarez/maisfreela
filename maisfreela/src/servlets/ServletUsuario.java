@@ -16,7 +16,7 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletUsuario
  */
-@WebServlet({"/usuario/cadastraUsuario" , "/usuario/visualizaUsuario"})
+@WebServlet({"/usuario/cadastraUsuario" , "/usuario/visualizaUsuario" , "/usuario/login" , "/usuario/logar/"})
 public class ServletUsuario extends HttpServlet {
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
@@ -29,9 +29,9 @@ public class ServletUsuario extends HttpServlet {
 			usuario.setSobre("Descrição do usuário");
 			userDao.save(usuario);
 			Desenvolvedor dev = new Desenvolvedor(usuario);
-			devDao.save(dev);*/
+			devDao.save(dev);
 			ArrayList<Desenvolvedor> lista = devDao.getAll();
-    		request.setAttribute("desenvolvedor", lista);
+    		request.setAttribute("desenvolvedor", lista);*/
     		String url = request.getRequestURI();
     		String[] aux = url.split("/");
     		String acao = aux[aux.length-1];
@@ -42,10 +42,32 @@ public class ServletUsuario extends HttpServlet {
 			case "visualizaUsuario":
 				
 			break;
+			case "login":
+				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request,response);
+			break;
 			default:
 				System.out.println("Ação não encontrada!!");
 				break;
 			}
 	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String url = request.getRequestURI();
+		String[] aux = url.split("/");
+		String acao = aux[aux.length-1];
+		switch (acao) {
+		case "logar":
+			String login = (String)request.getAttribute("login");
+			String senha = (String)request.getAttribute("senha");
+			if(login.equals("eduardo") && senha.equals("1234")){
+				request.setAttribute("status", "1");
+			}else{
+				request.setAttribute("status", login);
+			}
+			request.getRequestDispatcher("/maisfreela/login.jsp").forward(request,response);
+		break;
+		default:
+			break;
+		}
+    }
 
 }

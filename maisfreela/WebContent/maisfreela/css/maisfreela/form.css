@@ -1,0 +1,13 @@
+input , textarea, select{
+	border-radius:5px !important; 
+}
+.form-center{
+	margin:0px auto;
+	width:50%;
+}
+form button{
+	float:right;
+	padding:10px;
+	border-radius:7px !important;
+	font-size:15px;
+}

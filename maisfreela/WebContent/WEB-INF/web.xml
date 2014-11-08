@@ -49,4 +49,14 @@
     <servlet-name>ServletHome</servlet-name>
     <url-pattern>/ServletHome</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>asdasd</display-name>
+    <servlet-name>asdasd</servlet-name>
+    <servlet-class>servlets.asdasd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>asdasd</servlet-name>
+    <url-pattern>/asdasd</url-pattern>
+  </servlet-mapping>
 </web-app>

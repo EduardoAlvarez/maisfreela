@@ -1,0 +1,20 @@
+.login{
+			background:gray;
+			margin-top: 15px;
+			cursor:pointer;
+		}
+		.login div{
+			display:inline-block;
+			padding:5px;
+		}
+		.login .login-icon{
+			border-right:1px solid white;
+			width:35%;
+		}
+		.login .login-label{
+			text-align:center;
+			width:62%;
+		}
+		.login .login-label a{
+			color:white;
+		}
