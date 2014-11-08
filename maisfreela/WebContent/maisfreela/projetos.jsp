@@ -87,9 +87,9 @@
 						<div class='nome-projeto'>Nome</div>
 						<div class='info-projeto'>Informações</div>
 						<div class='desc-projeto'>Descrição</div>
-						<div class='tags-projeto'>
+						<div class='tags'>
 							<span class='tag-label'>Tags:</span>
-							<span class='tags'>HTML</span>
+							<span class='tag'>HTML</span>
 						</div>
 					</div>
 				</div>
@@ -98,9 +98,9 @@
 						<div class='nome-projeto'>Nome</div>
 						<div class='info-projeto'>Informações</div>
 						<div class='desc-projeto'>Descrição</div>
-						<div class='tags-projeto'>
+						<div class='tags'>
 							<span class='tag-label'>Tags:</span>
-							<span class='tags'>HTML</span>
+							<span class='tag'>HTML</span>
 						</div>
 					</div>
 				</div>
