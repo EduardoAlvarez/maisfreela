@@ -4,19 +4,21 @@
 	cursor:pointer;	
 	font-size:16px;
 }	
-.panel-list .valor-projeto{
-	float: left;
+.panel-list .info-projeto{
 	color:blue;
 	cursor:pointer;
 	font-size:12px;
 	line-height:10px
+}
+.panel-list .valor-projeto .valor-label{
+	color:black;
 }	
+
 .panel-list .prazo-projeto{
-	float:left;
-	color:blue;
-	cursor:pointer;
-	font-size:12px;
-	line-height:10px
+	margin-left:20px;
+}
+.panel-list .prazo-projeto .prazo-label{
+	color:black;
 }
 .panel-list .desc-projeto{
 	text-align: justify;
