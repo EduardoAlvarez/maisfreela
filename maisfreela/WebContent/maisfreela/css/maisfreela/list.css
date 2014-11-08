@@ -27,8 +27,11 @@
 
 .main-list .panel-list .row {
 	border-bottom: 1px solid lightgray;
-	/* padding: 3px; */
+	padding-bottom: 10px;
 	width: 99%;
-	MARGIN: 0px auto;
+	margin: 0px auto;
 	margin: 7px auto;
+}
+.main-list .panel-list .row:last-child{
+	border:none;
 }

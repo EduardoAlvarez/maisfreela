@@ -1,1 +1,29 @@
 @CHARSET "ISO-8859-1";
+.panel-list .nome-projeto{
+	color:blue;
+	cursor:pointer;	
+	font-size:16px;
+}	
+.panel-list .info-projeto{
+	color:blue;
+	cursor:pointer;
+	font-size:12px;
+	line-height:10px
+}	
+.panel-list .desc-projeto{
+	text-align: justify;
+	font-size: 14px;
+	margin:10px 0;
+}	
+.panel-list .tags-projeto .tag-label{
+	font-weight:bold;
+	font-size:11px;
+}
+.panel-list .tags-projeto .tags{
+	background: rgb(7, 165, 33);
+	color: white;
+	padding: 5px;
+	font-size: 11px;
+	border-radius: 5px;
+	font-weight: bold;
+}

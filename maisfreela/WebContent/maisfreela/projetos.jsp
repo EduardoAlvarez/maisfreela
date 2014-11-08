@@ -19,7 +19,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list.css" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-projeto.css" />
+	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-projetos.css" />
 </head>
 <body>
 	<script
@@ -87,7 +87,10 @@
 						<div class='nome-projeto'>Nome</div>
 						<div class='info-projeto'>Informações</div>
 						<div class='desc-projeto'>Descrição</div>
-						<div class='tags-projeto'>Tags</div>
+						<div class='tags-projeto'>
+							<span class='tag-label'>Tags:</span>
+							<span class='tags'>HTML</span>
+						</div>
 					</div>
 				</div>
 				<div class='row'>
@@ -95,7 +98,10 @@
 						<div class='nome-projeto'>Nome</div>
 						<div class='info-projeto'>Informações</div>
 						<div class='desc-projeto'>Descrição</div>
-						<div class='tags-projeto'>Tags</div>
+						<div class='tags-projeto'>
+							<span class='tag-label'>Tags:</span>
+							<span class='tags'>HTML</span>
+						</div>
 					</div>
 				</div>
 			</div>
