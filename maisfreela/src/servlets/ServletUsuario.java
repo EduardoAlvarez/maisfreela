@@ -17,36 +17,34 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletUsuario
  */
-@WebServlet({ "/usuario/cadastraUsuario", "/usuario/visualizaUsuario",
+@WebServlet({ "/usuario/cadastraUsuario", "/usuario/visualizaDesenvolvedores",
 		"/usuario/login", "/usuario/logar" })
 public class ServletUsuario extends HttpServlet {
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    		/*Usuario usuario = new Usuario();
-			usuario.setNome("Henrique Barjas");
-			usuario.setCpf("123456543300"); 
-			usuario.setLogin("henrique.barjar");
-			usuario.setSenha("54321");
-			usuario.setSobre("Descrição do usuário");
-			userDao.save(usuario);
-			Desenvolvedor dev = new Desenvolvedor(usuario);
-			devDao.save(dev);*/
-			ArrayList<Desenvolvedor> lista = devDao.getAll();
-    		request.setAttribute("desenvolvedor", lista);
-    		String url = request.getRequestURI();
-    		String[] aux = url.split("/");
-    		String acao = aux[aux.length-1];
-    	
+		/*Usuario usuario = new Usuario();
+		usuario.setNome("Henrique Barjas");
+		usuario.setCpf("123456543300"); 
+		usuario.setLogin("henrique.barjar");
+		usuario.setSenha("54321");
+		usuario.setSobre("Descrição do usuário");
+		userDao.save(usuario);
+		Desenvolvedor dev = new Desenvolvedor(usuario);
+		devDao.save(dev);
+		ArrayList<Desenvolvedor> lista = devDao.getAll();
+		request.setAttribute("desenvolvedor", lista);*/
+		String url = request.getRequestURI();
+		String[] aux = url.split("/");
+		String acao = aux[aux.length-1];
 		switch (acao) {
 
 			case "cadastraUsuario":
 				
 			break;
-			case "visualizaUsuario":
-				
+			case "visualizaDesenvolvedores":
+				request.getRequestDispatcher("/maisfreela/desenvolvedores.jsp").forward(request,response);
 			break;
 			case "login":
 				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request,response);

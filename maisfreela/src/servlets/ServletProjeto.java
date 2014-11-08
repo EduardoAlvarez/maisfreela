@@ -14,12 +14,18 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
-@WebServlet({"/projeto/cadastraProjeto" , "/usuario/visualizaProjeto"})
+@WebServlet({"/projeto/cadastraProjeto" , "/usuario/visualizaProjetos"})
 public class ServletProjeto extends HttpServlet {
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private UsuarioDAO userDao = new UsuarioDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String url = request.getRequestURI();
+		String[] aux = url.split("/");
+		String acao = aux[aux.length-1];
+		switch (acao) {
+			case "visualizaProjetos":
+				request.getRequestDispatcher("/maisfreela/projetos").forward(request,response);
+			break;
+		}
 	}
-
 }
