@@ -58,6 +58,8 @@ public class ServletUsuario extends HttpServlet {
 		case "logar":
 			String login = (String)request.getAttribute("login");
 			String senha = (String)request.getAttribute("senha");
+			System.out.println(senha);
+			System.out.println(login);
 			if(login.equals("eduardo") && senha.equals("1234")){
 				request.setAttribute("status", "1");
 			}else{

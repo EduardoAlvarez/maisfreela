@@ -67,9 +67,9 @@
     %>
 	    <form class='form-center' name='form-login' id='form-login' method='post' action="<%=request.getContextPath()%>/usuario/logar/">
 	    	<label for='login'>Login</label>
-	    	<input type='text' placeholder="Login" id='login' name='login'>
+	    	<input type='text' id='login' name='login'>
 	    	<label for='senha'>Senha</label>
-	    	<input type='password' placeholder="Senha" id='senha' name='senha'>
+	    	<input type='password' id='senha' name='senha'>
 	    	<button type='submit'>Entrar</button>
 	    </form>
     </div>
