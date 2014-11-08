@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.ArrayList"
+<%@ page language="java"  import="java.util.ArrayList"
 	import="model.Projeto"%>
 
 <%@include file="header.jsp"%>
@@ -12,6 +11,7 @@
 		<div class='content'>
 
 			<%
+				request.setCharacterEncoding("UTF-8");
 				ArrayList<Projeto> projetos = (ArrayList<Projeto>) request
 						.getAttribute("projetos");
 

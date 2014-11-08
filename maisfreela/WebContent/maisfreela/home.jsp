@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=ISO-8859-1" pageEncoding="ISO-8859-1" 
+<%@ page language="java" 
 	import="java.util.ArrayList"
 	import="model.Desenvolvedor"
 	import="model.Projeto"%>

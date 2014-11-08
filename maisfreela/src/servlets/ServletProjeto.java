@@ -31,6 +31,7 @@ public class ServletProjeto extends HttpServlet {
 				request.setAttribute("projetos", projetos);
 				request.getRequestDispatcher("/maisfreela/projetos.jsp").forward(request,response);
 			break;
+			
 		}
 	}
 }
