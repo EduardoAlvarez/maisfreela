@@ -38,6 +38,7 @@
 							}
 						 %>
 						</div>
+
 						<div class='desc-desenvolvedor'><%=dev.getUsuario().getSobre()%></div>
 						<%
 						List<Tag> tags = dev.getTags();

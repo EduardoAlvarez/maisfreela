@@ -27,3 +27,6 @@ form .erro{
 	color:white;
 	background:rgb(192, 246, 192);
 }
+.clear{
+	clear:both;
+}
