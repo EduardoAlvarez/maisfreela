@@ -84,20 +84,27 @@
 			<div class='content'>
 				<div class='row'>
 					<div class='large-12 columns'>
-						<img class= 'imagem' src="http://placehold.it/150x150&text=[Freela1]"/>
-						<div class='nome-projeto'>Nome</div>
+						<img class='imagem'
+							src="http://placehold.it/150x150&text=[Freela1]" />
+						<div class='nome-desenvolvedor'>Nome</div>
 						<div class='estrelas'>Avaliações</div>
-						<div class='desc-projeto'>Resumo Profissional</div>
-						<div class='tags-projeto'>Tags</div>
+						<div class='desc-desenvolvedor'>Resumo Profissional</div>
+						<div class='tags-projeto'>
+							<span class='tag-label'>Tags:</span> 
+							<span class='tag'>HTML</span>
+						</div>
 					</div>
 				</div>
 				<div class='row'>
 					<div class='large-12 columns'>
-						<img class='imagem'src="http://placehold.it/150x150&text=[Freela1]"/>
-						<div class='nome-projeto'>Nome</div>
+						<img class='imagem'
+							src="http://placehold.it/150x150&text=[Freela1]" />
+						<div class='nome-desenvolvedor'>Nome</div>
 						<div class='estrelas'>Avaliações</div>
-						<div class='desc-projeto'>Resumo Profissional</div>
-						<div class='tags-projeto'>Tags</div>
+						<div class='desc-desenvolvedor'>Resumo Profissional</div>
+						<div class='tags'>
+							<span class='tag-label'>Tags:</span> <span class='tag'>HTML</span>
+						</div>
 					</div>
 				</div>
 			</div>

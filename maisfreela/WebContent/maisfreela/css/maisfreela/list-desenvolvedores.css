@@ -1,7 +1,17 @@
 @CHARSET "ISO-8859-1";
 
-.row.main-list .content .imagem{
+.row.main-list .content .imagem {
 	float: left;
 	margin: 8px;
-	
+}
+
+.panel-list .nome-desenvolvedor {
+	color: blue;
+	cursor: pointer;
+	font-size: 16px;
+}
+.panel-list .desc-desenvolvedor{
+	text-align: justify;
+	font-size: 14px;
+	margin:10px 0;
 }
