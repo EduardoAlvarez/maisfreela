@@ -96,6 +96,7 @@ CREATE TABLE `desenvolvedor_has_tags` (
 
 LOCK TABLES `desenvolvedor_has_tags` WRITE;
 /*!40000 ALTER TABLE `desenvolvedor_has_tags` DISABLE KEYS */;
+INSERT INTO `desenvolvedor_has_tags` VALUES (1,1),(2,1),(3,2),(4,2),(5,3),(1,3);
 /*!40000 ALTER TABLE `desenvolvedor_has_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +154,7 @@ CREATE TABLE `lance` (
 
 LOCK TABLES `lance` WRITE;
 /*!40000 ALTER TABLE `lance` DISABLE KEYS */;
-INSERT INTO `lance` VALUES (1,'faço mais caro e melhor',400,2,1),(2,'coloco imagens mais legais',380,3,2),(3,'manjo td de rede social',700,1,3);
+INSERT INTO `lance` VALUES (1,'faÃ§o mais caro e melhor',400,2,1),(2,'coloco imagens mais legais',380,3,2),(3,'manjo td de rede social',700,1,3);
 /*!40000 ALTER TABLE `lance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +220,7 @@ CREATE TABLE `projeto` (
 
 LOCK TABLES `projeto` WRITE;
 /*!40000 ALTER TABLE `projeto` DISABLE KEYS */;
-INSERT INTO `projeto` VALUES (1,'2014-11-08 00:00:00','Pagina web em php',1,NULL,10,'andamento','pagina web',350,2,1),(2,'0000-00-00 00:00:00','Sistema de estoque em JAVA',NULL,NULL,18,NULL,'Sistema estoque',50,NULL,3),(3,NULL,'Rede Social igual Facebook só que melhor',NULL,NULL,27,NULL,'Rede Social',600,NULL,2);
+INSERT INTO `projeto` VALUES (1,'2014-11-08 00:00:00','Pagina web em php',1,NULL,10,'andamento','pagina web',350,2,1),(2,'0000-00-00 00:00:00','Sistema de estoque em JAVA',NULL,NULL,18,NULL,'Sistema estoque',50,NULL,3),(3,NULL,'Rede Social igual Facebook sÃ³ que melhor',NULL,NULL,27,NULL,'Rede Social',600,NULL,2);
 /*!40000 ALTER TABLE `projeto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,6 +247,7 @@ CREATE TABLE `projeto_has_tags` (
 
 LOCK TABLES `projeto_has_tags` WRITE;
 /*!40000 ALTER TABLE `projeto_has_tags` DISABLE KEYS */;
+INSERT INTO `projeto_has_tags` VALUES (1,1),(3,1),(4,1),(2,2),(4,2),(1,3),(2,3),(3,3),(4,3),(5,3);
 /*!40000 ALTER TABLE `projeto_has_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,4 +321,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-08 20:24:13
+-- Dump completed on 2014-11-08 20:50:58
