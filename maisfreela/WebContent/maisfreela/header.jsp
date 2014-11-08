@@ -64,16 +64,16 @@
 
 		<div class="row menu">
 			<div class="large-3 columns">
-				<a href="#" class="button">Como funciona?</a>
+				<a href="<%=request.getContextPath()%>/home/comoFunciona" class="button">Como funciona?</a>
 			</div>
 			<div class="large-3 columns">
-				<a href="#" class="button">Projetos</a>
+				<a href="<%=request.getContextPath()%>/projetos/visualizaProjetos" class="button">Projetos</a>
 			</div>
 			<div class="large-3 columns">
-				<a href="#" class="button">Desenvolvedores</a>
+				<a href="<%=request.getContextPath()%>/usuario/visualizaUsuario" class="button">Desenvolvedores</a>
 			</div>
 			<div class="large-3 columns">
-				<a href="#" class="button">Quero me cadastrar</a>
+				<a href="<%=request.getContextPath()%>/usuario/cadastraUsuario" class="button">Quero me cadastrar</a>
 			</div>
 		</div>
 	</nav>
