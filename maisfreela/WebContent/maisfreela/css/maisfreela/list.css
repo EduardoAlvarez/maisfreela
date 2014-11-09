@@ -26,6 +26,11 @@
 	font-size: 12px;
 }
 
+.content.filtros section ul li:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
 .main-list .panel-list {
 	padding: 0;
 	float: rigth;
