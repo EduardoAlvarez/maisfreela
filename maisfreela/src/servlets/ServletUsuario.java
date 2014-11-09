@@ -43,6 +43,9 @@ public class ServletUsuario extends HttpServlet {
 			case "cadastraUsuario":
 				
 			break;
+			case "visualizaDesenvolvedor":
+				request.getRequestDispatcher("/maisfreela/usuario.jsp").forward(request,response);
+			break;
 			case "visualizaDesenvolvedores":
 				ArrayList<Desenvolvedor> lista = devDao.getAll();
 				request.setAttribute("desenvolvedores", lista);
