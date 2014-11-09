@@ -23,7 +23,7 @@
 				<li>C#</li>
 			</ul>
 		</section>
-		<section><b>Quantidade de Projetos Desenvolvidos</b>
+		<section><b>Projetos Desenvolvidos</b>
 			<ul>
 				<li>+ 10</li>
 				<li>5 - 10</li>
