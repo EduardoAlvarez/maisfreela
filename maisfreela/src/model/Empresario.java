@@ -20,6 +20,46 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 @Table(name = "empresario")
 public class Empresario{
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public List<Avaliacao> getAvaliacoes() {
+		return avaliacoes;
+	}
+
+	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+		this.avaliacoes = avaliacoes;
+	}
+
+	public List<Projeto> getProjetosPublicados() {
+		return projetosPublicados;
+	}
+
+	public void setProjetosPublicados(List<Projeto> projetosPublicados) {
+		this.projetosPublicados = projetosPublicados;
+	}
+
+	public float getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(float avaliacao) {
+		this.avaliacao = avaliacao;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_empresario")
 	private long id;

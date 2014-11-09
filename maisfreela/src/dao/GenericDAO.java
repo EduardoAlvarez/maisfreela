@@ -3,6 +3,8 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Usuario;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -48,5 +50,12 @@ public class GenericDAO{
 		Query query = session.createQuery(hql);
 		ArrayList<Object> results2 = (ArrayList<Object>) query.list();
 		return results2;
+	}
+	public Object getById(String table, Integer id) {
+		Session session = this.Connection();
+		String hql = "FROM "+table+" where id_"+table.toLowerCase()+" = "+id;
+		Query query = session.createQuery(hql);
+		ArrayList<Object> results2 = (ArrayList<Object>) query.list();
+		return results2.get(0);
 	}
 }

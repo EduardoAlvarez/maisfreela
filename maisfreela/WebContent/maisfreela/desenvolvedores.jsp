@@ -17,8 +17,7 @@
 			 	%>
 				<div class='row'>
 					<div class='large-12 columns'>
-						<img class='imagem'
-							src="http://placehold.it/150x150&text=[Freela1]" />
+						<img class='imagem' src="http://placehold.it/150x150&text=[Freela1]" />
 						<div class='nome-desenvolvedor'><%=dev.getUsuario().getNome()%></div>
 						<div class='estrelas'>
 						<%
