@@ -20,6 +20,10 @@ public class UsuarioDAO extends GenericDAO{
 		}
 		return null;
 		
+	}
+
+	public Usuario getById(Integer id) {
+		return (Usuario)super.getById("Usuario",id);
 	}	
 	
 }

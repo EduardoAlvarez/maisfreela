@@ -44,6 +44,10 @@ public class ServletUsuario extends HttpServlet {
 				
 			break;
 			case "visualizaUsuario":
+				String id = request.getParameter("id_usuario");
+				UsuarioDAO userDAO = new UsuarioDAO();
+				Usuario usuario = userDao.getById(Integer.valueOf(id)); 
+				request.setAttribute("usuario",usuario);
 				request.getRequestDispatcher("/maisfreela/usuario.jsp").forward(request,response);
 			break;
 			case "visualizaDesenvolvedores":
