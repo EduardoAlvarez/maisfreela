@@ -74,14 +74,13 @@ public class ServletUsuario extends HttpServlet {
 			Usuario user = Usuario.logar(login, senha);
 			if (user != null) {
 				request.setAttribute("status", "1");
-				request.setAttribute("usuario", "teste"); 
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario", user); 
 				request.getRequestDispatcher("/maisfreela/").forward(request, response);
-				
 			} else {
 				request.setAttribute("status", "0");
 				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request, response);
 			}
-			
 			break;
 		}
 	}
