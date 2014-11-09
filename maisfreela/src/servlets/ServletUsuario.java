@@ -24,14 +24,14 @@ public class ServletUsuario extends HttpServlet {
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuario usuario = new Usuario();
+	  /*Usuario usuario = new Usuario();
 		usuario.setNome("Henrique Barjas");
 		usuario.setCpf("123456543300"); 
 		usuario.setLogin("henrique.barjar");
 		usuario.setSenha("54321");
 		usuario.setSobre("Descrição do usuário");
 		userDao.save(usuario);
-/*		Desenvolvedor dev = new Desenvolvedor(usuario);
+		Desenvolvedor dev = new Desenvolvedor(usuario);
 		devDao.save(dev);
 		ArrayList<Desenvolvedor> lista = devDao.getAll();
 		request.setAttribute("desenvolvedor", lista);*/
