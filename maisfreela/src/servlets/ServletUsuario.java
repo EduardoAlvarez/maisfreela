@@ -43,7 +43,7 @@ public class ServletUsuario extends HttpServlet {
 			case "cadastraUsuario":
 				
 			break;
-			case "visualizaDesenvolvedor":
+			case "visualizaUsuario":
 				request.getRequestDispatcher("/maisfreela/usuario.jsp").forward(request,response);
 			break;
 			case "visualizaDesenvolvedores":
