@@ -18,7 +18,7 @@ import="model.Desenvolvedor"
 				 
 			</div>
 		</div>
-		<div class='large-9 columns panel-list'>
+		<div class='large-9 columns panel-list panel-user'>
 			<div class='content'>
 				<div class='row'>
 					<div class='large-12 columns'>
@@ -33,7 +33,7 @@ import="model.Desenvolvedor"
 						Empresario emp = user.getEmpresario();
 						if(dev != null){
 							%>
-							<div class='aval-title'>Avaliação como desenvolvedor:</div> 
+							<div class='aval-title'>Desenvolvedor</div> 
 							<div class='estrelas'>
 								<%
 								Float nota = dev.getAvaliacao();
@@ -52,12 +52,20 @@ import="model.Desenvolvedor"
 								}
 							 	%>
 							</div>
+							<!-- Projetos do dev -->
+							<div> Projetos atuados </div>
+							<ul>
+								<li>Projeto 1</li>
+								<li>Projeto 2</li>
+								<li>Projeto 3</li>
+							</ul>
+							
 							<hr/>
 							<% 
 						}
 						if(emp != null){
 							%>
-							<div class='aval-title'>Avaliação como empresário:</div>
+							<div class='aval-title'>Empresário</div>
 							<div class='estrelas'>
 								<%
 								Float nota = emp.getAvaliacao();
@@ -76,6 +84,13 @@ import="model.Desenvolvedor"
 								}
 							 	%>
 							</div>
+							<!-- Projetos do dev -->
+							<div> Projetos criados </div>
+							<ul>
+								<li>Projeto 1</li>
+								<li>Projeto 2</li>
+								<li>Projeto 3</li>
+							</ul>
 							<hr/>
 							<%
 						}
