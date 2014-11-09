@@ -47,8 +47,9 @@
 	<nav>
 		<div class="row">
 			<div class="large-3 columns">
-				<img
+				<a href="/maisfreela"> <img
 					src='<%=request.getContextPath()%>/maisfreela/img/logo_maisfreela.png'>
+				</a>
 			</div>
 			<div class="large-2 columns right">
 				<div class='login ' id='btn-logar'>
