@@ -3,26 +3,37 @@ import="model.Usuario"
 import="model.Empresario"
 import="model.Desenvolvedor"
 %>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/usuario.css"/>
 <%@include file="header.jsp"%>
 	<div class='row main-list'>
 		<div class='large-3 columns menu-left'>
-			<div class='content'>Alguma coisa</div>
+			<div class='content perfil-usuario'>
+				<div class='image-content'>
+					<img class='imagem' src="http://placehold.it/200x200&text=[Freela1]" />
+				</div>
+				<div class='nome-usuario'>
+					<%Usuario user = (Usuario)request.getAttribute("usuario");
+					out.print(user.getNome());
+					%></div>
+				 
+			</div>
 		</div>
 		<div class='large-9 columns panel-list'>
 			<div class='content'>
 				<div class='row'>
 					<div class='large-12 columns'>
-						<img class='imagem' src="http://placehold.it/100x100&text=[Freela1]" />	
-						<div class='nome-usuario'><%Usuario user = (Usuario)request.getAttribute("usuario");
-						out.print(user.getNome());
-						%></div>
+						<div class='desc-usuario'>
+							<img class='aspas' src="<%=request.getContextPath()%>/maisfreela/img/abreaspas.png">
+							<%=user.getSobre()%>
+							<img class='aspas' src="<%=request.getContextPath()%>/maisfreela/img/fechaaspas.png">
+						</div>		
 						
 						<%
 						Desenvolvedor dev = user.getDesenvolvedor();
 						Empresario emp = user.getEmpresario();
 						if(dev != null){
 							%>
-							Avaliação como desenvolvedor: <br>
+							<div class='aval-title'>Avaliação como desenvolvedor:</div> 
 							<div class='estrelas'>
 								<%
 								Float nota = dev.getAvaliacao();
@@ -41,11 +52,12 @@ import="model.Desenvolvedor"
 								}
 							 	%>
 							</div>
+							<hr/>
 							<% 
 						}
 						if(emp != null){
 							%>
-							Avaliação como empresário: <br>
+							<div class='aval-title'>Avaliação como empresário:</div>
 							<div class='estrelas'>
 								<%
 								Float nota = emp.getAvaliacao();
@@ -64,10 +76,11 @@ import="model.Desenvolvedor"
 								}
 							 	%>
 							</div>
+							<hr/>
 							<%
 						}
 						%>
-						<div class='desc-usuario'><%=user.getSobre()%></div> 
+						
 						
 					</div>		
 				</div>			
