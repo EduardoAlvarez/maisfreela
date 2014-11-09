@@ -42,7 +42,7 @@
 	try{
 		 for(Desenvolvedor dev : desenvolvedores){
 			 %>
-			 <a href="<%=request.getContextPath()%>/usuario/visualizaUsuario?id_usuario=<%out.println(dev.getId());%>">
+			 <a href="<%=request.getContextPath()%>/usuario/visualizaUsuario?id_usuario=<%out.println(dev.getUsuario().getId());%>">
 				 <div class="large-4 columns">
 			      <img src="http://placehold.it/400x300&text=[Freela1]"/>
 			      <h4><%out.println(dev.getUsuario().getNome());%></h4>
