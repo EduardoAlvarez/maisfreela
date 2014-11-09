@@ -41,7 +41,7 @@ public class ServletUsuario extends HttpServlet {
 		switch (acao) {
 
 			case "cadastraUsuario":
-				
+				request.getRequestDispatcher("/maisfreela/cadastrousuario.jsp").forward(request,response);
 			break;
 			case "visualizaUsuario":
 				String id = request.getParameter("id_usuario");
