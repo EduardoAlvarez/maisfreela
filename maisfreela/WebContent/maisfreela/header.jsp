@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+	import="model.Usuario"
+	%>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -50,6 +52,13 @@
 				<a href="/maisfreela"> <img
 					src='<%=request.getContextPath()%>/maisfreela/img/logo_maisfreela.png'>
 				</a>
+			</div>
+			<div class='large-7 columns'>
+				<% 
+				String user = (String)request.getAttribute("usuario");
+				out.print(user);
+				
+				%>
 			</div>
 			<div class="large-2 columns right">
 				<div class='login ' id='btn-logar'>
