@@ -3,7 +3,7 @@
   <display-name>maisfreela</display-name>
   <error-page>
     <error-code>404</error-code>
-    <location>/maisfreela/</location>
+    <location>/maisfreela/404-error.jsp</location>
   </error-page> 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
