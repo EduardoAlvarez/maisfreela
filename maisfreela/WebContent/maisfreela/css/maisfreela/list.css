@@ -11,7 +11,19 @@
 .main-list .menu-left .content {
 	border: 1px solid lightgray;
 	padding: 3px;
+	padding-left: 8px;
 	width: 95%;
+}
+
+.content.filtros {
+	margin: 2px;
+	color: blue;
+	font-size: 14px;
+}
+
+.content.filtros section ul {
+	list-style: none;
+	font-size: 12px;
 }
 
 .main-list .panel-list {
@@ -32,16 +44,17 @@
 	margin: 0px auto;
 	margin: 7px auto;
 }
-.main-list .panel-list .row:last-child{
-	border:none;
+
+.main-list .panel-list .row:last-child {
+	border: none;
 }
 
-
-.tags .tag-label{
-	font-weight:bold;
-	font-size:11px;
+.tags .tag-label {
+	font-weight: bold;
+	font-size: 11px;
 }
-.tags .tag{
+
+.tags .tag {
 	background: rgb(7, 165, 33);
 	color: white;
 	padding: 5px;

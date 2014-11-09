@@ -5,34 +5,44 @@
 	margin: 8px;
 }
 
+.content.filtros {
+	margin: 2px;
+	color: blue;
+	font-size: 14px;
+}
+
+
+
 .panel-list .nome-desenvolvedor {
 	color: blue;
 	cursor: pointer;
 	font-size: 16px;
 }
-.panel-list .desc-desenvolvedor{
+
+.panel-list .desc-desenvolvedor {
 	text-align: justify;
 	font-size: 14px;
-	margin:10px 0;
+	margin: 10px 0;
 	margin-top: 25px;
 }
 
-.estrela-full{
+.estrela-full {
 	padding: 6px;
 	float: left;
 	margin-left: 4px;
-	
-	background:yellow;
+	background: yellow;
 }
-.estrela-half{
+
+.estrela-half {
 	padding: 6px;
 	float: left;
 	margin-left: 4px;
-	background:brown;
+	background: brown;
 }
-.estrela-empty{
+
+.estrela-empty {
 	padding: 6px;
 	float: left;
 	margin-left: 4px;
-	background:gray;
+	background: gray;
 }
