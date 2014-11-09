@@ -52,6 +52,14 @@ import="model.Desenvolvedor"
 								}
 							 	%>
 							</div>
+							<!-- Projetos do dev -->
+							<div> Projetos atuados </div>
+							<ul>
+								<li>Projeto 1</li>
+								<li>Projeto 2</li>
+								<li>Projeto 3</li>
+							</ul>
+							
 							<hr/>
 							<% 
 						}
@@ -76,6 +84,13 @@ import="model.Desenvolvedor"
 								}
 							 	%>
 							</div>
+							<!-- Projetos do dev -->
+							<div> Projetos criados </div>
+							<ul>
+								<li>Projeto 1</li>
+								<li>Projeto 2</li>
+								<li>Projeto 3</li>
+							</ul>
 							<hr/>
 							<%
 						}
