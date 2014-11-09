@@ -49,7 +49,9 @@
 				<div class='large-12 columns'>
 					<img class='imagem'
 						src="http://placehold.it/150x150&text=[Freela1]" />
-					<div class='nome-desenvolvedor'><%=dev.getUsuario().getNome()%></div>
+					<div class='nome-desenvolvedor'>
+						<a href="/maisfreela/usuario/visualizaUsuario?id_usuario=<%=dev.getUsuario().getId()%>"><%=dev.getUsuario().getNome()%></a>
+					</div>
 					<div class='estrelas'>
 						<%
 							Float nota = dev.getAvaliacao();
