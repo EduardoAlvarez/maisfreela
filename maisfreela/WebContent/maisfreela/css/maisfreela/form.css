@@ -10,6 +10,7 @@ form button{
 	padding:10px;
 	border-radius:7px !important;
 	font-size:15px;
+	margin: 2px;
 }
 form .erro{
 	border:1px solid red;

@@ -2,30 +2,67 @@
 
 <%@include file="header.jsp"%>
 
-<div class= 'row main-list'>
-	<div class='large-12 columns panel-list'>
-		<div class='content'>
-			<label for="nome">Nome Completo</label>
-			<input type='text' name='nome' id='nome'>
-			<label for="sobre">Sobre</label>
-			<textarea id='sobre' name='sobre'></textarea>
-			<label for="senha">Login</label>
-			<input type='text' name='login' id='login'>
-			<label for="senha">Senha</label>
-			<input type='text' name='senha' id='senha'>
-			<label for="senha">Confirmar Senha</label>
-			<input type='text' name='cSenha' id='cSenha'>
-			<fieldset>
-				<legend>Perfil</legend>
-				<input type='checkbox' id='dev' name='dev'>
-				<label for="senha">Desenvolvedor</label> <br>
+<style>
+	textarea {
+		height: 100px;
+	}			
+	#required_pass{
+		color:red;
+		font-size:10px;
+		margin-top: -20px;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$("#submit").click(function(e){
+			if($("#senha").val() != $("#cSenha").val()){
+				if($("#required_pass").length == 0 ){
+					$("#senha").after("<div id='required_pass'>As senhas devem ser iguais</div>");
+				}
+				$("#senha").css('border-color','red');
+				$("#cSenha").css('border-color','red');
+				e.preventDefault();
+			}else{
+				$("#required_pass").remove();
+				$("#senha").css('border-color','#ccc');
+				$("#cSenha").css('border-color','#ccc');
+			}
+		})
+	});
+</script>
+
+	<div class= 'row main-list'>
+		<div class='large-12 columns panel-list'>
+			<form class='form-center'>
+				<label for="nome">Nome Completo</label>
+				<input required type='text' name='nome' id='nome'>
 				
-				<input type='checkbox' id='emp' name='emp'>
-				<label for="senha">Empresário</label>
+				<label for="sobre">Sobre</label>
+				<textarea id='sobre' name='sobre'></textarea>
 				
-			</fieldset>
-			
-		</div>
+				<label for="login">Login</label>
+				<input required type='text' name='login' id='login'>
+				
+				<label for="senha">Senha</label>
+				<input required type='password' name='senha' id='senha'>
+				
+				<label for="cSenha">Confirmar Senha</label>
+				<input required type='password' name='cSenha' id='cSenha' data-equalto="senha">
+				
+				<fieldset>
+					<legend>Perfil</legend>
+					<input type='checkbox' id='dev' name='dev'>
+					<label for="senha">Desenvolvedor</label> <br>
+					
+					<input type='checkbox' id='emp' name='emp'>
+					<label for="senha">Empresário</label>					
+				</fieldset>
+				
+				<button id='submit' type='submit'>Cadastrar</button>
+				<button class="alert" type='button'>Cancelar</button>
+			</form>							
+		</div>		
 	</div>
-</div>
+	
+
 <%@include file="footer.jsp"%>

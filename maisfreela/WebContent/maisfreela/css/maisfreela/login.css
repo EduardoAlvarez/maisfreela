@@ -3,9 +3,15 @@
 			margin-top: 15px;
 			cursor:pointer;
 		}
-		.login div{
+		.login .login-label{
 			display:inline-block;
-			padding:5px;
+		}
+		.login .login-label a{
+			padding:14px 20px;
+		}
+		.login .login-icon{
+			display:inline-block;
+			padding:8px;
 		}
 		.login .login-icon{
 			border-right:1px solid white;
