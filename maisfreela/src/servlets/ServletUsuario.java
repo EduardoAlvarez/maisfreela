@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.Session;
+
 import model.Desenvolvedor;
 import model.Usuario;
 import dao.DesenvolvedorDAO;
@@ -19,7 +21,7 @@ import dao.UsuarioDAO;
  * Servlet implementation class ServletUsuario
  */
 @WebServlet({ "/usuario/cadastraUsuario", "/usuario/visualizaDesenvolvedores",
-		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario",})
+		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario" , "/usuario/sair",})
 public class ServletUsuario extends HttpServlet {
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
@@ -59,6 +61,11 @@ public class ServletUsuario extends HttpServlet {
 			case "login":
 				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request,response);
 			break;
+			case "sair":
+				 HttpSession session = request.getSession();
+				 session.setAttribute("usuario" , null);
+				 response.sendRedirect("/maisfreela/home");
+			break;
 		}
 	}
 
@@ -76,12 +83,20 @@ public class ServletUsuario extends HttpServlet {
 				request.setAttribute("status", "1");
 				HttpSession session = request.getSession();
 				session.setAttribute("usuario", user); 
-				request.getRequestDispatcher("/maisfreela/").forward(request, response);
+				System.out.println(session);
+				response.sendRedirect("/maisfreela/home");
+				//System.out.println(user.getNome());
+				//request.getRequestDispatcher("../ServletHome").include(request,response);
+				//request.getRequestDispatcher("/index.jsp").forward(request, response);][
+				
+
 			} else {
 				request.setAttribute("status", "0");
 				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request, response);
 			}
+			//request.getRequestDispatcher("/maisfreela/login.jsp").forward(request, response);
 			break;
+			
 		}
 	}
 

@@ -1,1 +1,5 @@
-<%request.getRequestDispatcher("ServletHome").include(request,response);%>
+<%//request.getRequestDispatcher("/maisfreela/home").forward(request, response);%>
+
+<script>
+window.location="/maisfreela/home"; 
+</script> 

@@ -18,10 +18,10 @@ import dao.ProjetoDAO;
  * Servlet implementaton class ServletHome
  */
 
-@WebServlet( "/home/comoFunciona" )
+@WebServlet({ "/home/comoFunciona", "/home" })
 public class ServletHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	public ServletHome() {
 		super();
 	}
@@ -30,7 +30,7 @@ public class ServletHome extends HttpServlet {
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		String url = request.getRequestURI();
 		String[] aux = url.split("/");
 		String acao = aux[aux.length - 1];
@@ -40,14 +40,16 @@ public class ServletHome extends HttpServlet {
 			request.getRequestDispatcher("/maisfreela/comofunciona.jsp").forward(request, response);
 
 			break;
-
-		default:
-				
+			
+		case "home":
+			System.out.println("Vc esta na Home");
 			ArrayList<Desenvolvedor> lista = devDao.getAll();
 			request.setAttribute("desenvolvedores", lista);
 			ArrayList<Projeto> projetos = projetoDao.getAll();
 			request.setAttribute("projetos", projetos);
 			request.getRequestDispatcher("maisfreela/home.jsp").forward(request, response);
+			break;
+		default:
 			break;
 		}
 

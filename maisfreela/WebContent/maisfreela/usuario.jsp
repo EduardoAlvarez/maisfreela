@@ -14,7 +14,7 @@ import="java.util.List"
 					<img class='imagem' src="http://placehold.it/200x200&text=[Freela1]" />
 				</div>
 				<div class='nome-usuario'>
-					<%Usuario user = (Usuario)request.getAttribute("usuario");
+					<%
 					out.print(user.getNome());
 					%></div>
 				 

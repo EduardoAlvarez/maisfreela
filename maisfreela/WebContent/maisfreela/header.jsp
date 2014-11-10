@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
-	pageEncoding="UTF-8"
-	import="model.Usuario"
-	%>
+	pageEncoding="UTF-8" import="model.Usuario"%>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -22,7 +20,7 @@
 	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-projetos.css" />
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-desenvolvedores.css" />
 </head>
 <body>
@@ -53,12 +51,17 @@
 					src='<%=request.getContextPath()%>/maisfreela/img/logo_maisfreela.png'>
 				</a>
 			</div>
-			<div class='large-7 columns'>
-				<% 
-				String user = (String)request.getAttribute("usuario");
-				out.print(user);
-				
-				%>
+			<div class='large-7 columns user-welcome'>
+				<span> <%
+ 					Usuario user = (Usuario) session.getAttribute("usuario");
+
+ 					try {
+ 						out.print("Seja bem vindo: " + user.getNome());
+ 					} catch (Exception e) {
+ 						out.print("Seja bem vindo: visitante");
+ 					}
+ 				%>
+				</span>
 			</div>
 			<div class="large-2 columns right">
 				<div class='login ' id='btn-logar'>
@@ -66,7 +69,11 @@
 						<img src='<%=request.getContextPath()%>/maisfreela/img/user.png'>
 					</div>
 					<div class='login-label'>
-						<a href="<%=request.getContextPath()%>/usuario/login">Entrar</a>
+						<%if(user == null){%>
+							<a href="<%=request.getContextPath()%>/usuario/login">Entrar</a>
+						<%}else{ %>
+							<a href="<%=request.getContextPath()%>/usuario/sair">Sair</a>
+						<%} %>
 					</div>
 				</div>
 			</div>
@@ -74,16 +81,24 @@
 
 		<div class="row menu">
 			<div class="large-3 columns">
-				<a href="<%=request.getContextPath()%>/home/comoFunciona" class="button">Como funciona?</a>
+				<a href="<%=request.getContextPath()%>/home/comoFunciona"
+					class="button">Como funciona?</a>
 			</div>
 			<div class="large-3 columns">
-				<a href="<%=request.getContextPath()%>/projeto/visualizaProjetos" class="button">Projetos</a>
+				<a href="<%=request.getContextPath()%>/projeto/visualizaProjetos"
+					class="button">Projetos</a>
 			</div>
 			<div class="large-3 columns">
-				<a href="<%=request.getContextPath()%>/usuario/visualizaDesenvolvedores" class="button">Desenvolvedores</a>
+				<a
+					href="<%=request.getContextPath()%>/usuario/visualizaDesenvolvedores"
+					class="button">Desenvolvedores</a>
 			</div>
 			<div class="large-3 columns">
-				<a href="<%=request.getContextPath()%>/usuario/cadastraUsuario" class="button">Quero me cadastrar</a>
+			<%if(user == null){%>
+					<a href="<%=request.getContextPath()%>/usuario/cadastraUsuario" class="button">Quero me cadastrar</a>
+					<%}else{ %>
+					<a href="<%=request.getContextPath()%>/usuario/meuperfil" class="button">Meu Perfil</a>
+					<%} %>
 			</div>
 		</div>
 	</nav>
