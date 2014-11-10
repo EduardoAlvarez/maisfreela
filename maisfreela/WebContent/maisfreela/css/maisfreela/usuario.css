@@ -21,3 +21,35 @@
 	float:right;
 	margin-top: -20px;
 }
+.panel-user .aval-title{
+	border-bottom: 1px solid green;
+	padding: 5px;
+	line-height: 6px;
+}
+.panel-user .user-projetos{
+	padding: 10px;
+	background: rgb(235, 255, 205);
+	color: black;
+}
+.panel-user ul{
+	margin:0px auto;
+	width:95%;
+}
+.panel-user li{
+	margin-top: 9px;
+	cursor:pointer;
+	list-style:none;
+	border-bottom: 1px solid lightgray;
+}
+.panel-user li:last-child{
+	border:none;
+}
+.panel-user .desc-projeto{
+	font-style:italic;
+	margin:0 !important;
+	margin-left:9px !important;
+	
+}
+.panel-user .title-projeto{
+	font-weight:bold;
+}

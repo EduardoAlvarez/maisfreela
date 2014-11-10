@@ -2,6 +2,8 @@
 import="model.Usuario"
 import="model.Empresario"
 import="model.Desenvolvedor"
+import="model.Projeto"
+import="java.util.List"
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/usuario.css"/>
 <%@include file="header.jsp"%>
@@ -53,15 +55,24 @@ import="model.Desenvolvedor"
 							 	%>
 							</div>
 							<!-- Projetos do dev -->
-							<div> Projetos atuados </div>
-							<ul>
-								<li>Projeto 1</li>
-								<li>Projeto 2</li>
-								<li>Projeto 3</li>
-							</ul>
-							
-							<hr/>
-							<% 
+							<div class='user-projetos'> Projetos atuados </div>
+							<%
+							List<Projeto> projetos = dev.getProjetosAtuados();
+							if(projetos.size() > 0){
+								out.print("<ul>");
+									for(Projeto p : projetos){
+										out.print("<li>");
+										out.print("<div class='title-projeto'>"+p.getTitulo()+"</div>");
+										out.print("<div class='desc-projeto'>"+p.getDescricao()+"</div>");
+										out.print("</li>");
+									}
+								out.print("</ul>");
+							}else{
+								out.print("Ainda não atuou em projetos...");
+							}
+						}
+						if(emp != null &&  dev != null){
+							out.print("<hr/>");
 						}
 						if(emp != null){
 							%>
@@ -84,19 +95,25 @@ import="model.Desenvolvedor"
 								}
 							 	%>
 							</div>
-							<!-- Projetos do dev -->
-							<div> Projetos criados </div>
-							<ul>
-								<li>Projeto 1</li>
-								<li>Projeto 2</li>
-								<li>Projeto 3</li>
-							</ul>
-							<hr/>
+							<!-- Projetos do emp -->
+							<div class='user-projetos'> Projetos criados </div>
 							<%
+							List<Projeto> projetos = emp.getProjetosPublicados(); 
+							if(projetos.size() > 0){
+								out.print("<ul>");
+									for(Projeto p : projetos){
+										out.print("<li>");
+										out.print("<div class='title-projeto'>"+p.getTitulo()+"</div>");
+										out.print("<div class='desc-projeto'>"+p.getDescricao()+"</div>");
+										out.print("</li>");
+										
+									}
+								out.print("</ul>");
+							}else{
+								out.print("Ainda não criou projetos...");
+							}
 						}
 						%>
-						
-						
 					</div>		
 				</div>			
 			</div>

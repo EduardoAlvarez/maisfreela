@@ -142,13 +142,13 @@ public class Usuario  {
 	private String senha;
 	private String sobre;
 	
-	public static boolean logar(String login, String senha) {
+	public static Usuario logar(String login, String senha) {
 		UsuarioDAO userDao = new UsuarioDAO();
 		Usuario usuario = userDao.getUsuarioByLoginAndSenha(login,senha);
 		if(usuario != null){
-			return true;
+			return usuario;
 		}
-		return false;
+		return null;
 	}
 
 	

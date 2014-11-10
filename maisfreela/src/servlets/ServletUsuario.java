@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Desenvolvedor;
 import model.Usuario;
@@ -70,13 +71,16 @@ public class ServletUsuario extends HttpServlet {
 		case "logar":
 			String login = request.getParameter("login");
 			String senha = request.getParameter("senha");
-			if (Usuario.logar(login, senha)) {
+			Usuario user = Usuario.logar(login, senha);
+			if (user != null) {
 				request.setAttribute("status", "1");
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario", user); 
+				request.getRequestDispatcher("/maisfreela/").forward(request, response);
 			} else {
 				request.setAttribute("status", "0");
+				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request, response);
 			}
-			request.getRequestDispatcher("/maisfreela/login.jsp").forward(
-					request, response);
 			break;
 		}
 	}
