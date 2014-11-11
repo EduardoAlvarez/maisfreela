@@ -66,7 +66,13 @@
 			<div class="large-2 columns right">
 				<div class='login ' id='btn-logar'>
 					<div class='login-icon'>
-						<img src='<%=request.getContextPath()%>/maisfreela/img/user.png'>
+					
+					
+					
+					<a href="/maisfreela/maisfreela/perfil.jsp"> <img src='<%=request.getContextPath()%>/maisfreela/img/user.png'></a>
+						
+						
+						
 					</div>
 					<div class='login-label'>
 						<%if(user == null){%>
