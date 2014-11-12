@@ -15,7 +15,8 @@ import="java.util.List"
 				</div>
 				<div class='nome-usuario'>
 					<%
-					out.print(user.getNome());
+					Usuario usuario = (Usuario)request.getAttribute("v_usuario");					
+					out.print(usuario.getNome());
 					%></div>
 				 
 			</div>
@@ -26,13 +27,13 @@ import="java.util.List"
 					<div class='large-12 columns'>
 						<div class='desc-usuario'>
 							<img class='aspas' src="<%=request.getContextPath()%>/maisfreela/img/abreaspas.png">
-							<%=user.getSobre()%>
+							<%=usuario.getSobre()%>
 							<img class='aspas' src="<%=request.getContextPath()%>/maisfreela/img/fechaaspas.png">
 						</div>		
 						
 						<%
-						Desenvolvedor dev = user.getDesenvolvedor();
-						Empresario emp = user.getEmpresario();
+						Desenvolvedor dev = usuario.getDesenvolvedor();
+						Empresario emp = usuario.getEmpresario();
 						if(dev != null){
 							%>
 							<div class='aval-title'>Desenvolvedor</div> 
