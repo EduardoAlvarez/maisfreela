@@ -52,10 +52,10 @@
 				<fieldset>
 					<legend>Perfil</legend>
 					<input type='checkbox' id='dev' name='dev'>
-					<label for="senha">Desenvolvedor</label> <br>
+					<label for="perfilDev">Desenvolvedor</label> <br>
 					
 					<input type='checkbox' id='emp' name='emp'>
-					<label for="senha">Empresário</label>					
+					<label for="perfilEmpresario">Empresário</label>					
 				</fieldset>
 				
 				<button id='submit' type='submit'>Cadastrar</button>
