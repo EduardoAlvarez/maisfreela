@@ -1,3 +1,4 @@
+<%@page import="controller.UserController"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8" import="model.Usuario"%>
 <!doctype html>
@@ -52,7 +53,7 @@
 				</a>
 			</div>
 			<div class='large-7 columns user-welcome'>
-				<span> <%
+				<span class='boas-vindas'> <%
  					Usuario user = (Usuario) session.getAttribute("usuario");
 
  					try {
@@ -62,20 +63,24 @@
  					}
  				%>
 				</span>
+				<%if(UserController.isLogged("empresario", user)){ %>
+					<div style='float:right;'>
+						<a href="projeto/publicarProjeto">Publicar Projeto</a>
+					</div>
+				<%} %>
 			</div>
 			<div class="large-2 columns right">
 				<div class='login ' id='btn-logar'>
 					<div class='login-icon'>				
-					
-					<a href="<%=request.getContextPath()%>/usuario/perfil"> 
+					<a href="<%=request.getContextPath()%>/usuario/perfil" data-tooltip aria-haspopup="true"  title="Meu perfil"> 
 						<img src='<%=request.getContextPath()%>/maisfreela/img/user.png'></a>
-						
 					</div>
 					<div class='login-label'>
 						<%if(user == null){%>
 							<a href="<%=request.getContextPath()%>/usuario/login">Entrar</a>
 						<%}else{ %>
 							<a href="<%=request.getContextPath()%>/usuario/sair">Sair</a>
+							
 						<%} %>
 					</div>
 				</div>
@@ -100,7 +105,7 @@
 			<%if(user == null){%>
 					<a href="<%=request.getContextPath()%>/usuario/cadastraUsuario" class="button">Quero me cadastrar</a>
 					<%}else{ %>
-					<a href="<%=request.getContextPath()%>/usuario/meuperfil" class="button">Meu Perfil</a>
+					<a href="<%=request.getContextPath()%>/usuario/visualizarNotificacoes" class="button">Notificações</a>
 					<%} %>
 			</div>
 		</div>
