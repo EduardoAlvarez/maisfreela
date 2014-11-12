@@ -65,13 +65,10 @@
 			</div>
 			<div class="large-2 columns right">
 				<div class='login ' id='btn-logar'>
-					<div class='login-icon'>
+					<div class='login-icon'>				
 					
-					
-					
-					<a href="/maisfreela/maisfreela/perfil.jsp"> <img src='<%=request.getContextPath()%>/maisfreela/img/user.png'></a>
-						
-						
+					<a href="<%=request.getContextPath()%>/usuario/perfil"> 
+						<img src='<%=request.getContextPath()%>/maisfreela/img/user.png'></a>
 						
 					</div>
 					<div class='login-label'>

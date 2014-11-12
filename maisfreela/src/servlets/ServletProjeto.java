@@ -16,7 +16,7 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
-@WebServlet({"/projeto/cadastraProjeto" , "/projeto/visualizaProjetos"})
+@WebServlet({"/projeto/cadastrarProjeto" , "/projeto/visualizaProjetos"})
 public class ServletProjeto extends HttpServlet {
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private UsuarioDAO userDao = new UsuarioDAO();
@@ -30,7 +30,10 @@ public class ServletProjeto extends HttpServlet {
 				ArrayList<Projeto> projetos = projetoDao.getAll();
 				request.setAttribute("projetos", projetos);
 				request.getRequestDispatcher("/maisfreela/projetos.jsp").forward(request,response);
-			break;
+			break;			
+			case "cadastrarProjeto":
+				request.getRequestDispatcher("/maisfreela/criarprojeto.jsp").forward(request,response);
+			break;	
 			
 		}
 	}

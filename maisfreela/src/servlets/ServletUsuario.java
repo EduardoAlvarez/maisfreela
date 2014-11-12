@@ -21,7 +21,7 @@ import dao.UsuarioDAO;
  * Servlet implementation class ServletUsuario
  */
 @WebServlet({ "/usuario/cadastraUsuario", "/usuario/visualizaDesenvolvedores",
-		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario" , "/usuario/sair",})
+		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario" , "/usuario/sair","/usuario/perfil"})
 public class ServletUsuario extends HttpServlet {
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
@@ -65,6 +65,9 @@ public class ServletUsuario extends HttpServlet {
 				 HttpSession session = request.getSession();
 				 session.setAttribute("usuario" , null);
 				 response.sendRedirect("/maisfreela/home");
+			break;
+			case "perfil":
+				request.getRequestDispatcher("/maisfreela/perfil.jsp").forward(request,response);
 			break;
 		}
 	}
