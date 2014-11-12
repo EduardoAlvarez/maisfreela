@@ -55,7 +55,6 @@
 			<div class='large-7 columns user-welcome'>
 				<span class='boas-vindas'> <%
  					Usuario user = (Usuario) session.getAttribute("usuario");
-
  					try {
  						out.print("Seja bem vindo: " + user.getNome());
  					} catch (Exception e) {

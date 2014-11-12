@@ -1,0 +1,10 @@
+.sidemenu a{
+	display:block;		
+}
+.sidemenu .header_perfil{
+	border-bottom: 1px solid black;
+	line-height: 17px;
+	margin-top: 4px;
+	padding: 0px;
+	margin-bottom: 10px;
+}
