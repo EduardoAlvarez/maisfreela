@@ -50,7 +50,7 @@ public class ServletUsuario extends HttpServlet {
 				String id = request.getParameter("id_usuario");
 				UsuarioDAO userDAO = new UsuarioDAO();
 				Usuario usuario = userDao.getById(Integer.valueOf(id)); 
-				request.setAttribute("usuario",usuario);
+				request.setAttribute("v_usuario",usuario);
 				request.getRequestDispatcher("/maisfreela/usuario.jsp").forward(request,response);
 			break;
 			case "visualizaDesenvolvedores":
@@ -85,16 +85,10 @@ public class ServletUsuario extends HttpServlet {
 				session.setAttribute("usuario", user); 
 				System.out.println(session);
 				response.sendRedirect("/maisfreela/home");
-				//System.out.println(user.getNome());
-				//request.getRequestDispatcher("../ServletHome").include(request,response);
-				//request.getRequestDispatcher("/index.jsp").forward(request, response);][
-				
-
 			} else {
 				request.setAttribute("status", "0");
 				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request, response);
 			}
-			//request.getRequestDispatcher("/maisfreela/login.jsp").forward(request, response);
 			break;
 			
 		}
