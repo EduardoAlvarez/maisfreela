@@ -21,8 +21,10 @@ import dao.UsuarioDAO;
  * Servlet implementation class ServletUsuario
  */
 @WebServlet({ "/usuario/cadastraUsuario", "/usuario/visualizaDesenvolvedores",
-		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario" , "/usuario/sair","/usuario/perfil"})
+		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario" , "/usuario/sair","/usuario/perfil",
+		"/usuario/dadosPessoais","/usuario/dadosPublicos","/usuario/dadosFinanceiros","/usuario/minhasAvaliacoes"})
 public class ServletUsuario extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
 
@@ -42,7 +44,18 @@ public class ServletUsuario extends HttpServlet {
 		String[] aux = url.split("/");
 		String acao = aux[aux.length-1];
 		switch (acao) {
-
+			case "dadospessoais":
+				request.getRequestDispatcher("/maisfreela/dadospessoais.jsp").forward(request,response);
+			break;
+			case "dadospublicos":
+				request.getRequestDispatcher("/maisfreela/dadospublicos.jsp").forward(request,response);
+			break;
+			case "dadosfinanceiros":
+				request.getRequestDispatcher("/maisfreela/dadosfinanceiros.jsp").forward(request,response);
+			break;
+			case "minhasavaliacoes":
+				request.getRequestDispatcher("/maisfreela/minhasavaliacoes.jsp").forward(request,response);
+			break;
 			case "cadastraUsuario":
 				request.getRequestDispatcher("/maisfreela/cadastrousuario.jsp").forward(request,response);
 			break;

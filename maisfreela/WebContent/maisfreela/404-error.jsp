@@ -6,7 +6,7 @@
 
 <div class='large-12 columns'>
 			<img class='404 error'
-						src="maisfreela/img/404 error.png" />
+						src='<%=request.getContextPath()%>/maisfreela/img/404-error.png'>
 		</div>
 </div>
 

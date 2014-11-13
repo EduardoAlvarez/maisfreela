@@ -71,7 +71,7 @@
 			<div class="large-2 columns right">
 				<div class='login ' id='btn-logar'>
 					<div class='login-icon'>				
-					<a href="<%=request.getContextPath()%>/usuario/perfil" data-tooltip aria-haspopup="true"  title="Meu perfil"> 
+					<a href="<%=request.getContextPath()%>/usuario/dadosPessoais" data-tooltip aria-haspopup="true"  title="Meu perfil"> 
 						<img src='<%=request.getContextPath()%>/maisfreela/img/user.png'></a>
 					</div>
 					<div class='login-label'>
