@@ -22,7 +22,7 @@ import dao.UsuarioDAO;
  */
 @WebServlet({ "/usuario/cadastraUsuario", "/usuario/visualizaDesenvolvedores",
 		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario" , "/usuario/sair","/usuario/perfil",
-		"/usuario/dadosPessoais","/usuario/dadosPublicos","/usuario/dadosFinanceiros","/usuario/minhasAvaliacoes"})
+		"/usuario/dadosPessoais","/usuario/dadosFinanceiros","/usuario/minhasAvaliacoes"})
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO userDao = new UsuarioDAO();
@@ -44,16 +44,13 @@ public class ServletUsuario extends HttpServlet {
 		String[] aux = url.split("/");
 		String acao = aux[aux.length-1];
 		switch (acao) {
-			case "dadospessoais":
+			case "dadosPessoais":
 				request.getRequestDispatcher("/maisfreela/dadospessoais.jsp").forward(request,response);
 			break;
-			case "dadospublicos":
-				request.getRequestDispatcher("/maisfreela/dadospublicos.jsp").forward(request,response);
-			break;
-			case "dadosfinanceiros":
+			case "dadosFinanceiros":
 				request.getRequestDispatcher("/maisfreela/dadosfinanceiros.jsp").forward(request,response);
 			break;
-			case "minhasavaliacoes":
+			case "minhasAvaliacoes":
 				request.getRequestDispatcher("/maisfreela/minhasavaliacoes.jsp").forward(request,response);
 			break;
 			case "cadastraUsuario":
