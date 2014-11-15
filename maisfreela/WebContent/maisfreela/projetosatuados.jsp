@@ -1,5 +1,5 @@
 <%@ page language="java" 
-    import="java.util.ArrayList"
+    import="java.util.List"
 	import="model.Projeto"
 	import="java.util.List"
 	import="model.Tag"%>

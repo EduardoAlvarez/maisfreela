@@ -8,6 +8,6 @@
 		<a 	href="<%=request.getContextPath()%>/projeto/projetosPublicados" type='button'>Projetos publicados</a>
 	<%}%>
 	<%if(UserController.isLogged("desenvolvedor", user)){ %>
-		<a 	href="<%=request.getContextPath()%>/projeto/projetoAtuais" type='button'>Projetos atuais</a>
+		<a 	href="<%=request.getContextPath()%>/projeto/projetosAtuados" type='button'>Projetos Atuados</a>
 	<%}%>
 </div>
