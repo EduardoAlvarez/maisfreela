@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Projeto;
+import model.Usuario;
 import dao.ProjetoDAO;
 import dao.UsuarioDAO;
 
@@ -39,7 +40,14 @@ public class ServletProjeto extends HttpServlet {
 			break;	
 			case "projetosAtuados":
 				request.getRequestDispatcher("/maisfreela/projetosatuados.jsp").forward(request,response);
-			break;			
+			break;
+			case "visualizaProjeto":
+				String id = request.getParameter("id_projeto");
+				ProjetoDAO userDAO = new ProjetoDAO();
+				Usuario usuario = userDao.getById(Integer.valueOf(id)); 
+				request.setAttribute("v_usuario",usuario);
+				request.getRequestDispatcher("/maisfreela/usuario.jsp").forward(request,response);
+			break;
 			
 		}
 	}

@@ -19,7 +19,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
-@Table(name = "contaBancaria") 
+@Table(name = "conta_bancaria") 
 public class ContaBancaria {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)

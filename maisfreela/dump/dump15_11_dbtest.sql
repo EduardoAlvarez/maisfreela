@@ -259,7 +259,7 @@ CREATE TABLE `projeto` (
 
 LOCK TABLES `projeto` WRITE;
 /*!40000 ALTER TABLE `projeto` DISABLE KEYS */;
-INSERT INTO `projeto` VALUES (1,NULL,'Página Web em PHP',0,0,10,'em aguardo','Página web',300,NULL,1),(2,'2014-11-16 00:00:00','Interface de blog',1,0,7,'em andamento','Interface',150,1,1),(3,'2014-11-01 00:00:00','App de celular  ',1,1,3,'finalizado','Aplicativo',350,1,1);
+INSERT INTO `projeto` VALUES (1,NULL,'PÃ¡gina Web em PHP',0,0,10,'em aguardo','PÃ¡gina web',300,NULL,1),(2,'2014-11-16 00:00:00','Interface de blog',1,0,7,'em andamento','Interface',150,1,1),(3,'2014-11-01 00:00:00','App de celular  ',1,1,3,'finalizado','Aplicativo',350,1,1);
 /*!40000 ALTER TABLE `projeto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -360,4 +360,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-15 17:54:23
+-- Dump completed on 2014-11-15 18:20:55
