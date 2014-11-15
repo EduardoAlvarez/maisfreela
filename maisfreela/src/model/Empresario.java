@@ -25,13 +25,9 @@ public class Empresario{
 	@Column(name="id_empresario")
 	private long id;
 	
-	
-	
 	@OneToMany(mappedBy="empresarioDestino", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
 	private List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
-	
-	
 	
 	@OneToMany(mappedBy="empresario", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
