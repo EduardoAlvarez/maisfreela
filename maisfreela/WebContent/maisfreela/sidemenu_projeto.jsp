@@ -1,6 +1,6 @@
-
-<div class='sidemenu'>
-	<div class='header_perfil'>Projeto</div>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/projeto.css" />
+<div class='sidemenu sidemenu_projeto'>
+	<div class='header_projeto'>Projeto</div>
 	<a 	href="<%=request.getContextPath()%>/projeto/visualizarProjeto" type='button'>O projeto</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/lancesDados" type='button'>Lances dados</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/iniciarProjeto" type='button'>Iniciar projeto</a>
