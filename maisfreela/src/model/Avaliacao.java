@@ -21,6 +21,56 @@ public class Avaliacao {
 	private long id;
 	
 	private double grau;
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	public double getGrau() {
+		return grau;
+	}
+
+
+	public void setGrau(double grau) {
+		this.grau = grau;
+	}
+
+
+	public String getComentario() {
+		return comentario;
+	}
+
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+
+
+	public Desenvolvedor getDesenvolvedorDestino() {
+		return desenvolvedorDestino;
+	}
+
+
+	public void setDesenvolvedorDestino(Desenvolvedor desenvolvedorDestino) {
+		this.desenvolvedorDestino = desenvolvedorDestino;
+	}
+
+
+	public Empresario getEmpresarioDestino() {
+		return empresarioDestino;
+	}
+
+
+	public void setEmpresarioDestino(Empresario empresarioDestino) {
+		this.empresarioDestino = empresarioDestino;
+	}
+
+
 	private String comentario;	
 	
 	

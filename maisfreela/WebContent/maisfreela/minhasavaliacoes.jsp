@@ -1,5 +1,10 @@
+<%@page import="model.Desenvolvedor"%>
 <%@page import="controller.UserController"%>
-<%@ page language="java"  %>
+<%@ page language="java"  
+	import="model.Avaliacao"
+	import="java.util.ArrayList"
+%>
+
 <%@include file="header.jsp"%>
 <%if(UserController.isLogged(user)){%>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/perfil.css"/>
@@ -11,22 +16,23 @@
 	</div>
 	<div class='large-9 columns menu-left'>
 		<div class='content'>
-			<!-- action='/maisfreela/usuario/editUsuario' -->
-			<form method='post'>
-				<label for='nome'>Nome</label>
-				<input required value='<%=user.getNome()%>' type='text' name='nome' id='nome'>
-				<label for='sobre'>Sobre</label>
-				<textarea required name='sobre' required id='sobre'><%=user.getSobre()%></textarea>
-				<label  for='telefone'>Telefone</label>
-				<input required type='text' name='telefone' id='telefone' value='<%=user.getTelefone()%>'>
-				<label  for='email'>Email</label>
-				<input required type='text' name='email' id='email' value='<%=user.getEmail()%>'>
-				<label  for='cpf'>CPF</label>
-				<input required type='text' name='cpf' id='cpf' value='<%=user.getCpf()%>'>
-				<button type='submit'>Confirmar</button>
-				<button class='alert' type='submit'>Cancelar</button>
-				<div class='clear'></div>
-			</form> 
+			<%
+			Desenvolvedor dev = user.getDesenvolvedor();
+			if(dev != null){
+				ArrayList<Avaliacao> avaliacoes = (ArrayList<Avaliacao>)dev.getAvaliacoes();
+				out.printl("Média como desenvolvedor: "+dev.getAvaliacao());
+				if(avaliacacoes.size() > 0)
+					try {
+						for (Avaliacao aval : avaliacacoes) {
+							out.print("<div class='row'>");
+								out.print("<div class='large-12 columns'>");
+									
+								out.print("</div>");
+							out.print("</div>");
+						}
+					}catch(Exception e){
+						
+					} %> 
 		</div>
 	</div>
 </div>

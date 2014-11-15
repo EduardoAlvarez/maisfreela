@@ -51,6 +51,7 @@ public class ServletUsuario extends HttpServlet {
 				request.getRequestDispatcher("/maisfreela/dadosfinanceiros.jsp").forward(request,response);
 			break;
 			case "minhasAvaliacoes":
+				
 				request.getRequestDispatcher("/maisfreela/minhasavaliacoes.jsp").forward(request,response);
 			break;
 			case "cadastraUsuario":
