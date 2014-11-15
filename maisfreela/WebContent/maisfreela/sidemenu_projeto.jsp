@@ -11,6 +11,6 @@
 	<a 	href="<%=request.getContextPath()%>/projeto/confirmarProjeto" type='button'>Confirmar inicio</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/confirmarEncerramento" type='button'>Confirmar encerramento</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/avaliarEmpresario" type='button'>Avaliar empresário</a>
-	<a 	href="<%=request.getContextPath()%>/projeto/avaliarProjeto" type='button'>Avaliar desenvovledor</a>
+	<a 	href="<%=request.getContextPath()%>/projeto/avaliarDesenvolvedor" type='button'>Avaliar desenvovledor</a>
 </div>
 
