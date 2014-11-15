@@ -29,7 +29,7 @@
 						if(tags.size() > 0){
 							%>
 					<div class='tags'>
-						<span class='tag-label'>Tags:</span>
+						<label for='tags'>Tags:</label>
 						<%for(Tag tag : tags){ %>
 						<span class='tag'><%=tag.getNome()%></span>
 						<%} }%>
