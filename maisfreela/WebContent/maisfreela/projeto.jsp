@@ -6,17 +6,22 @@
 
 
 <%@include file="header.jsp"%>
-
+<%if(UserController.isLogged(user)){%>
 <div class='row main-list'>
-	<%@include file="sidemenu.jsp"%>
+<div class='large-3 columns menu-left'>
+		<div class='content'>
+		<%@include file="sidemenu_projeto.jsp"%>
+		</div>
+</div>
+	
 	<div class='large-9 columns panel-list'>
 		<div class='content'>
-
+			<form method='post'>
+			<%		Projeto projeto = (Projeto)request.getAttribute("v_projeto");					
+					out.print(projeto.getTitulo());
+			%>
+		</div>
 			<%
-				request.setCharacterEncoding("UTF-8");
-				ArrayList<Projeto> projetos = (ArrayList<Projeto>) request
-						.getAttribute("projetos");
-
 				try {
 					for (Projeto proj : projetos) {
 			%>

@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Projeto;
 import model.Usuario;
@@ -43,10 +45,11 @@ public class ServletProjeto extends HttpServlet {
 			break;
 			case "visualizaProjeto":
 				String id = request.getParameter("id_projeto");
-				ProjetoDAO userDAO = new ProjetoDAO();
-				Usuario usuario = userDao.getById(Integer.valueOf(id)); 
-				request.setAttribute("v_usuario",usuario);
-				request.getRequestDispatcher("/maisfreela/usuario.jsp").forward(request,response);
+				ProjetoDAO projDAO = new ProjetoDAO();
+				Projeto projeto = (Projeto)projDAO.getById("Projeto", Integer.valueOf(id)); 
+				HttpSession session = request.getSession();
+				session.setAttribute("v_projeto",projeto);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			
 		}
