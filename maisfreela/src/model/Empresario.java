@@ -20,6 +20,32 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 @Table(name = "empresario")
 public class Empresario{
+	
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id_empresario")
+	private long id;
+	
+	
+	
+	@OneToMany(mappedBy="empresarioDestino", fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
+	
+	
+	
+	@OneToMany(mappedBy="empresario", fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private List<Projeto> projetosPublicados;
+	
+	private float avaliacao;
+	
+	@OneToOne 
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
+	
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "id_contaBancaria")
+	private ContaBancaria conta;
 	public long getId() {
 		return id;
 	}
@@ -60,25 +86,13 @@ public class Empresario{
 		this.usuario = usuario;
 	}
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id_empresario")
-	private long id;
+	public ContaBancaria getConta() {
+		return conta;
+	}
+
+	public void setConta(ContaBancaria conta) {
+		this.conta = conta;
+	}
+
 	
-	
-	
-	@OneToMany(mappedBy="empresarioDestino", fetch=FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
-	private List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
-	
-	
-	
-	@OneToMany(mappedBy="empresario", fetch=FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
-	private List<Projeto> projetosPublicados;
-	
-	private float avaliacao;
-	
-	@OneToOne 
-	@JoinColumn(name = "id_usuario")
-	private Usuario usuario;
 }

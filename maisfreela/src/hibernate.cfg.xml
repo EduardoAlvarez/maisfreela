@@ -18,6 +18,7 @@
 		<mapping class="model.Empresario" />   
 		<mapping class="model.Desenvolvedor"/>
 		<mapping class="model.Tag" />
+		<mapping class="model.ContaBancaria" />
 		<!--
 		
 		

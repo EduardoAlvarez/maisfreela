@@ -54,6 +54,10 @@ public class Desenvolvedor{
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
+		
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "id_contaBancaria")
+	private ContaBancaria conta;
 
 	public long getId() {
 		return id;
@@ -103,5 +107,14 @@ public class Desenvolvedor{
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	public ContaBancaria getConta() {
+		return conta;
+	}
+	public void setConta(ContaBancaria conta) {
+		this.conta = conta;
+	}
  
+
+	
+	
 }
