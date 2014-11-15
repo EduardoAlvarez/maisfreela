@@ -19,7 +19,7 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
-@WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados"})
+@WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados", "/projeto/visualizaProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto","/projeto/reabrirProjeto","/projeto/encerrarProjeto","/projeto/cancelarProjeto","/projeto/darLance","/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto"})
 public class ServletProjeto extends HttpServlet {
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private UsuarioDAO userDao = new UsuarioDAO();
