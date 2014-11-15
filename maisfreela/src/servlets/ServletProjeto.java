@@ -46,11 +46,25 @@ public class ServletProjeto extends HttpServlet {
 			case "visualizarProjeto":
 				System.out.println("asdasdsda");
 				String id = request.getParameter("id_projeto");
-				ProjetoDAO projDAO = new ProjetoDAO();
-				Projeto projeto = (Projeto)projDAO.getById("Projeto", Integer.valueOf(id)); 
-				HttpSession session = request.getSession();
-				session.setAttribute("v_projeto",projeto);
+				if (id != null) {
+					ProjetoDAO projDAO = new ProjetoDAO();
+					Projeto projeto = (Projeto)projDAO.getById("Projeto", Integer.valueOf(id)); 
+					HttpSession session = request.getSession();
+					session.setAttribute("v_projeto",projeto);
+				}
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+			break;
+			case "lancesDados":
+				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
+			break;
+			case "avaliarDesenvolvedor":
+				request.getRequestDispatcher("/maisfreela/avaliardesenvolvedor.jsp").forward(request,response);
+			break;
+			case "avaliarEmpresario":
+				request.getRequestDispatcher("/maisfreela/avaliarempresario.jsp").forward(request,response);
+			break;
+			case "darLance":
+				request.getRequestDispatcher("/maisfreela/darlance.jsp").forward(request,response);
 			break;
 			
 		}
