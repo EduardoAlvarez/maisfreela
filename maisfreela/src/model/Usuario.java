@@ -37,6 +37,10 @@ public class Usuario  {
 	@JoinColumn(name="id_desenvolvedor", nullable=true)
 	private Desenvolvedor desenvolvedor;
 	
+	@OneToMany(mappedBy="remetente", fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private List<Avaliacao> avaliacoesCriadas = new ArrayList<Avaliacao>();	
+	
 	@OneToOne( fetch=FetchType.EAGER)
 	@JoinColumn(name="id_empresario", nullable=true)
 	private Empresario empresario;

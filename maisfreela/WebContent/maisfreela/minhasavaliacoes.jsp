@@ -2,7 +2,9 @@
 <%@page import="controller.UserController"%>
 <%@ page language="java"  
 	import="model.Avaliacao"
-	import="java.util.ArrayList"
+	import="java.util.List"
+	import="model.Desenvolvedor"
+	import="model.Empresario"
 %>
 
 <%@include file="header.jsp"%>
@@ -19,22 +21,48 @@
 			<%
 			Desenvolvedor dev = user.getDesenvolvedor();
 			if(dev != null){
-				ArrayList<Avaliacao> avaliacoes = (ArrayList<Avaliacao>)dev.getAvaliacoes();
-				out.printl("Média como desenvolvedor: "+dev.getAvaliacao());
-				if(avaliacacoes.size() > 0)
+				List<Avaliacao> avaliacoes =  dev.getAvaliacoes();
+				out.print("Média como desenvolvedor: "+dev.getAvaliacao());
+				if(avaliacoes.size() > 0){
 					try {
-						for (Avaliacao aval : avaliacacoes) {
+						for (Avaliacao aval : avaliacoes) {
 							out.print("<div class='row'>");
 								out.print("<div class='large-12 columns'>");
-									
+									out.print("O usuário "+aval.getRemetente().getNome()+" te avaliou com: "+aval.getGrau());
+									out.print("<br> "+aval.getComentario());
 								out.print("</div>");
 							out.print("</div>");
 						}
 					}catch(Exception e){
 						
-					} %> 
+					} 
+				} 
+			}
+			Empresario emp = user.getEmpresario();
+			if(dev != null && emp != null){
+				out.print("<hr/>");
+			};
+			if(emp != null){
+				List<Avaliacao> avaliacoes =  emp.getAvaliacoes();
+				out.print("Média como desenvolvedor: "+emp.getAvaliacao());
+				if(avaliacoes.size() > 0){
+					try {
+						for (Avaliacao aval : avaliacoes) {
+							out.print("<div class='row'>");
+								out.print("<div class='large-12 columns'>");
+									out.print("O usuário "+aval.getRemetente().getNome()+" te avaliou com: "+aval.getGrau());
+									out.print("<br> "+aval.getComentario());
+								out.print("</div>");
+							out.print("</div>");
+						}
+					}catch(Exception e){
+						
+					} 
+				} 
+			}%>
 		</div>
 	</div>
+</div>
 </div>
 
 <%@include file="footer.jsp"%>
