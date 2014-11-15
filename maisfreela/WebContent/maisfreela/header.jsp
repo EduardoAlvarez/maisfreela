@@ -57,7 +57,7 @@
 				</span>
 				<%if(UserController.isLogged("empresario", user)){ %>
 					<div style='float:right;'>
-						<a class="button [tiny small large] publicar_btn" href="projeto/publicarProjeto">Publicar Projeto</a>
+						<a class="button [tiny small large] publicar_btn" href="<%=request.getContextPath()%>/projeto/publicarProjeto">Publicar Projeto</a>
 						
 					</div>
 				<%} %>
@@ -82,17 +82,13 @@
 
 		<div class="row menu">
 			<div class="large-3 columns">
-				<a href="<%=request.getContextPath()%>/home/comoFunciona"
-					class="button">Como funciona?</a>
+				<a href="<%=request.getContextPath()%>/home/comoFunciona" class="button">Como funciona?</a>
 			</div>
 			<div class="large-3 columns">
-				<a href="<%=request.getContextPath()%>/projeto/visualizaProjetos"
-					class="button">Projetos</a>
+				<a href="<%=request.getContextPath()%>/projeto/visualizaProjetos" class="button">Projetos</a>
 			</div>
 			<div class="large-3 columns">
-				<a
-					href="<%=request.getContextPath()%>/usuario/visualizaDesenvolvedores"
-					class="button">Desenvolvedores</a>
+				<a href="<%=request.getContextPath()%>/usuario/visualizaDesenvolvedores" class="button">Desenvolvedores</a>
 			</div>
 			<div class="large-3 columns">
 			<%if(user == null){%>
