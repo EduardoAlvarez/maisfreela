@@ -76,6 +76,14 @@ public class Avaliacao {
 	public void setRemetente(Usuario remetente) {
 		this.remetente = remetente;
 	}
+
+	public Empresario getEmpresarioDestino() {
+		return empresarioDestino;
+	}
+
+	public void setEmpresarioDestino(Empresario empresarioDestino) {
+		this.empresarioDestino = empresarioDestino;
+	}
 	
 	
 }
