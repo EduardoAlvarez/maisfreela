@@ -15,9 +15,9 @@
 	</div>
 	<div class='large-9 columns menu-left'>
 			<%
-				Desenvolvedor dev = user.getDesenvolvedor();
-					Empresario emp = user.getEmpresario();
-					if (dev != null) {
+			Desenvolvedor dev = user.getDesenvolvedor();
+			Empresario emp = user.getEmpresario();
+			if (dev != null) {
 			%>
 			<div class='content'>
 				<div class='contaUsuario'>
@@ -25,28 +25,23 @@
 					<!-- action='/maisfreela/usuario/editUsuario' -->
 					<form method='post'>
 						<label for='nome'>Banco</label> <input required
-							value='
 					<%try {%>	
-						<%=user.getDesenvolvedor().getConta().getBanco()%>
+						<% out.print("value='"+dev.getConta().getBanco()+"'");%>
 					<%} catch (Exception e) {
-					}%>'
+					}%>
 							type='text' name='nome' id='nome'> <label for='sobre'>Agência</label>
 						<input required
-							value='
+						
 				<%try {%>
-					<%=user.getDesenvolvedor().getConta()
-								.getAgencia()%>
+					<% out.print("value='"+dev.getConta().getAgencia()+"'");%>
 					<%} catch (Exception e) {
-					}%>'
-							type='text' name='nome' id='nome'> <label for='telefone'>Conta
-							Corrente</label> <input required type='text' name='telefone'
-							id='telefone'
-							value='
+					}%>
+							type='text' name='nome' id='nome'> <label for='telefone'>Conta Corrente</label> <input required type='text' name='telefone' id='telefone'
+			
 					<%try {%>
-						<%=user.getDesenvolvedor().getConta()
-								.getContaCorrente()%>
+						<% out.print("value='"+dev.getConta().getContaCorrente()+"'");%>
 					<%} catch (Exception e) {
-					}%>'
+					}%>
 							type='text' name='nome' id='nome'>
 						<button type='submit'>Confirmar</button>
 						<button class='alert' type='submit'>Cancelar</button>
@@ -66,28 +61,22 @@
 					<!-- action='/maisfreela/usuario/editUsuario' -->
 					<form method='post'>
 						<label for='nome'>Banco</label> <input required
-							value='
-					<%try {%>	
-						<%=user.getDesenvolvedor().getConta().getBanco()%>
-					<%} catch (Exception e) {
-					}%>'
-							type='text' name='nome' id='nome'> <label for='sobre'>Agência</label>
+						<%try {%>	
+							<%="value='"+emp.getConta().getBanco()+"'"%>
+						<%} catch (Exception e) {
+						}%>
+						type='text' name='nome' id='nome'> <label for='sobre'>Agência</label>
 						<input required
-							value='
-				<%try {%>
-					<%=user.getDesenvolvedor().getConta()
-								.getAgencia()%>
-					<%} catch (Exception e) {
-					}%>'
-							type='text' name='nome' id='nome'> <label for='telefone'>Conta
-							Corrente</label> <input required type='text' name='telefone'
-							id='telefone'
-							value='
+						<%try {%>
+							<%="value='"+emp.getConta().getAgencia()+"'"%>
+						<%} catch (Exception e) {}%>
+							type='text' name='nome' id='nome'> 
+					
+					<label for='telefone'>Conta Corrente</label> <input required type='text' name='telefone' id='telefone'
 					<%try {%>
-						<%=user.getDesenvolvedor().getConta()
-								.getContaCorrente()%>
+						<%="value='"+emp.getConta().getContaCorrente()+"'"%>
 					<%} catch (Exception e) {
-					}%>'
+					}%>
 							type='text' name='nome' id='nome'>
 						<button type='submit'>Confirmar</button>
 						<button class='alert' type='submit'>Cancelar</button>
