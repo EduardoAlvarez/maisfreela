@@ -1,5 +1,5 @@
 <%@ page language="java" 
-    import="java.util.ArrayList"
+    import="java.util.List"
 	import="model.Projeto"
 	import="java.util.List"
 	import="model.Tag"%>
@@ -52,7 +52,7 @@
 			<%
 				request.setCharacterEncoding("UTF-8");
 				
-			ArrayList<Projeto> projetos = (ArrayList<Projeto>)user.getDesenvolvedor().getProjetosAtuados();
+			List<Projeto> projetos = user.getDesenvolvedor().getProjetosAtuados();
 
 				try {
 					for (Projeto proj : projetos) {
