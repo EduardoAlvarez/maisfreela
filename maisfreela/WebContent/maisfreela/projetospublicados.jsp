@@ -48,12 +48,9 @@
 	</div>
 	<div class='large-9 columns panel-list'>
 		<div class='content'>
-
-			<%
-				request.setCharacterEncoding("UTF-8");
-				
-			ArrayList<Projeto> projetos = (ArrayList<Projeto>)user.getDesenvolvedor().getProjetosAtuados();
-
+			<%				
+			List<Projeto> projetos = user.getEmpresario().getProjetosPublicados();
+			if(projetos != null){
 				try {
 					for (Projeto proj : projetos) {
 			%>
@@ -93,6 +90,7 @@
 				catch (Exception e) {
 					out.print("Sem projetos...");
 				}
+			}
 			%>
 
 		</div>

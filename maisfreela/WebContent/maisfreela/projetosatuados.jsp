@@ -52,7 +52,7 @@
 			<%
 				request.setCharacterEncoding("UTF-8");
 				
-			ArrayList<Projeto> projetos = (ArrayList<Projeto>)user.getEmpresario().getProjetosPublicados();
+			ArrayList<Projeto> projetos = (ArrayList<Projeto>)user.getDesenvolvedor().getProjetosAtuados();
 
 				try {
 					for (Projeto proj : projetos) {
