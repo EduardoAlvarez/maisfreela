@@ -61,7 +61,7 @@
 			<div class='row'>
 				<div class='large-12 columns'>
 					<div class='nome-projeto'>
-						<%=proj.getTitulo()%>
+						<a href="<%=request.getContextPath()%>/projeto/visualizarProjeto?id_projeto=<%=proj.getId()%>"><%=proj.getTitulo()%></a>
 					</div>
 					<div class='info-projeto'>
 						<span class='valor-projeto'> <span class='valor-label'>Valor:
