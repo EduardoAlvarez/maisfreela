@@ -8,20 +8,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mais Freela | Seja bem vindo</title>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/foundation.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/maisfreela/css/menu.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/menu.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/login.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/form.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-projetos.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-desenvolvedores.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/menu.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/menu.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/login.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/form.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-projetos.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-desenvolvedores.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/projeto.css" />
 </head>
 <body>
 	<script
@@ -63,7 +57,8 @@
 				</span>
 				<%if(UserController.isLogged("empresario", user)){ %>
 					<div style='float:right;'>
-						<a href="projeto/publicarProjeto">Publicar Projeto</a>
+						<a class="button [tiny small large] publicar_btn" href="projeto/publicarProjeto">Publicar Projeto</a>
+						
 					</div>
 				<%} %>
 			</div>
