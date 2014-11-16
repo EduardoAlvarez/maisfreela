@@ -1,4 +1,14 @@
-
+<script>
+$(function(){
+	var url = location.pathname.split("/");
+	var acao = url[url.length - 1];
+	$.each($(".sidemenu a"), function(){
+		if($(this).attr('href').indexOf(acao) !==-1){
+			$(this).addClass('active'); 
+		}
+	})
+});
+</script>
 <div class='sidemenu'>
 	<div class='header_perfil'>Meu Perfil</div>
 	<a 	href="<%=request.getContextPath()%>/usuario/dadosPessoais" type='button'>Dados Pessoais</a>

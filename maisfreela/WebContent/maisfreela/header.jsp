@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-projetos.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-desenvolvedores.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/projeto.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/active.css" />
 </head>
 <body>
 	<script
@@ -82,7 +83,7 @@
 
 		<div class="row menu">
 			<div class="large-3 columns">
-				<a href="<%=request.getContextPath()%>/home/comoFunciona" class="button">Como funciona?</a>
+				<a href="<%=request.getContextPath()%>/home/comoFunciona" class=" button">Como funciona?</a>
 			</div>
 			<div class="large-3 columns">
 				<a href="<%=request.getContextPath()%>/projeto/visualizaProjetos" class="button">Projetos</a>
