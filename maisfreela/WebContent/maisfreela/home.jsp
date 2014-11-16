@@ -80,7 +80,7 @@
 		out.print("Sem desenvolvedores...");
 	} 
 	 %>
-    <hr/>
+
  </div>
 <%@include file="footer.jsp"%>
  
