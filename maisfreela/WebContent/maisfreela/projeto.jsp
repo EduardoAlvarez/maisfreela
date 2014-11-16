@@ -32,8 +32,10 @@
 						<%for(Tag tag : tags){ %>
 						<span class='tag'><%=tag.getNome()%></span>
 						<%} }%>
-				
+						<span class='status'>Status: <%= projeto.getStatus()%></span>
 					</div>
+					<br>
+					
 				<button type='submit'>Confirmar</button>
 				<button class='alert' type='submit'>Cancelar</button>
 				<div class='clear'></div>
