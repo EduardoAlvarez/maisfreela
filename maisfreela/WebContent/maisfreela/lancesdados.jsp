@@ -51,7 +51,7 @@
 							</span>
 						</div>
 						<div class='large-2 columns'> 
-							<button type='submit'>Aceitar</button>
+							<button class='success' type='submit'>Aceitar</button>
 						</div>
 				</div>
 			</div>
