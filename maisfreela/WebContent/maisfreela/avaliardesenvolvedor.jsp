@@ -3,9 +3,8 @@
 	import="model.Projeto"
 	import="java.util.List"
 	import="model.Tag"%>
-
-
 <%@include file="header.jsp"%>
+<%		Projeto projeto = (Projeto)session.getAttribute("v_projeto");%>
 <div class='row main-list'>
 <div class='large-3 columns menu-left'>
 		<div class='content'>
@@ -16,8 +15,6 @@
 	<div class='large-9 columns panel-list'>
 		<div class='content'>
 			<form method='post'>
-			<%		Projeto projeto = (Projeto)session.getAttribute("v_projeto");					
-			%>
 			<span class='titulo'><%=projeto.getTitulo()%></span>
 				<label for='usuario'>Desenvolvedor:</label>
 				<span class='titulo'><%=projeto.getDesenvolvedor().getUsuario().getNome()%></span>
