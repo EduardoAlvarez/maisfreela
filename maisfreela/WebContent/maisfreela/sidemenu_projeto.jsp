@@ -41,8 +41,7 @@ $(function(){
 	<%} %>
 	
 	<%
-	if(UserController.isLogged("desenvolvedor",user)){
-		
+	if(UserController.isLogged("desenvolvedor",user)){		
 		if(projeto.getStatus().equals("pendente") ||  projeto.getStatus().equals("novo")){%>
 			<a 	href="<%=request.getContextPath()%>/projeto/darLance" type='button'>Dar um lance</a>
 		<%}
