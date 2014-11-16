@@ -19,9 +19,10 @@ $(function(){
 	<div class='header_projeto'>Projeto</div>
 	<a 	href="<%=request.getContextPath()%>/projeto/visualizarProjeto" 		type='button'>O projeto</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/lancesDados" 			type='button'>Lances dados</a>
-	<a 	href="#" data-reveal-id="myModal" type='button'>Iniciar projeto</a>
-	<a 	href="<%=request.getContextPath()%>/projeto/reabrirProjeto" 		type='button'>Re-abrir projeto</a>
-	<a 	href="<%=request.getContextPath()%>/projeto/encerrarProjeto" 		type='button'>Encerrar projeto</a>
+	<a 	href="#" data-reveal-id="iniciarProjeto" type='button'>Iniciar projeto</a>
+	<a 	href="#" data-reveal-id="reabrirProjeto" type='button'>Re-abrir o projeto</a>
+	<a 	href="#" data-reveal-id="encerrarProjeto" type='button'>Encerrar o projeto</a>
+	<a 	href="#" data-reveal-id="cancelarProjeto" type='button'>Cancelar o projeto</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/cancelarProjeto" 		type='button'>Cancelar projeto</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/darLance" 				type='button'>Dar um lance</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/confirmarProjeto" 		type='button'>Confirmar inicio</a>
@@ -41,10 +42,46 @@ c.add(Calendar.DATE, projeto.getPrazo());  // number of days to add
 String prox = dateFormat.format(c.getTime());  // dt is now the new date
 %>
 
-<div id="myModal" class="reveal-modal" data-reveal>
-  <h3>Tem certeza que deseja iniciar o projeto?</h3>
-  <p class="lead">O projeto terá inicio hoje <%=hoje%> e término dia: <%=prox%></p>
-  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-  <a class="close-reveal-modal">&#215;</a>
+<div id="iniciarProjeto" class="reveal-modal" data-reveal>
+  <form>
+	  <h3>Tem certeza que deseja iniciar o projeto?</h3>
+	  <p class="lead">O projeto terá inicio hoje <%=hoje%> e término dia: <%=prox%></p>
+	  <button type='submit'>Confirmar</button>
+	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
+	  <a class="close-reveal-modal">&#215;</a>
+  </form>
 </div>
 
+<div id="reabrirProjeto" class="reveal-modal" data-reveal>
+  <form>
+	  <h3>Tem certeza que deseja reabrir o projeto?</h3>
+	  <!--  p class="lead">O projeto terá inicio hoje <%=hoje%> e término dia: <%=prox%></p -->
+	  <button type='submit'>Confirmar</button>
+	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
+	  <a class="close-reveal-modal">&#215;</a>
+  </form>
+</div>
+<div id="encerrarProjeto" class="reveal-modal" data-reveal>
+  <form>
+	  <h3>Tem certeza que deseja encerrar o projeto?</h3>
+	  <p class="lead">Essa ação enviará uma notificação ao desenvolvedor para que ele possa confirma-lá</p>
+	  <button type='submit'>Confirmar</button>
+	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
+	  <a class="close-reveal-modal">&#215;</a>
+  </form>
+</div>
+<div id="encerrarProjeto" class="reveal-modal" data-reveal>
+  <form>
+	  <h3>Tem certeza que deseja cancelar o projeto?</h3>
+	  <p class="lead">Você não receberá o valor já pago pelo projeto</p>
+	  <button type='submit'>Confirmar</button>
+	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
+	  <a class="close-reveal-modal">&#215;</a>
+  </form>
+</div>
+
+<script>
+function fechar(){
+	$('[data-reveal]').foundation('reveal','close')
+}
+</script>

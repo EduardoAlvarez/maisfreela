@@ -23,6 +23,8 @@ public class Lance {
 	private float valor;
 	private String comentario;
 	
+	private boolean escolhido;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_projeto")
 	@Cascade(CascadeType	.SAVE_UPDATE)
