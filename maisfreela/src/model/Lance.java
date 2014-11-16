@@ -73,6 +73,14 @@ public class Lance {
 
 	public void setDesenvolvedor(Desenvolvedor desenvolvedor) {
 		this.desenvolvedor = desenvolvedor;
+	}
+
+	public boolean isEscolhido() {
+		return escolhido;
+	}
+
+	public void setEscolhido(boolean escolhido) {
+		this.escolhido = escolhido;
 	}	
 	
 	
