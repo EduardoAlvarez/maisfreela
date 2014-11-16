@@ -1,8 +1,8 @@
 .button.active{
-	background:green;
+	background:#43ac6a;
 }
 .sidemenu a.active{
-	background:green;
+	background:#43ac6a;
 	color:white;
 	padding-left:3px;
 }

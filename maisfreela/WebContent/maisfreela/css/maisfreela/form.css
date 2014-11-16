@@ -27,7 +27,7 @@ form .erro{
 	color:white;
 } 
 .message.message-success{
-	border:1px solid green;
+	border:1px solid #43ac6a;
 	color:white;
 	background:rgb(192, 246, 192);
 }
