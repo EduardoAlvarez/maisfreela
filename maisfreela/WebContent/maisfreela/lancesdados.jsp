@@ -26,12 +26,16 @@
 
 				try {
 					for (Lance lanc : lances) {
+						String escolhido ="";
+						if(lanc.isEscolhido()){
+							escolhido = "escolhido";
+						}
 			%>
 
-			<div class='row'>
+			<div class='row <%=escolhido%>'>
 				<div class='large-12 columns'>
 						<div class='lances-projeto'>
-						<div class='large-9 columns'>
+						<div class='large-7 columns'>
 						<div class='autor'>
 							<span class='desenvolvedor'>Desenvolvedor:</span>
 							<%= lanc.getDesenvolvedor().getUsuario().getNome()%>
@@ -45,6 +49,9 @@
 								<span class='valor'>Valor Proposto:</span>
 								<%=lanc.getValor() %>
 							</span>
+						</div>
+						<div class='large-2 columns'> 
+							<button class='success' type='submit'>Aceitar</button>
 						</div>
 				</div>
 			</div>
