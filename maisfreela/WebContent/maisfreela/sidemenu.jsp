@@ -9,6 +9,7 @@ $(function(){
 	})
 });
 </script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/perfil.css" />
 <div class='sidemenu'>
 	<div class='header_perfil'>Meu Perfil</div>
 	<a 	href="<%=request.getContextPath()%>/usuario/dadosPessoais" type='button'>Dados Pessoais</a>
