@@ -16,7 +16,7 @@
 		<div class='content'>
 			<form method='post'>
 			
-			<span class='titulo'><%=projeto.getTitulo()%></span>
+			<div class='header_projeto'><%=projeto.getTitulo()%></div>
 			<label for='comentario'>Insira abaixo seu Comentário:</label>
 			<textarea required name='comentario' required id='comentario'></textarea>
 			<label for='valor'>Insira o Valor sugerido:</label>
