@@ -17,9 +17,12 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-desenvolvedores.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/projeto.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/active.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/smart_wizard.css" />
 <script src="<%=request.getContextPath()%>/maisfreela/js/vendor/jquery.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/maisfreela/js/vendor/modernizr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/maisfreela/js/foundation.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/maisfreela/js/jquery.smartWizard.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 	$(function() {
 		$(document).foundation();

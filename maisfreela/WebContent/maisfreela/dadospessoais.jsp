@@ -35,6 +35,6 @@
 <%
 }else{%>
 	<script>
-		window.location="/maisfreela/acessonegado"; 
+		window.location="/maisfreela/suario/login"; 
 	</script> 
 <%}%>

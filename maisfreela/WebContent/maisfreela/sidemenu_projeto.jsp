@@ -16,8 +16,43 @@ $(function(){
 			$(this).addClass('active'); 
 		}
 	})
+	$('#wizard').smartWizard({
+		labelNext:'Próximo', // label for Next button
+	    labelPrevious:'Anterior', // label for Previous button
+	    labelFinish:'Finalizar',  // label for Finish button
+	    onFinish:function(){
+	    	alert("Finalizado!!");
+	    }
+	});
+    function onFinishCallback(){
+      $('#wizard').smartWizard('showMessage','Finish Clicked');
+      //alert('Finish Clicked');
+    }     
 });
 </script>
+<style>
+#wizard{
+	width: 100%;
+}
+.swMain .stepContainer{
+	overflow:hidden;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+.swMain .stepContainer div.content{
+	border:none;
+}
+.swMain .stepContainer .StepTitle{
+	width:96.6%;
+}
+.swMain ul.anchor li a .stepDesc{
+	width: 80%;
+	text-align: center;
+	margin-top: 9px;
+}
+
+
+</style>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/projeto.css" />
 <div class='sidemenu sidemenu_projeto'>
 	<div class='header_projeto'>Projeto</div>
@@ -71,14 +106,46 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
 %>
 
 <div id="iniciarProjeto" class="reveal-modal" data-reveal>
-  <form>
-	  <h3>Tem certeza que deseja iniciar o projeto?</h3>
-	  <p class="lead">O projeto terá inicio hoje <%=hoje%> e término dia: <%=prox%></p>
-	  <button type='submit'>Confirmar</button>
-	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
-	  <a class="close-reveal-modal">&#215;</a>
-  </form>
+	<div id="wizard" class="swMain">
+  			<ul>
+  				<li><a href="#step-1">
+                <label class="stepNumber">1</label>
+                <span class="stepDesc">O Projeto</span>
+            </a></li>
+  				<li><a href="#step-2">
+                <label class="stepNumber">2</label>
+                <span class="stepDesc">Pagamento</span>
+            </a></li>
+  				<li><a href="#step-3">
+                <label class="stepNumber">3</label>
+                <span class="stepDesc">Resumo</span>                   
+             </a></li>
+  			</ul>
+  			<div id="step-1">	
+            	<h2 class="StepTitle">O projeto</h2>
+            	<p>Tem certeza que deseja iniciar o projeto?</p>
+            	<p>Ele terá inicio dia: e término dia: .</p>
+			</div>
+			<div id="step-2">	
+            	<h2 class="StepTitle">Forma de pagamento</h2>
+            		<p>
+	            		Deve ser feito um pagamento no valor de <%=projeto.getValor()/2%> para que o projeto seja iniciado 
+		            	Qual será sua forma de pagamento?
+	            	</p>
+	            	<div>
+	            		<button>PagSeguro</button>
+	            		<button>Boleto</button>
+	            	</div>
+            	
+			</div>
+			<div id="step-3">	
+            	<h2 class="StepTitle">Resumo</h2>
+            	<p>O desenvolvedor receberá uma notificação avisando do inicio do projeto.</p> 
+            	<p>Aguarde até que ele confirme.</p> 
+			</div>
+	</div>
 </div>
+	  
 
 <div id="reabrirProjeto" class="reveal-modal" data-reveal>
   <form>
