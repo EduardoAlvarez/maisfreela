@@ -17,28 +17,36 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-desenvolvedores.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/projeto.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/active.css" />
+<script src="<%=request.getContextPath()%>/maisfreela/js/vendor/jquery.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/maisfreela/js/vendor/modernizr.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/maisfreela/js/foundation.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		$(document).foundation();
+		$(document).foundation('orbit', {
+			timer_speed : 10000,
+			animation_speed : 500,
+			bullets : true,
+			stack_on_small : true
+		});
+	
+		var url = location.pathname.split("/");
+		var acao = url[url.length - 1];
+		$.each($(".row.menu a"), function(){
+			var url_link = $(this).attr('href').split("/");
+			var acao_link = url_link[url_link.length - 1]; 
+			if(acao_link == acao){
+				$(this).addClass('active'); 
+			}
+		})
+	
+	});
+</script>
+
 </head>
 <body>
-	<script
-		src="<%=request.getContextPath()%>/maisfreela/js/vendor/jquery.js"
-		type="text/javascript"></script>
-	<script
-		src="<%=request.getContextPath()%>/maisfreela/js/vendor/modernizr.js"
-		type="text/javascript"></script>
-	<script
-		src="<%=request.getContextPath()%>/maisfreela/js/foundation.min.js"
-		type="text/javascript"></script>
-	<script type="text/javascript">
-		$(function() {
-			$(document).foundation();
-			$(document).foundation('orbit', {
-				timer_speed : 10000,
-				animation_speed : 500,
-				bullets : true,
-				stack_on_small : true
-			});
-		})
-	</script>
+	
+
 	<nav>
 		<div class="row">
 			<div class="large-3 columns">
