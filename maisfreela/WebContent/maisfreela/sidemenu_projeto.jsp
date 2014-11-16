@@ -1,3 +1,7 @@
+<%@page import="model.Empresario"%>
+<%@page import="model.Usuario"%>
+<%@page import="controller.UserController"%>
+<%@page import="model.Desenvolvedor"%>
 <%@page import="model.Projeto"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.DateFormat"%>
@@ -17,18 +21,43 @@ $(function(){
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/projeto.css" />
 <div class='sidemenu sidemenu_projeto'>
 	<div class='header_projeto'>Projeto</div>
+	
 	<a 	href="<%=request.getContextPath()%>/projeto/visualizarProjeto" 		type='button'>O projeto</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/lancesDados" 			type='button'>Lances dados</a>
-	<a 	href="#" data-reveal-id="iniciarProjeto" type='button'>Iniciar projeto</a>
-	<a 	href="#" data-reveal-id="reabrirProjeto" type='button'>Re-abrir o projeto</a>
-	<a 	href="#" data-reveal-id="encerrarProjeto" type='button'>Encerrar o projeto</a>
-	<a 	href="#" data-reveal-id="cancelarProjeto" type='button'>Cancelar o projeto</a>
-	<a 	href="<%=request.getContextPath()%>/projeto/cancelarProjeto" 		type='button'>Cancelar projeto</a>
-	<a 	href="<%=request.getContextPath()%>/projeto/darLance" 				type='button'>Dar um lance</a>
-	<a 	href="<%=request.getContextPath()%>/projeto/confirmarProjeto" 		type='button'>Confirmar inicio</a>
-	<a 	href="<%=request.getContextPath()%>/projeto/confirmarEncerramento" 	type='button'>Confirmar encerramento</a>
-	<a 	href="<%=request.getContextPath()%>/projeto/avaliarEmpresario" 		type='button'>Avaliar Empresário</a>
-	<a 	href="<%=request.getContextPath()%>/projeto/avaliarDesenvolvedor" 	type='button'>Avaliar Desenvolvedor</a>
+	<%
+	if(UserController.isLogged("empresario",user)){
+		Empresario emp = user.getEmpresario();
+		if(emp.isOwner(projeto) && projeto.getStatus().equals("bloqueado")){%>
+			<a 	href="#" data-reveal-id="iniciarProjeto" type='button'>Iniciar projeto</a>
+			<a 	href="#" data-reveal-id="reabrirProjeto" type='button'>Re-abrir o projeto</a>
+		<%}
+		if(emp.isOwner(projeto) && projeto.getStatus().equals("iniciado")){%>
+			<a 	href="#" data-reveal-id="encerrarProjeto" type='button'>Encerrar o projeto</a>
+			<a 	href="#" data-reveal-id="cancelarProjeto" type='button'>Cancelar o projeto</a>		
+		<%}
+		if(emp.isOwner(projeto) && projeto.getStatus().equals("finalizado")){%>
+		<a 	href="<%=request.getContextPath()%>/projeto/avaliarDesenvolvedor" 	type='button'>Avaliar Desenvolvedor</a>
+		<%} %>
+	<%} %>
+	
+	<%
+	if(UserController.isLogged("desenvolvedor",user)){
+		
+		if(projeto.getStatus().equals("pendente") ||  projeto.getStatus().equals("novo")){%>
+			<a 	href="<%=request.getContextPath()%>/projeto/darLance" type='button'>Dar um lance</a>
+		<%}
+		Desenvolvedor dev = user.getDesenvolvedor();
+		if(dev.isWorker(projeto)){
+			if(projeto.getStatus().equals("aguardando inicio")){%>
+			<a 	href="<%=request.getContextPath()%>/projeto/confirmarProjeto" 		type='button'>Confirmar inicio</a>
+			<%} 
+			if(projeto.getStatus().equals("aguardando encerramento")){%>
+			<a 	href="<%=request.getContextPath()%>/projeto/confirmarEncerramento" 	type='button'>Confirmar encerramento</a>
+			<%} 
+			if(projeto.getStatus().equals("finalizado")){%>
+			<a 	href="<%=request.getContextPath()%>/projeto/avaliarEmpresario" 		type='button'>Avaliar Empresário</a>
+		<%} }%>	
+	<%} %>
 </div>
 
 <%

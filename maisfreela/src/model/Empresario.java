@@ -89,6 +89,12 @@ public class Empresario{
 	public void setConta(ContaBancaria conta) {
 		this.conta = conta;
 	}
+	
+	public boolean isOwner(Projeto projeto){
+		//TODO olhar a lista de projetos do usuario e comparar os ids para ver se são iguais..
+		//se tiver agum prjeto com o mesmo id retorna true.. se nao false
+		return true;
+	}
 
 	
 }
