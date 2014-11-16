@@ -6,7 +6,7 @@
 .sidemenu_projeto a{
 	display:block;
 }
-.sidemenu_projeto .header_projeto{
+.header_projeto{
 	border-bottom: 1px solid black;
 	line-height: 17px;
 	margin-top: 4px;
