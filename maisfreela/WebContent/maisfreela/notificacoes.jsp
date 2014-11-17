@@ -34,10 +34,9 @@
 						<div class='notificacoes'>
 						<div class='large-9 columns'>
 						<div class='autor'>
-							<span class='desenvolvedor'>Desenvolvedor:</span>							
+						<span class='titulo'><%=notif.getTitulo()%></span>							
 						</div>
-						<div class=''>
-						<%= %>
+						<div class='descricao'><%=notif.getDescricao() %>
 						</div>
 						
 						</div>

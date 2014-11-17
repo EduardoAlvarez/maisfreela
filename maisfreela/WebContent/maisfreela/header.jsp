@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-projetos.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/list-desenvolvedores.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/projeto.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/notificacoes.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/active.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/smart_wizard.css" />
 <script src="<%=request.getContextPath()%>/maisfreela/js/vendor/jquery.js" type="text/javascript"></script>

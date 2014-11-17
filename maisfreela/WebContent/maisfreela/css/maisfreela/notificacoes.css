@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+
+.panel-list .titulo {
+	color: blue;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.panel-list .descricao{
+	text-align: justify;
+	font-size: 14px;
+	margin: 10px 0;
+}
