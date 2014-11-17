@@ -22,7 +22,7 @@ import dao.UsuarioDAO;
  */
 @WebServlet({ "/usuario/cadastraUsuario", "/usuario/visualizaDesenvolvedores",
 		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario" , "/usuario/sair","/usuario/perfil",
-		"/usuario/dadosPessoais","/usuario/dadosFinanceiros","/usuario/minhasAvaliacoes"})
+		"/usuario/dadosPessoais","/usuario/dadosFinanceiros","/usuario/minhasAvaliacoes", "/usuario/visualizarNotificacoes"})
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO userDao = new UsuarioDAO();
@@ -79,6 +79,9 @@ public class ServletUsuario extends HttpServlet {
 			break;
 			case "perfil":
 				request.getRequestDispatcher("/maisfreela/perfil.jsp").forward(request,response);
+			break;
+			case "visualizarNotificacoes":
+				request.getRequestDispatcher("/maisfreela/notificacoes.jsp").forward(request,response);
 			break;
 		}
 	}
