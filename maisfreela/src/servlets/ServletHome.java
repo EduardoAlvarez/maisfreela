@@ -18,7 +18,7 @@ import dao.ProjetoDAO;
  * Servlet implementaton class ServletHome
  */
 
-@WebServlet({ "/comoFunciona", "/home" })
+@WebServlet({ "/home/comoFunciona", "/home" })
 public class ServletHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
@@ -29,6 +29,7 @@ public class ServletHome extends HttpServlet {
 		String acao = aux[aux.length - 1];
 		switch (acao) {
 		case "comoFunciona":
+			
 			request.getRequestDispatcher("/maisfreela/comofunciona.jsp").forward(request, response);
 			break;
 		case "home":

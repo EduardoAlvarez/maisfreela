@@ -2,10 +2,12 @@
 
 <%@include file="header.jsp"%>
 
-<div class= 'row main-list'>
-<div class='large-3 columns menu-left'>
-			<div class='content'>Como Funciona a bagaça! </div>
+<div class= 'row main-list'> 
+	<div class='large-12 columns panel-list'>
+		<div class='content'>
+			Como Funciona a bagaça! 
 		</div>
+	</div>
 </div>
 
 

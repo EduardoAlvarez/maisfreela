@@ -1,4 +1,6 @@
-<%@ page language="java"  %>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Tag"%>
+<%@ page language="java"%>
 <%@include file="header.jsp"%>
 <style>
 	textarea {
@@ -7,21 +9,32 @@
 </style>
 <div class='row main-list'>
 	<div class='large-12 columns panel-list'>
-		<form class='form-center'>
+		<form class='form-center' action='<%=request.getContextPath()%>/projeto/cadastraProjetoAction' method='post'>
 			<label for="titulo">Título do Projeto</label>
 			<input required type='text' name='titulo' id='titulo'>
+			
+			<label for="desc">Descrição</label>
+			<textarea required id="desc" name="desc"></textarea>		
 			
 			<label for="valor">Valor</label>
 			<input required type='text' name='valor' id='valor'>
 			
-			<label for="prazo">Prazo</label>
-			<input required type='text' name='prazo' id='prazo'>
+			<label for="prazo">Prazo <small>(Em dias)</small></label>
+			<input required type='number' name='prazo' id='prazo'>
 			
-			<label for="competencias">Competências</label>
-			<textarea required id="competencias" name="competencias"></textarea>			
-			
-			<label for="descricao">Descrição</label>
-			<textarea required id="descricao" name="descricao"></textarea>
+			<label for="descricao">Tags</label>
+			<select	multiple name='tags[]' id='tags' style="height:100px;">
+				<%
+				ArrayList<Tag> tags = (ArrayList<Tag>)request.getAttribute("tags");
+				try{
+					 for(Tag tag : tags){
+						 out.print("<option value="+tag.getId()+">"+tag.getNome()+"</option>");	 
+					 }
+				}catch(Exception e){
+					out.print("<option>Nenhuma Tag cadastrada!</option>");
+				}
+					 %>
+			</select>
 			
 			<button id="submit" type="submit">Publicar</button>
 			<button class="alert" type="button">Cancelar</button>
