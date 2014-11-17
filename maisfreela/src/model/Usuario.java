@@ -45,30 +45,6 @@ public class Usuario  {
 	@JoinColumn(name="id_empresario", nullable=true)
 	private Empresario empresario;
 	
-	public Desenvolvedor getDesenvolvedor() {
-		return desenvolvedor;
-	}
-
-
-
-
-	public void setDesenvolvedor(Desenvolvedor desenvolvedor) {
-		this.desenvolvedor = desenvolvedor;
-	}
-
-
-
-
-	public Empresario getEmpresario() {
-		return empresario;
-	}
-
-
-
-
-	public void setEmpresario(Empresario empresario) {
-		this.empresario = empresario;
-	}
 	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
 	private List<Notificacao> notificacoes;
@@ -79,8 +55,29 @@ public class Usuario  {
 		return id;
 	}
 	
+	private String endereco;
+	private Integer telefone;
+	private String email;
+	private String login;
+	private String senha;
+	private String sobre;
 	
 	
+	public Desenvolvedor getDesenvolvedor() {
+		return desenvolvedor;
+	}
+
+	public void setDesenvolvedor(Desenvolvedor desenvolvedor) {
+		this.desenvolvedor = desenvolvedor;
+	}
+
+	public Empresario getEmpresario() {
+		return empresario;
+	}
+
+	public void setEmpresario(Empresario empresario) {
+		this.empresario = empresario;
+	}
 	
 	public void setId(long id) {
 		this.id = id;
@@ -139,13 +136,7 @@ public class Usuario  {
 	public void setSobre(String sobre) {
 		this.sobre = sobre;
 	}
-	private String endereco;
-	private Integer telefone;
-	private String email;
-	private String login;
-	private String senha;
-	private String sobre;
-	
+
 	public static Usuario logar(String login, String senha) {
 		UsuarioDAO userDao = new UsuarioDAO();
 		Usuario usuario = userDao.getUsuarioByLoginAndSenha(login,senha);

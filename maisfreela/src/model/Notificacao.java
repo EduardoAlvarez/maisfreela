@@ -35,6 +35,11 @@ public class Notificacao {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Usuario usuario;
 
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="id_usuario")
+	@Cascade(CascadeType.SAVE_UPDATE)
+	private Usuario usuario_origem;
+	
 	public int getId() {
 		return id;
 	}
@@ -73,6 +78,14 @@ public class Notificacao {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public Usuario getUsuario_origem() {
+		return usuario_origem;
+	}
+
+	public void setUsuario_origem(Usuario usuario_origem) {
+		this.usuario_origem = usuario_origem;
 	}
 	
 	
