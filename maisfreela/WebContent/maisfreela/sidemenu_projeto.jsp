@@ -62,15 +62,15 @@ $(function(){
 	<%
 	if(UserController.isLogged("empresario",user)){
 		Empresario emp = user.getEmpresario();
-		if(emp.isOwner(projeto) && projeto.getStatus().equals("bloqueado")){%>
+		if(emp.isOwner(projeto, user) && projeto.getStatus().equals("bloqueado")){%>
 			<a 	href="#" data-reveal-id="iniciarProjeto" type='button'>Iniciar projeto</a>
 			<a 	href="#" data-reveal-id="reabrirProjeto" type='button'>Re-abrir o projeto</a>
 		<%}
-		if(emp.isOwner(projeto) && projeto.getStatus().equals("iniciado")){%>
+		if(emp.isOwner(projeto,user) && projeto.getStatus().equals("iniciado")){%>
 			<a 	href="#" data-reveal-id="encerrarProjeto" type='button'>Encerrar o projeto</a>
 			<a 	href="#" data-reveal-id="cancelarProjeto" type='button'>Cancelar o projeto</a>		
 		<%}
-		if(emp.isOwner(projeto) && projeto.getStatus().equals("finalizado")){%>
+		if(emp.isOwner(projeto,user) && projeto.getStatus().equals("finalizado")){%>
 		<a 	href="<%=request.getContextPath()%>/projeto/avaliarDesenvolvedor" 	type='button'>Avaliar Desenvolvedor</a>
 		<%} %>
 	<%} %>
@@ -81,7 +81,7 @@ $(function(){
 			<a 	href="<%=request.getContextPath()%>/projeto/darLance" type='button'>Dar um lance</a>
 		<%}
 		Desenvolvedor dev = user.getDesenvolvedor();
-		if(dev.isWorker(projeto)){
+		if(dev.isWorker(projeto , user)){
 			if(projeto.getStatus().equals("aguardando inicio")){%>
 			<a 	href="<%=request.getContextPath()%>/projeto/confirmarProjeto" 		type='button'>Confirmar inicio</a>
 			<%} 

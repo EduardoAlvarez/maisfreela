@@ -114,10 +114,15 @@ public class Desenvolvedor{
 		this.conta = conta;
 	}
  
-	public boolean isWorker(Projeto projeto){
-		//TODO olhar a lista de projetos do usuario e comparar os ids para ver se são iguais..
-		//se tiver agum prjeto com o mesmo id retorna true.. se nao false
-		return true;
+	public boolean isWorker(Projeto projeto, Usuario user){
+		boolean isWorker = false;
+		Desenvolvedor dev = user.getDesenvolvedor();
+		for(Projeto proj : dev.getProjetosAtuados()){
+			if(proj.getId() == projeto.getId()){
+				isWorker = true;
+			}
+		}
+		return isWorker;
 	}
 	
 	

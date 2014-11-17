@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -90,10 +91,15 @@ public class Empresario{
 		this.conta = conta;
 	}
 	
-	public boolean isOwner(Projeto projeto){
-		//TODO olhar a lista de projetos do usuario e comparar os ids para ver se são iguais..
-		//se tiver agum prjeto com o mesmo id retorna true.. se nao false
-		return true;
+	public boolean isOwner(Projeto projeto, Usuario user){
+		boolean isOwner = false;
+		Empresario emp = user.getEmpresario();
+		for(Projeto proj : emp.getProjetosPublicados()){
+			if(proj.getId() == projeto.getId()){
+				isOwner = true;
+			}
+		}
+		return isOwner;		
 	}
 
 	
