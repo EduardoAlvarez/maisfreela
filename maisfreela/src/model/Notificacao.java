@@ -35,10 +35,10 @@ public class Notificacao {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Usuario usuario;
 
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_usuario")
+	/*@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="id_usuario_origem")
 	@Cascade(CascadeType.SAVE_UPDATE)
-	private Usuario usuario_origem;
+	private Usuario usuario_origem;*/
 	
 	public int getId() {
 		return id;
@@ -80,16 +80,12 @@ public class Notificacao {
 		this.usuario = usuario;
 	}
 
-	public Usuario getUsuario_origem() {
+	/*public Usuario getUsuario_origem() {
 		return usuario_origem;
 	}
 
 	public void setUsuario_origem(Usuario usuario_origem) {
 		this.usuario_origem = usuario_origem;
-	}
-	
-	
-	
-	
+	}*/
 	
 }
