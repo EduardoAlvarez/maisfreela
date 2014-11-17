@@ -22,7 +22,7 @@
 			Desenvolvedor dev = user.getDesenvolvedor();
 			if(dev != null){
 				List<Avaliacao> avaliacoes =  dev.getAvaliacoes();
-				out.print("Média como desenvolvedor: "+dev.getAvaliacao());
+				out.print("Média como Desenvolvedor: "+dev.getAvaliacao());
 				if(avaliacoes.size() > 0){
 					try {
 						for (Avaliacao aval : avaliacoes) {
@@ -44,7 +44,7 @@
 			};
 			if(emp != null){
 				List<Avaliacao> avaliacoes =  emp.getAvaliacoes();
-				out.print("Média como desenvolvedor: "+emp.getAvaliacao());
+				out.print("Média como Empresário: "+emp.getAvaliacao());
 				if(avaliacoes.size() > 0){
 					try {
 						for (Avaliacao aval : avaliacoes) {
