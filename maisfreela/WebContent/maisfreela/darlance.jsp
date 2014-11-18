@@ -21,6 +21,8 @@
 			<textarea required name='comentario' required id='comentario'></textarea>
 			<label for='valor'>Insira o Valor sugerido:</label>
 			<input required type="text" pattern='^\d*(\,\d{2}$)' name='valor' id='valor' title='Insira o valor no formato conforme exemplo: 100,00'></input>		
+			
+			<input required value='<%=projeto.getId()%>' type="hidden" name='id_projeto'></input>
 			<button type='submit'>Confirmar</button>
 			<button class='alert' type='submit'>Cancelar</button>
 			<div class='clear'></div>

@@ -1,7 +1,9 @@
 package dao;
 
 import java.util.ArrayList;
+
 import model.Projeto;
+import model.Tag;
 
 public class ProjetoDAO extends GenericDAO{
 	public ArrayList<Projeto> getAll(){
@@ -17,5 +19,8 @@ public class ProjetoDAO extends GenericDAO{
 		
 		
 		return temp;
+	}
+	public Projeto getById(Integer id) {
+		return (Projeto)super.getById("Projeto",id);
 	}
 }

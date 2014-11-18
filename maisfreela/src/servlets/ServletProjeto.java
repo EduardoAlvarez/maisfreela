@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Lance;
 import model.Projeto;
 import model.Tag;
 import model.Usuario;
@@ -22,7 +23,7 @@ import dao.UsuarioDAO;
  * Servlet implementation class ServletProjeto
  */
 @WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto","/projeto/reabrirProjeto","/projeto/encerrarProjeto","/projeto/cancelarProjeto","/projeto/darLance","/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
-	"/projeto/cadastraProjetoAction"})
+	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction"})
 public class ServletProjeto extends HttpServlet {
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private UsuarioDAO userDao = new UsuarioDAO();
@@ -104,6 +105,25 @@ public class ServletProjeto extends HttpServlet {
 				ProjetoDAO projDAO = new ProjetoDAO();
 				projDAO.save(proj);
 			break;
+			case "projeto/darLanceAction":
+				String comentario = request.getParameter("comentario");
+				String valorLance = request.getParameter("valor");
+				
+				String id_projeto = request.getParameter("id_projeto");
+				ProjetoDAO pDAO = new ProjetoDAO();
+				Projeto p = pDAO.getById(Integer.valueOf(id_projeto));
+				
+				
+				
+				Lance lance = new Lance();
+				lance.setComentario(comentario);
+				lance.setValor(Float.valueOf(valorLance));
+				lance.setProjeto(p);
+				HttpSession sessionLance = request.getSession();
+				Usuario userLance = (Usuario)sessionLance.getAttribute("usuario");
+				lance.setDesenvolvedor(userLance.getDesenvolvedor());
+				
+			
 		}
 	}
 }
