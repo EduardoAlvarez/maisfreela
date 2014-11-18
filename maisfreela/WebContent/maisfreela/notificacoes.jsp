@@ -41,7 +41,7 @@
 						
 						</div>
 						<div class='large-3 columns'> 
-							<button class='success' type='submit'>Responder</button>
+							<a 	href="#" data-reveal-id="iniciarProjeto" type='button'>Responder</a>
 						</div>
 				</div>
 			</div>

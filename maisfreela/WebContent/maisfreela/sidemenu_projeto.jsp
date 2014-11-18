@@ -165,7 +165,7 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
 	  <a class="close-reveal-modal">&#215;</a>
   </form>
 </div>
-<div id="encerrarProjeto" class="reveal-modal" data-reveal>
+<div id="cancelarProjeto" class="reveal-modal" data-reveal>
   <form>
 	  <h3>Tem certeza que deseja cancelar o projeto?</h3>
 	  <p class="lead">Você não receberá o valor já pago pelo projeto</p>
