@@ -15,11 +15,10 @@ public class ProjetoDAO extends GenericDAO{
 			
 			temp.add((Projeto)obj);
 			
-		}
-		
-		
+		}		
 		return temp;
 	}
+	
 	public Projeto getById(Integer id) {
 		return (Projeto)super.getById("Projeto",id);
 	}
