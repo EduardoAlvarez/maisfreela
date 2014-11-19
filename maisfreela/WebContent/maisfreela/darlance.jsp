@@ -8,7 +8,7 @@
 <div class='row main-list'>
 <div class='large-3 columns menu-left'>
 		<div class='content'>
-		<%@include file="sidemenu_projeto.jsp"%>
+			<%@include file="sidemenu_projeto.jsp"%>
 		</div>
 </div>
 	
