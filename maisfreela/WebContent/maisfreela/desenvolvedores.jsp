@@ -94,7 +94,7 @@
 			<%
 				}
 				} catch (Exception e) {
-					out.print("Sem desenvolvedores no momento");
+					out.print("Sem desenvolvedores no momento"+e);
 				}
 			%>
 

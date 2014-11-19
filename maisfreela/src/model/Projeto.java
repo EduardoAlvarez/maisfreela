@@ -132,7 +132,7 @@ public class Projeto {
 
 	private String titulo;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
+	@ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name="projeto_has_tags", 
     joinColumns={@JoinColumn(name="id_projeto")}, 
     inverseJoinColumns={@JoinColumn(name="id_tag")})
