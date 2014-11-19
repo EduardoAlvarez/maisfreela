@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Empresario;
 import model.Lance;
 import model.Projeto;
 import model.Tag;
@@ -93,7 +94,10 @@ public class ServletProjeto extends HttpServlet {
 				proj.setValor(Integer.valueOf(valor));
 				HttpSession session = request.getSession();
 				Usuario user = (Usuario)session.getAttribute("usuario");
-				proj.setEmpresario(user.getEmpresario());
+				Empresario emp = user.getEmpresario();
+				System.out.println(emp == null);
+				System.out.println(user == null);
+				proj.setEmpresario(emp);
 				List<Tag> tags_list = new ArrayList<Tag>();
 				TagDAO tagDAO = new TagDAO();
 				for(String tag_id : tags){
