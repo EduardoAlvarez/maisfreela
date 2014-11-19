@@ -41,6 +41,7 @@ public class GenericDAO{
 		String hql = "FROM "+table;
 		Query query = session.createQuery(hql);
 		ArrayList<Object> results2 = (ArrayList<Object>) query.list();
+		session.close();
 		return results2;
 	}
 	public ArrayList getAllLimited(String table , int limit){
@@ -49,6 +50,7 @@ public class GenericDAO{
 		String hql = "FROM "+table+" limit "+limit;
 		Query query = session.createQuery(hql);
 		ArrayList<Object> results2 = (ArrayList<Object>) query.list();
+		session.close();
 		return results2;
 	}
 	public Object getById(String table, Integer id) {
@@ -56,6 +58,7 @@ public class GenericDAO{
 		String hql = "FROM "+table+" where id_"+table.toLowerCase()+" = "+id;
 		Query query = session.createQuery(hql);
 		ArrayList<Object> results2 = (ArrayList<Object>) query.list();
+		session.close();
 		return results2.get(0);
 	}
 }

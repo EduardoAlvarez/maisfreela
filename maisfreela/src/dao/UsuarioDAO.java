@@ -15,9 +15,11 @@ public class UsuarioDAO extends GenericDAO{
 		String hql = "FROM Usuario user where user.login = '"+login+"' and user.senha = '"+senha+"'";
 		Query query = session.createQuery(hql);
 		ArrayList<Object> results2 = (ArrayList<Object>) query.list();
+		session.close();
 		if(results2.size() > 0){
 			return (Usuario)results2.get(0);
 		}
+		
 		return null;
 		
 	}
