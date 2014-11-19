@@ -82,7 +82,7 @@ public class ServletProjeto extends HttpServlet {
 		String acao = aux[aux.length-1];
 		switch (acao) {
 			case "cadastraProjetoAction":
-				String titulo  = request.getParameter("titulo");
+				String titulo = request.getParameter("titulo");
 				String desc = request.getParameter("desc");
 				String valor = request.getParameter("valor");
 				String prazo = request.getParameter("prazo");
@@ -113,21 +113,20 @@ public class ServletProjeto extends HttpServlet {
 				String comentario = request.getParameter("comentario");
 				String valorLance = request.getParameter("valor");
 				
+				HttpSession sessionLance = request.getSession();
+				Usuario userLance = (Usuario)sessionLance.getAttribute("usuario");
+				
 				String id_projeto = request.getParameter("id_projeto");
 				ProjetoDAO pDAO = new ProjetoDAO();
-				Projeto p = pDAO.getById(Integer.valueOf(id_projeto));
-				
-				
+				Projeto p = pDAO.getById(Integer.valueOf(id_projeto));				
 				
 				Lance lance = new Lance();
 				lance.setComentario(comentario);
 				lance.setValor(Float.valueOf(valorLance));
-				lance.setProjeto(p);
-				HttpSession sessionLance = request.getSession();
-				Usuario userLance = (Usuario)sessionLance.getAttribute("usuario");
 				lance.setDesenvolvedor(userLance.getDesenvolvedor());
+				lance.setProjeto(p);
 				
-			
+				pDAO.save(lance);
 		}
 	}
 }

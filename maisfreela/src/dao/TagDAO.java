@@ -12,6 +12,7 @@ public class TagDAO extends GenericDAO{
 		}
 		return temp;
 	}
+	
 	public Tag getById(Integer id) {
 		return (Tag)super.getById("Tag",id);
 	}
