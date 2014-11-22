@@ -42,7 +42,7 @@ CREATE TABLE `avaliacao` (
 
 LOCK TABLES `avaliacao` WRITE;
 /*!40000 ALTER TABLE `avaliacao` DISABLE KEYS */;
-INSERT INTO `avaliacao` VALUES (1,'Muito r√°pido e comunicativo',4.5,2,NULL,4),(2,'Boas respostas e conhencimento pleno do que podia ser feito',4.8,NULL,2,3);
+INSERT INTO `avaliacao` VALUES (1,'Muito r·pido e comunicativo',4.5,2,NULL,4),(2,'Boas respostas e conhencimento pleno do que podia ser feito',4.8,NULL,2,3);
 /*!40000 ALTER TABLE `avaliacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,7 +190,7 @@ CREATE TABLE `lance` (
 
 LOCK TABLES `lance` WRITE;
 /*!40000 ALTER TABLE `lance` DISABLE KEYS */;
-INSERT INTO `lance` VALUES (1,'Crio as p√°ginas com efeitos visuais mais robustos que atualmente',0,320,2,3),(2,'Fa√ßo o sistema em um formato mais din√¢mico',1,240,1,3),(3,'Tenho um web service quase pronto',0,380,1,4),(4,'Fa√ßo tudo conforme pedido',1,560,2,4),(5,'Fa√ßo em PHP',0,200,3,5),(6,'Fa√ßo tudo em HTML5',0,310,1,5),(7,'Manjo tudo de Oracle',0,900,2,6),(8,'Consigo fazer o servi√ßo se remodelar o banco por completo',0,1030,3,6),(9,'JSON √© comigo mesmo',0,465,1,7),(10,'Posso fazer com um valor maior este projeto?',0,390,2,7),(11,'Tenho tudo no esquema j√°, bora fazer pra ontem? At√© abaixo o pre√ßo...',0,190,3,7),(12,'Fa√ßo toda a migra√ß√£o com os testes',1,2000,3,8),(14,'Crio em PHP',1,1000,1,9),(15,'Fa√ßo o sistema em JAVA',0,1500,3,9),(16,'Fa√ßo por 780 reais',0,780,2,10),(17,'Fa√ßo por 650 reais',0,650,1,10),(18,'Fa√ßo por 600 mangos pra fechar',1,600,2,10),(19,'Fa√ßo por 700 pra ficar mais de boas pra mim',0,700,3,10);
+INSERT INTO `lance` VALUES (1,'Crio as p·ginas com efeitos visuais mais robustos que atualmente',0,320,2,3),(2,'FaÁo o sistema em um formato mais din‚mico',1,240,1,3),(3,'Tenho um web service quase pronto',0,380,1,4),(4,'FaÁo tudo conforme pedido',1,560,2,4),(5,'FaÁo em PHP',0,200,3,5),(6,'FaÁo tudo em HTML5',0,310,1,5),(7,'Manjo tudo de Oracle',0,900,2,6),(8,'Consigo fazer o serviÁo se remodelar o banco por completo',0,1030,3,6),(9,'JSON È comigo mesmo',0,465,1,7),(10,'Posso fazer com um valor maior este projeto?',0,390,2,7),(11,'Tenho tudo no esquema j·, bora fazer pra ontem? AtÈ abaixo o preÁo...',0,190,3,7),(12,'FaÁo toda a migraÁ„o com os testes',1,2000,3,8),(14,'Crio em PHP',1,1000,1,9),(15,'FaÁo o sistema em JAVA',0,1500,3,9),(16,'FaÁo por 780 reais',0,780,2,10),(17,'FaÁo por 650 reais',0,650,1,10),(18,'FaÁo por 600 mangos pra fechar',1,600,2,10),(19,'FaÁo por 700 pra ficar mais de boas pra mim',0,700,3,10);
 /*!40000 ALTER TABLE `lance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +219,7 @@ CREATE TABLE `notificacao` (
 
 LOCK TABLES `notificacao` WRITE;
 /*!40000 ALTER TABLE `notificacao` DISABLE KEYS */;
-INSERT INTO `notificacao` VALUES (1,'2014-08-12 00:00:00','Seja Bem-Vindo ao MaisFreela,aqui vo√ße pode encontrar e colocar projetos sobre TI.','Seja Bem-Vindo ao MaisFreela',1),(2,'2014-08-12 00:00:00','Seja Bem-Vindo ao MaisFreela,aqui vo√ße pode encontrar e colocar projetos sobre TI.','Seja Bem-Vindo ao MaisFreela',2),(3,'2014-08-12 00:00:00','Seja Bem-Vindo ao MaisFreela,aqui vo√ße pode encontrar e colocar projetos sobre TI.','Seja Bem-Vindo ao MaisFreela',3),(4,'2014-08-12 00:00:00','Seja Bem-Vindo ao MaisFreela,aqui vo√ße pode encontrar e colocar projetos sobre TI.','Seja Bem-Vindo ao MaisFreela',4);
+INSERT INTO `notificacao` VALUES (1,'2014-08-12 00:00:00','Seja Bem-Vindo ao MaisFreela, aqui vocÍ pode encontrar e colocar projetos sobre TI.','Seja Bem-Vindo ao MaisFreela',1),(2,'2014-08-12 00:00:00','Seja Bem-Vindo ao MaisFreela, aqui vocÍ pode encontrar e colocar projetos sobre TI.','Seja Bem-Vindo ao MaisFreela',2),(3,'2014-08-12 00:00:00','Seja Bem-Vindo ao MaisFreela, aqui vocÍ pode encontrar e colocar projetos sobre TI.','Seja Bem-Vindo ao MaisFreela',3),(4,'2014-08-12 00:00:00','Seja Bem-Vindo ao MaisFreela, aqui vocÍ pode encontrar e colocar projetos sobre TI.','Seja Bem-Vindo ao MaisFreela',4);
 /*!40000 ALTER TABLE `notificacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,7 +256,7 @@ CREATE TABLE `projeto` (
 
 LOCK TABLES `projeto` WRITE;
 /*!40000 ALTER TABLE `projeto` DISABLE KEYS */;
-INSERT INTO `projeto` VALUES (1,NULL,'P√°gina de site de buscas relacionada a dados de webservice do governo',0,0,15,'novo','P√°gina de buscas',456,NULL,1),(2,NULL,'Sistema de log√≠stica para entrega de bolos',0,0,30,'novo','Sistema de log√≠stica',1300,NULL,2),(3,'2014-11-15 00:00:00','Blog em wordpress precisa de novos ajustes no menu principal e em algumas √°reas de conte√∫do',1,0,12,'iniciado','Altera√ß√µes em blog',240,1,1),(4,NULL,'Webservice do sistema dos correios precisa de adpata√ß√£o ',1,0,10,'aguardando inicio','Web Service',560,2,2),(5,NULL,'P√°gina web de sistema de vendas precisa de nova interface',0,0,6,'pendente','Interface de loja virtual',180,NULL,3),(6,NULL,'Migra√ß√£o de banco de dados de Oracle para SQL SERVER',0,0,15,'pendente','Altera√ß√£o de  banco de dados',890,NULL,1),(7,NULL,'Inclus√£o de JSON nas p√°ginas do sistema de cat√°logo',0,0,8,'bloqueado','Inclus√£o de JSON',374,NULL,1),(8,'2014-11-03 00:00:00','Migra√ß√£o de linguagem web para .NET, sistema esta pronto mas foi desenvolvido em PHP',1,0,40,'cancelado','Migra√ß√£o de linguagem',1800,3,3),(9,'2014-11-09 00:00:00','Cria√ß√£o de loja virtual para emrpesa do ramo aliment√≠cio',1,1,18,'aguardando encerramento','Loja Virtual',1000,1,2),(10,'2014-10-01 00:00:00','Preciso de um blog para divulgar meu trabalho de artista pl√°stico, precisa ser r√°pido , moderno e ter muitas conte√∫dos configur√°veis',1,1,13,'finalizado','Blog de Artista',600,2,2);
+INSERT INTO `projeto` VALUES (1,NULL,'P·gina de site de buscas relacionada a dados de webservice do governo',0,0,15,'novo','P·gina de buscas',456,NULL,1),(2,NULL,'Sistema de logÌstica para entrega de bolos',0,0,30,'novo','Sistema de logÌstica',1300,NULL,2),(3,'2014-11-15 00:00:00','Blog em wordpress precisa de novos ajustes no menu principal e em algumas ·reas de conte˙do',1,0,12,'iniciado','AlteraÁıes em blog',240,1,1),(4,NULL,'Webservice do sistema dos correios precisa de adpataÁ„o ',1,0,10,'aguardando inicio','Web Service',560,2,2),(5,NULL,'P·gina web de sistema de vendas precisa de nova interface',0,0,6,'pendente','Interface de loja virtual',180,NULL,3),(6,NULL,'MigraÁ„o de banco de dados de Oracle para SQL SERVER',0,0,15,'pendente','AlteraÁ„o de  banco de dados',890,NULL,1),(7,NULL,'Inclus„o de JSON nas p·ginas do sistema de cat·logo',0,0,8,'bloqueado','Inclus„o de JSON',374,NULL,1),(8,'2014-11-03 00:00:00','MigraÁ„o de linguagem web para .NET, sistema esta pronto mas foi desenvolvido em PHP',1,0,40,'cancelado','MigraÁ„o de linguagem',1800,3,3),(9,'2014-11-09 00:00:00','CriaÁ„o de loja virtual para emrpesa do ramo alimentÌcio',1,1,18,'aguardando encerramento','Loja Virtual',1000,1,2),(10,'2014-10-01 00:00:00','Preciso de um blog para divulgar meu trabalho de artista pl·stico, precisa ser r·pido , moderno e ter muitas conte˙dos configur·veis',1,1,13,'finalizado','Blog de Artista',600,2,2);
 /*!40000 ALTER TABLE `projeto` ENABLE KEYS */;
 UNLOCK TABLES;
 
