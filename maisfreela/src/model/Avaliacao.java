@@ -32,7 +32,7 @@ public class Avaliacao {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Empresario empresarioDestino;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_usuario_remetente", nullable=true)
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Usuario remetente;

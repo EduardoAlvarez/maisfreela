@@ -3,8 +3,10 @@
 <%@ page language="java"  
 	import="model.Avaliacao"
 	import="java.util.List"
+	import="java.util.ArrayList"
 	import="model.Desenvolvedor"
 	import="model.Empresario"
+	import="dao.UsuarioDAO"
 %>
 
 <%@include file="header.jsp"%>
@@ -18,11 +20,13 @@
 	</div>
 	<div class='large-9 columns menu-left'>
 		<div class='content'>
-			<%
+			<%UsuarioDAO userDAO = new  UsuarioDAO();
 			Desenvolvedor dev = user.getDesenvolvedor();
 			if(dev != null){
-				List<Avaliacao> avaliacoes =  dev.getAvaliacoes();
-				out.print("Média como Desenvolvedor: "+dev.getAvaliacao());
+				
+				List<Avaliacao> avaliacoes =  userDAO.getAvaliacoesbyDesenvolvedor(dev);
+				//List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
+			 	out.print("Média como Desenvolvedor: "+dev.getAvaliacao());
 				if(avaliacoes.size() > 0){
 					try {
 						for (Avaliacao aval : avaliacoes) {
@@ -34,7 +38,7 @@
 							out.print("</div>");
 						}
 					}catch(Exception e){
-						
+						out.println(e);
 					} 
 				} 
 			}
@@ -43,7 +47,8 @@
 				out.print("<hr/>");
 			};
 			if(emp != null){
-				List<Avaliacao> avaliacoes =  emp.getAvaliacoes();
+				
+				List<Avaliacao> avaliacoes =  userDAO.getAvaliacoesbyEmpresario(emp);
 				out.print("Média como Empresário: "+emp.getAvaliacao());
 				if(avaliacoes.size() > 0){
 					try {
@@ -56,7 +61,7 @@
 							out.print("</div>");
 						}
 					}catch(Exception e){
-						
+						out.println(e);
 					} 
 				} 
 			}%>
