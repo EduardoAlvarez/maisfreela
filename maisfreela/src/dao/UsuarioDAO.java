@@ -32,11 +32,11 @@ public class UsuarioDAO extends GenericDAO{
 	
 	public List<Notificacao> getNotificacoesbyUsuario (Usuario user){
 		Session session = super.Connection();
-		String hql = "FROM Notificacao n where n.usuario = '"+user+"'";
+		String hql = "FROM Notificacao n where n.usuario.id = '"+user.getId()+"'";
 		Query query = session.createQuery(hql);
 		List<Notificacao> notificacoes = (List<Notificacao>) query.list();
 		session.close();
-		System.out.println("notificacao");
+		System.out.println(notificacoes);
 		return notificacoes;
 	}
 	

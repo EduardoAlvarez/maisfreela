@@ -22,7 +22,7 @@
 				
 					UsuarioDAO notif1 = new UsuarioDAO();
 					List<Notificacao> notificacoes = notif1.getNotificacoesbyUsuario(user);
-
+					
 								try {
 									for (Notificacao notif : notificacoes) {
 				%>
