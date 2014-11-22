@@ -60,6 +60,7 @@
 }
 
 .tags .tag {
+	white-space: nowrap;
 	background: rgb(7, 165, 33);
 	color: white;
 	padding: 5px;

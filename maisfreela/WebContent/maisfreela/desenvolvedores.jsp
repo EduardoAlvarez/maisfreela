@@ -1,3 +1,4 @@
+<%@page import="dao.TagDAO"%>
 <%@ page language="java" import="java.util.List"
 	import="java.util.ArrayList" import="model.Desenvolvedor"
 	import="model.Tag"%>
@@ -73,15 +74,16 @@
 
 					<div class='desc-desenvolvedor'><%=dev.getUsuario().getSobre()%></div>
 					<%
-						List<Tag> tags = dev.getTags();
-								if (tags.size() > 0) {
+						TagDAO tagDao = new TagDAO();
+						List<String> tags = tagDao.getTagsByDesenvolvedor(dev);
+						if (tags.size() > 0) {
 					%>
 					<div class='tags'>
 						<span class='tag-label'>Tags:</span>
 						<%
-							for (Tag tag : tags) {
+							for (String tag : tags) {
 						%>
-						<span class='tag'><%=tag.getNome()%></span>
+						<span class='tag'><%=tag%></span>
 						<%
 							}
 						%>

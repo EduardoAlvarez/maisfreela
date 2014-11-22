@@ -45,23 +45,18 @@ public class Tag {
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 	public List<Desenvolvedor> getDesenvolvedor() {
 		return desenvolvedor;
 	}
-
 	public void setDesenvolvedor(List<Desenvolvedor> desenvolvedor) {
 		this.desenvolvedor = desenvolvedor;
 	}
-
 	public List<Projeto> getProjeto() {
 		return projeto;
 	}
-
 	public void setProjeto(List<Projeto> projeto) {
 		this.projeto = projeto;
 	}
