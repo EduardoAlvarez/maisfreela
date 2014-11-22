@@ -1,3 +1,4 @@
+<%@page import="dao.ProjetoDAO"%>
 <%@ page language="java" 
     import="java.util.ArrayList"
 	import="model.Projeto"
@@ -22,7 +23,8 @@
 			<form method='post'>
 			<div class='header_projeto'><%=projeto.getTitulo()%></div>
 			<%
-				List<Lance> lances = projeto.getLances();
+				ProjetoDAO projDao = new ProjetoDAO();
+				List<Lance> lances = projDao.getLancesByProjeto(projeto);
 
 				try {
 					for (Lance lanc : lances) {
@@ -47,7 +49,9 @@
 						<div class='large-3 columns'> 
 							<span class='valor'>
 								<span class='valor'>Valor Proposto:</span>
-								<%=lanc.getValor() %>
+								<% 
+								Float l = lanc.getValor();
+								out.print(l.toString().replace(".", ",")); %>
 							</span>
 						</div>
 						<div class='large-2 columns'> 

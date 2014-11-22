@@ -4,8 +4,8 @@ import java.util.List;
 
 import model.Desenvolvedor;
 import model.Empresario;
+import model.Lance;
 import model.Projeto;
-import model.Usuario;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -43,6 +43,14 @@ public class ProjetoDAO extends GenericDAO{
 		session.close();
 		System.out.println(atuados);
 		return atuados;
+	}
+	public List<Lance> getLancesByProjeto(Projeto p){
+		Session session = super.Connection();
+		String hql = "FROM Lance l where l.projeto.id = '"+p.getId()+"'";
+		Query query = session.createQuery(hql);
+		List<Lance> lances = (List<Lance>) query.list();
+		session.close();
+		return lances;
 	}
 		
 }

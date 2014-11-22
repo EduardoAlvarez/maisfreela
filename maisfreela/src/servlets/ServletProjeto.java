@@ -109,24 +109,25 @@ public class ServletProjeto extends HttpServlet {
 				projDAO.save(proj);
 				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
-			case "projeto/darLanceAction":
+			case "darLanceAction":
 				String comentario = request.getParameter("comentario");
 				String valorLance = request.getParameter("valor");
+				String id_projeto = request.getParameter("id_projeto");
 				
 				HttpSession sessionLance = request.getSession();
 				Usuario userLance = (Usuario)sessionLance.getAttribute("usuario");
 				
-				String id_projeto = request.getParameter("id_projeto");
+				
 				ProjetoDAO pDAO = new ProjetoDAO();
 				Projeto p = pDAO.getById(Integer.valueOf(id_projeto));				
 				
 				Lance lance = new Lance();
 				lance.setComentario(comentario);
-				lance.setValor(Float.valueOf(valorLance));
+				lance.setValor(Float.valueOf(  valorLance.replace(",",".")));
 				lance.setDesenvolvedor(userLance.getDesenvolvedor());
 				lance.setProjeto(p);
-				
 				pDAO.save(lance);
+				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
 		}
 	}
 }
