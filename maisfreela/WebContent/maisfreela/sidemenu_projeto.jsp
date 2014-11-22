@@ -76,8 +76,13 @@ $(function(){
 	<%} %>
 	
 	<%
-	if(UserController.isLogged("desenvolvedor",user)){		
-		if(projeto.getStatus().equals("pendente") ||  projeto.getStatus().equals("novo")){%>
+	if(UserController.isLogged("desenvolvedor",user)){
+		boolean owner = false;
+		if(UserController.isLogged("empresario",user)){
+			Empresario emp = user.getEmpresario();		
+			owner = emp.isOwner(projeto, user);
+		}		
+		if(!owner && (projeto.getStatus().equals("pendente") ||  projeto.getStatus().equals("novo"))){%>
 			<a 	href="<%=request.getContextPath()%>/projeto/darLance" type='button'>Dar um lance</a>
 		<%}
 		Desenvolvedor dev = user.getDesenvolvedor();
