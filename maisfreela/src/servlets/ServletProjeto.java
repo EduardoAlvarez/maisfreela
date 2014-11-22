@@ -145,6 +145,11 @@ public class ServletProjeto extends HttpServlet {
 				projDao.update(projeto_blok);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
+			case "cancelarProjeto":
+				String id_projeto2 = request.getParameter("id_projeto");
+				ProjetoDAO projDaoCancelar = new ProjetoDAO();
+				Projeto projetoCancelar = projDaoCancelar.getById(Integer.valueOf(id_projeto2));
+				projetoCancelar.setStatus("cancelado");				
 		}
 	}
 }
