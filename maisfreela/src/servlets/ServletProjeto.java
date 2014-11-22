@@ -16,6 +16,7 @@ import model.Lance;
 import model.Projeto;
 import model.Tag;
 import model.Usuario;
+import dao.LanceDAO;
 import dao.ProjetoDAO;
 import dao.TagDAO;
 import dao.UsuarioDAO;
@@ -24,7 +25,7 @@ import dao.UsuarioDAO;
  * Servlet implementation class ServletProjeto
  */
 @WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto","/projeto/reabrirProjeto","/projeto/encerrarProjeto","/projeto/cancelarProjeto","/projeto/darLance","/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
-	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction"})
+	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction"})
 public class ServletProjeto extends HttpServlet {
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private UsuarioDAO userDao = new UsuarioDAO();
@@ -128,6 +129,20 @@ public class ServletProjeto extends HttpServlet {
 				lance.setProjeto(p);
 				pDAO.save(lance);
 				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
+			break;
+			case "aceitarLanceAction":
+				String id_projeto1 = request.getParameter("id_projeto");
+				String id_lance = request.getParameter("id_lance");
+				ProjetoDAO projDao = new ProjetoDAO();
+				LanceDAO lanceDao = new LanceDAO();
+				Lance lance1 = lanceDao.getById(Integer.valueOf(id_lance));
+				Projeto projeto = projDao.getById(Integer.valueOf(id_projeto1));
+				projeto.setStatus("bloqueado");
+				projDao.update(projeto);
+				lance1.setEscolhido(true);
+				lanceDao.update(lance1);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+			break;
 		}
 	}
 }

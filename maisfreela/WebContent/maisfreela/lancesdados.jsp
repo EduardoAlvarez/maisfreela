@@ -20,7 +20,6 @@
 	
 	<div class='large-9 columns panel-list'>
 		<div class='content'>
-			<form method='post'>
 			<div class='header_projeto'><%=projeto.getTitulo()%></div>
 			<%
 				ProjetoDAO projDao = new ProjetoDAO();
@@ -54,8 +53,14 @@
 								out.print(l.toString().replace(".", ",")); %>
 							</span>
 						</div>
-						<div class='large-2 columns'> 
-							<button class='success' type='submit'>Aceitar</button>
+						<div class='large-2 columns'>
+						<%if(user.getEmpresario().isOwner(projeto, user) && (projeto.getStatus().equals("novo") || projeto.getStatus().equals("pendente"))){ %>
+							<form method='post' action='<%=request.getContextPath()%>/projeto/aceitarLanceAction'>
+								<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
+								<input type='hidden' value='<%=lanc.getId()%>' name='id_lance'>
+								<button class='success' type='submit'>Aceitar</button>								
+							</form>
+						<%} %>
 						</div>
 				</div>
 			</div>
@@ -65,8 +70,7 @@
 				catch (Exception e) {
 					out.print("Não existem Lances para este projeto!");
 				}
-			%>
-			</form> 
+			%> 
 		</div>
 		
 

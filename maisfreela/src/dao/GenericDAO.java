@@ -30,10 +30,18 @@ public class GenericDAO{
 		session.close();
 	}
 	public void delete(Object obj){
-		//TODO
+		Session session = this.Connection();
+		Transaction tx = session.beginTransaction();
+			session.delete(obj);
+		tx.commit();
+		session.close();
 	}
 	public void update(Object obj){
-		//TODO
+		Session session = this.Connection();
+		Transaction tx = session.beginTransaction();
+			session.update(obj);
+		tx.commit();
+		session.close();
 	}
 	public ArrayList getAll(String table){
 		Session session = this.Connection();
