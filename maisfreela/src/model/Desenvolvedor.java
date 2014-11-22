@@ -19,6 +19,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import dao.DesenvolvedorDAO;
+import dao.ProjetoDAO;
+
 @Entity
 @Table(name = "desenvolvedor")  
 public class Desenvolvedor{
@@ -117,7 +120,8 @@ public class Desenvolvedor{
 	public boolean isWorker(Projeto projeto, Usuario user){
 		boolean isWorker = false;
 		Desenvolvedor dev = user.getDesenvolvedor();
-		for(Projeto proj : dev.getProjetosAtuados()){
+		ProjetoDAO projDao = new ProjetoDAO();
+		for(Projeto proj :  projDao.getProjetosByDesenvolvedor(dev)){
 			if(proj.getId() == projeto.getId()){
 				isWorker = true;
 			}

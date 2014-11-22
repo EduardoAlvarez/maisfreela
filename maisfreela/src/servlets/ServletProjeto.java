@@ -51,7 +51,6 @@ public class ServletProjeto extends HttpServlet {
 				request.getRequestDispatcher("/maisfreela/projetosatuados.jsp").forward(request,response);
 			break;
 			case "visualizarProjeto":
-				System.out.println("asdasdsda");
 				String id = request.getParameter("id_projeto");
 				if (id != null) {
 					ProjetoDAO projDAO = new ProjetoDAO();

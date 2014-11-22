@@ -13,10 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.servlet.http.HttpSession;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+
+import dao.ProjetoDAO;
 
 @Entity
 @Table(name = "empresario")
@@ -94,7 +95,8 @@ public class Empresario{
 	public boolean isOwner(Projeto projeto, Usuario user){
 		boolean isOwner = false;
 		Empresario emp = user.getEmpresario();
-		for(Projeto proj : emp.getProjetosPublicados()){
+		ProjetoDAO projDao = new ProjetoDAO();
+		for(Projeto proj : projDao.getProjetosByEmpresario(emp)){
 			if(proj.getId() == projeto.getId()){
 				isOwner = true;
 			}
