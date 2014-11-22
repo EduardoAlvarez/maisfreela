@@ -34,10 +34,13 @@
 						<%} }%>
 						<span class='status'>Status: <%= projeto.getStatus()%></span>
 					</div>
-					<br>
-					
-				<button type='submit'>Confirmar</button>
-				<button class='alert' type='submit'>Cancelar</button>
+					<br>			
+				
+				<%if(user.getEmpresario().isOwner(projeto, user)) { %>
+					<button type='submit'>Confirmar</button>
+					<button class='alert' type='submit'>Cancelar</button>					
+				<%} %>
+				
 				<div class='clear'></div>
 			</form> 
 		</div>
