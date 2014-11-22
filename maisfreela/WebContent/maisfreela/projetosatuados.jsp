@@ -1,6 +1,8 @@
+<%@page import="dao.ProjetoDAO"%>
 <%@ page language="java" 
     import="java.util.List"
 	import="model.Projeto"
+	import="model.Desenvolvedor"
 	import="java.util.List"
 	import="model.Tag"%>
 
@@ -17,9 +19,10 @@
 		<div class='content'>
 
 			<%
-				request.setCharacterEncoding("UTF-8");
-				
-			List<Projeto> projetos = user.getDesenvolvedor().getProjetosAtuados();
+			request.setCharacterEncoding("UTF-8");
+			Desenvolvedor dev = user.getDesenvolvedor();
+			ProjetoDAO projDAO = new ProjetoDAO();
+			List<Projeto> projetos = projDAO.getProjetosByDesenvolvedor(dev);
 
 				try {
 					for (Projeto proj : projetos) {
