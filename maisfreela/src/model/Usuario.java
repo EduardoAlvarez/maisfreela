@@ -83,6 +83,7 @@ public class Usuario  {
 		this.id = id;
 	}
 	public List<Notificacao> getNotificacoes() {
+		
 		return notificacoes;
 	}
 	public void setNotificacoes(List<Notificacao> notificacoes) {

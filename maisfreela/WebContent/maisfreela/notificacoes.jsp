@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.ArrayList"
 	import="model.Projeto" import="model.Notificacao" import="model.Lance"
-	import="java.util.List" import="model.Tag"%>
+	import="java.util.List" import="model.Tag"  import="dao.UsuarioDAO"%>
 
 
 <%@include file="header.jsp"%>
@@ -19,7 +19,9 @@
 			<form method='post'>
 				<div class='header_projeto'>Notificações</div>
 				<%
-					List<Notificacao> notificacoes = user.getNotificacoes();
+				
+					UsuarioDAO notif1 = new UsuarioDAO();
+					List<Notificacao> notificacoes = notif1.getNotificacoesbyUsuario(user);
 
 								try {
 									for (Notificacao notif : notificacoes) {
@@ -56,7 +58,7 @@
 					}
 									}
 								catch (Exception e) {
-									out.print("Não há Notificações!");
+									out.print(e);
 								}
 				%>
 			</form>
