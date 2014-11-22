@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Desenvolvedor;
+import model.Projeto;
 import model.Tag;
 
 import org.hibernate.Session;
@@ -21,9 +22,13 @@ public class TagDAO extends GenericDAO{
 	}
 	
 	public List getTagsByDesenvolvedor(Desenvolvedor dev){
-		//TODO
 		Session session = this.Connection();
 		List results = session.createSQLQuery("SELECT tag.nome from tag inner join desenvolvedor_has_tags dht on dht.id_tag = tag.id_tag where id_desenvolvedor = "+dev.getId()+";").list();    
+		return results;
+	}
+	public List<String> getTagsByProjeto(Projeto proj){
+		Session session = this.Connection();
+		List<String> results = session.createSQLQuery("SELECT tag.nome from tag inner join projeto_has_tags pht on pht.id_tag = tag.id_tag where id_projeto = "+proj.getId()+";").list();    
 		return results;
 	}
 }
