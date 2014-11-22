@@ -36,7 +36,6 @@ public class GenericDAO{
 		//TODO
 	}
 	public ArrayList getAll(String table){
-		//TODO
 		Session session = this.Connection();
 		String hql = "FROM "+table;
 		Query query = session.createQuery(hql);

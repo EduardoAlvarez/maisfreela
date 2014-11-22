@@ -108,6 +108,7 @@ public class ServletProjeto extends HttpServlet {
 				proj.setStatus("novo"); //tinha que ser um ENUM.. mas da muito trampo pesquisar isso..
 				ProjetoDAO projDAO = new ProjetoDAO();
 				projDAO.save(proj);
+				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
 			case "projeto/darLanceAction":
 				String comentario = request.getParameter("comentario");

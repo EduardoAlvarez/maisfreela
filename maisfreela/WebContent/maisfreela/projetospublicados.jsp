@@ -1,3 +1,4 @@
+<%@page import="dao.ProjetoDAO"%>
 <%@ page language="java" 
     import="java.util.ArrayList"
 	import="model.Projeto"
@@ -49,7 +50,9 @@
 	<div class='large-9 columns panel-list'>
 		<div class='content'>
 			<%				
-			List<Projeto> projetos = user.getEmpresario().getProjetosPublicados();
+			ProjetoDAO projDao = new ProjetoDAO();
+			
+			List<Projeto> projetos = projDao.getProjetosByEmpresario(user.getEmpresario());
 			if(projetos != null){
 				try {
 					for (Projeto proj : projetos) {
