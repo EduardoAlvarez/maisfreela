@@ -27,10 +27,20 @@ $(function(){
     function onFinishCallback(){
       $('#wizard').smartWizard('showMessage','Finish Clicked');
       //alert('Finish Clicked');
-    }     
+    }  
+    var cancelar = $("<div class='button cancel alert'>Cancelar<div>")
+    cancelar.click(function(){
+    	$(".reveal-modal-bg").click();
+    });
+    $("#iniciarProjeto .actionBar").append(cancelar);
 });
 </script>
 <style>
+.cancel{
+	padding: 6px;
+	margin: 4px;
+	border-radius: 5px;
+}
 #wizard{
 	width: 100%;
 }
