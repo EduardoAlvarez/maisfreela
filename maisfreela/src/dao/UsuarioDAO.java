@@ -3,6 +3,9 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Avaliacao;
+import model.Desenvolvedor;
+import model.Empresario;
 import model.Usuario;
 import model.Notificacao;
 
@@ -38,7 +41,27 @@ public class UsuarioDAO extends GenericDAO{
 		session.close();
 		//System.out.println(notificacoes);
 		return notificacoes;
+		
 	}
 	
+	public List<Avaliacao> getAvaliacoesbyDesenvolvedor (Desenvolvedor dev){
+		Session session = super.Connection();
+		String hql = "FROM Avaliacao a where a.desenvolvedorDestino.id = '"+dev.getId()+"'";
+		Query query = session.createQuery(hql);
+		List<Avaliacao> avaliacoes = (List<Avaliacao>) query.list();
+		session.close();	
+		//System.out.println(avaliacoes);
+		return avaliacoes;
+	}
 		
+	public List<Avaliacao> getAvaliacoesbyEmpresario (Empresario emp){
+		Session session = super.Connection();
+		String hql = "FROM Avaliacao a where a.empresarioDestino.id = '"+emp.getId()+"'";
+		Query query = session.createQuery(hql);
+		List<Avaliacao> avaliacoes = (List<Avaliacao>) query.list();
+		session.close();
+		//System.out.println(avaliacoes);
+		return avaliacoes;
+	}
+	
 }
