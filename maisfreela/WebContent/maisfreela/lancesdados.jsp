@@ -11,6 +11,11 @@
 <%	request.setCharacterEncoding("UTF-8");	
 	Projeto projeto = (Projeto)session.getAttribute("v_projeto");					
 %>
+<style>
+.escolhido{
+background: rgb(205, 255, 205);
+}
+</style>
 <div class='row main-list'>
 <div class='large-3 columns menu-left'>
 		<div class='content'>
