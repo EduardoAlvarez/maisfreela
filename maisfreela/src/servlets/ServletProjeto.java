@@ -136,11 +136,13 @@ public class ServletProjeto extends HttpServlet {
 				ProjetoDAO projDao = new ProjetoDAO();
 				LanceDAO lanceDao = new LanceDAO();
 				Lance lance1 = lanceDao.getById(Integer.valueOf(id_lance));
-				Projeto projeto = projDao.getById(Integer.valueOf(id_projeto1));
-				projeto.setStatus("bloqueado");
-				projDao.update(projeto);
+				Projeto projeto_blok = projDao.getById(Integer.valueOf(id_projeto1));
+				projeto_blok.setStatus("bloqueado");
+				
 				lance1.setEscolhido(true);
+				
 				lanceDao.update(lance1);
+				projDao.update(projeto_blok);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 		}
