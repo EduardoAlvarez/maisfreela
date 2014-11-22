@@ -2,8 +2,10 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Desenvolvedor;
 import model.Empresario;
 import model.Projeto;
+import model.Usuario;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -32,4 +34,15 @@ public class ProjetoDAO extends GenericDAO{
 		return projetos;
 		
 	}
+	
+	public List<Projeto> getProjetosByDesenvolvedor(Desenvolvedor dev){
+		Session session = super.Connection();
+		String hql = "FROM Projeto p where p.desenvolvedor.id = '"+dev.getId()+"'";
+		Query query = session.createQuery(hql);
+		List<Projeto> atuados = (List<Projeto>) query.list();
+		session.close();
+		System.out.println(atuados);
+		return atuados;
+	}
+		
 }

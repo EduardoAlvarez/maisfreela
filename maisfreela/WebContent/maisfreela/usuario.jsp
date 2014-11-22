@@ -1,3 +1,4 @@
+<%@page import="dao.ProjetoDAO"%>
 <%@ page language="java"  
 import="model.Usuario"
 import="model.Empresario"
@@ -58,7 +59,8 @@ import="java.util.List"
 							<!-- Projetos do dev -->
 							<div class='user-projetos'> Projetos atuados </div>
 							<%
-							List<Projeto> projetos = dev.getProjetosAtuados();
+							ProjetoDAO projDAO = new ProjetoDAO();
+							List<Projeto> projetos = projDAO.getProjetosByDesenvolvedor(dev);
 							if(projetos.size() > 0){
 								out.print("<ul>");
 									for(Projeto p : projetos){

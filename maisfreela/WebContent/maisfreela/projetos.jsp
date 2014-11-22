@@ -51,8 +51,7 @@
 
 			<%
 				request.setCharacterEncoding("UTF-8");
-				ArrayList<Projeto> projetos = (ArrayList<Projeto>) request
-						.getAttribute("projetos");
+				ArrayList<Projeto> projetos = (ArrayList<Projeto>) request.getAttribute("projetos");
 
 				try {
 					for (Projeto proj : projetos) {

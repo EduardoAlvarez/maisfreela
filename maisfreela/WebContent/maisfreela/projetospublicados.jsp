@@ -10,41 +10,8 @@
 
 <div class='row main-list'>
 	<div class='large-3 columns menu-left'>
-		<div class='content filtros'>
-		<section><b>WEB</b>
-			<ul>
-				<li>PHP</li>
-				<li>JAVA+Hibernate</li>
-				<li>.NET</li>
-				<li>JavaScript</li>
-				<li>Ruby</li>
-			</ul>
-		</section>
-		<section><b>Desktop</b>
-			<ul>
-				<li>C#</li>
-				<li>JAVA</li>
-				<li>C++</li>
-				<li>Python</li>
-				<li>Pearl</li>
-			</ul>
-		</section>
-		<section><b>Bancos de Dados</b>
-			<ul>
-				<li>MySQL</li>
-				<li>Oracle</li>
-				<li>SQL Server</li>
-				<li>Mongo DB</li>
-			</ul>
-		</section>
-		<section><b>Mobile</b>
-			<ul>
-				<li>IOS</li>
-				<li>Android</li>
-				<li>Windows Phone</li>
-				<li>Outros</li>
-			</ul>
-		</section>
+		<div class='content'>
+		<%@include file="sidemenu.jsp"%>
 		</div>
 	</div>
 	<div class='large-9 columns panel-list'>

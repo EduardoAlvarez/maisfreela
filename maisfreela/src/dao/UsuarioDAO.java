@@ -36,8 +36,9 @@ public class UsuarioDAO extends GenericDAO{
 		Query query = session.createQuery(hql);
 		List<Notificacao> notificacoes = (List<Notificacao>) query.list();
 		session.close();
-		System.out.println(notificacoes);
+		//System.out.println(notificacoes);
 		return notificacoes;
 	}
 	
+		
 }

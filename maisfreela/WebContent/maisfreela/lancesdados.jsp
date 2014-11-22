@@ -59,7 +59,7 @@
 			<%}
 					}
 				catch (Exception e) {
-					out.print("Sem projetos...");
+					out.print("Não existem Lances para este projeto!");
 				}
 			%>
 			</form> 
