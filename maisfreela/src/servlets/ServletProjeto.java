@@ -25,7 +25,7 @@ import dao.UsuarioDAO;
  * Servlet implementation class ServletProjeto
  */
 @WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto","/projeto/reabrirProjeto","/projeto/encerrarProjeto","/projeto/cancelarProjeto","/projeto/darLance","/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
-	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction"})
+	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction"})
 public class ServletProjeto extends HttpServlet {
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private UsuarioDAO userDao = new UsuarioDAO();
@@ -143,6 +143,15 @@ public class ServletProjeto extends HttpServlet {
 				
 				lanceDao.update(lance1);
 				projDao.update(projeto_blok);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+			break;
+			
+			case "reabrirProjetoAction":
+				String id_projeto2 = request.getParameter("id_projeto");
+				ProjetoDAO projeDao = new ProjetoDAO();
+				Projeto reabrir_proj = projeDao.getById(Integer.valueOf(id_projeto2));
+				reabrir_proj.setStatus("pendente");
+				projeDao.update(reabrir_proj);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 		}

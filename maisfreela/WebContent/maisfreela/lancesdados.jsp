@@ -68,7 +68,7 @@
 			<%}
 					}
 				catch (Exception e) {
-					out.print("Não existem Lances para este projeto!");
+					//out.print("Não existem Lances para este projeto!");
 				}
 			%> 
 		</div>

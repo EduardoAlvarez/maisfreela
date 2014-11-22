@@ -148,7 +148,7 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
 	  
 
 <div id="reabrirProjeto" class="reveal-modal" data-reveal>
-  <form>
+  <form method='post' action='<%=request.getContextPath()%>/projeto/reabrirProjetoAction'>
 	  <h3>Tem certeza que deseja reabrir o projeto?</h3>
 	  <!--  p class="lead">O projeto terá inicio hoje <%=hoje%> e término dia: <%=prox%></p -->
 	  <button type='submit'>Confirmar</button>
