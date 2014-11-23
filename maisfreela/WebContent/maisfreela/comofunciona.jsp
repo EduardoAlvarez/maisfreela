@@ -17,7 +17,7 @@
 		<p>Para começar é muito simples! Você precisa se cadastrar em nosso site, e já pode ir a procura do que busca!
 		Se você se cadastrou como um empresário, e quer cadastrar um projeto para encontrar freelancers, basta clicar no botão 
 		<a href='/maisfreela/projeto/publicarProjeto'>"Publicar Projetos."</a> </p>
-		
+		"C:/Users/André/Desktop/ComoFunciona.jpg"
 		<p>Se você se cadastrou como um freelancer, e está a procura de um projeto para trabalhar, basta ir em 
 		<a href='/maisfreela/projeto/visualizaProjetos'>"Projetos"</a> e procurar entre os projetos disponiveis um que seja de seu interesse. </p>
 		Simples, rápido e fácil! Bons projetos! :) 

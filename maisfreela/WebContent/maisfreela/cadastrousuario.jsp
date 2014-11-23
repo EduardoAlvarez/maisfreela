@@ -33,7 +33,7 @@
 
 	<div class= 'row main-list'>
 		<div class='large-12 columns panel-list'>
-			<form class='form-center'>
+			<form class='form-center' method="post" action='<%=request.getContextPath()%>/usuario/cadastrarUsuarioAction'>
 				<label for="nome">Nome Completo</label>
 				<input required type='text' name='nome' id='nome'>
 				
