@@ -15,16 +15,16 @@
 <script type="text/javascript">
 	$(function(){
 		$("#submit").click(function(e){
-			if($("#senha").val() != $("#cSenha").val()){
+			if($("#senha_c").val() != $("#cSenha").val()){
 				if($("#required_pass").length == 0 ){
 					$("#senha").after("<div id='required_pass'>As senhas devem ser iguais</div>");
 				}
-				$("#senha").css('border-color','red');
+				$("#senha_c").css('border-color','red');
 				$("#cSenha").css('border-color','red');
 				e.preventDefault();
 			}else{
 				$("#required_pass").remove();
-				$("#senha").css('border-color','#ccc');
+				$("#senha_c").css('border-color','#ccc');
 				$("#cSenha").css('border-color','#ccc');
 			}
 		})
@@ -44,7 +44,7 @@
 				<input required type='text' name='login' id='login'>
 				
 				<label for="senha">Senha</label>
-				<input required type='password' name='senha' id='senha'>
+				<input required type='password' name='senha_c' id='senha_c'>
 				
 				<label for="cSenha">Confirmar Senha</label>
 				<input required type='password' name='cSenha' id='cSenha' data-equalto="senha">
