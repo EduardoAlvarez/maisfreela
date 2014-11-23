@@ -76,13 +76,8 @@ $(function(){
 	<%} %>
 	
 	<%
-	if(UserController.isLogged("desenvolvedor",user)){
-		boolean owner = false;
-		if(UserController.isLogged("empresario",user)){
-			Empresario emp = user.getEmpresario();		
-			owner = emp.isOwner(projeto, user);
-		}		
-		if(!owner && (projeto.getStatus().equals("pendente") ||  projeto.getStatus().equals("novo"))){%>
+	if(UserController.isLogged("desenvolvedor",user)){		
+		if(projeto.getStatus().equals("pendente") ||  projeto.getStatus().equals("novo")){%>
 			<a 	href="<%=request.getContextPath()%>/projeto/darLance" type='button'>Dar um lance</a>
 		<%}
 		Desenvolvedor dev = user.getDesenvolvedor();
@@ -153,7 +148,8 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
 	  
 
 <div id="reabrirProjeto" class="reveal-modal" data-reveal>
-  <form>
+  <form method='post' action='<%=request.getContextPath()%>/projeto/reabrirProjetoAction'>
+  	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
 	  <h3>Tem certeza que deseja reabrir o projeto?</h3>
 	  <!--  p class="lead">O projeto terá inicio hoje <%=hoje%> e término dia: <%=prox%></p -->
 	  <button type='submit'>Confirmar</button>
@@ -171,7 +167,8 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
   </form>
 </div>
 <div id="cancelarProjeto" class="reveal-modal" data-reveal>
-  <form>
+ <form method='post' action='<%=request.getContextPath()%>/projeto/cancelarProjetoAction'>
+  	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
 	  <h3>Tem certeza que deseja cancelar o projeto?</h3>
 	  <p class="lead">Você não receberá o valor já pago pelo projeto</p>
 	  <button type='submit'>Confirmar</button>
