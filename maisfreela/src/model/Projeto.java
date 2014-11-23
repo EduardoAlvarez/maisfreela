@@ -20,6 +20,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import dao.ProjetoDAO;
+
 @Entity
 @Table(name = "projeto")  
 public class Projeto {
@@ -158,6 +160,10 @@ public class Projeto {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Empresario empresario;
 	
+	@OneToMany(mappedBy="projeto", fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private List<Avaliacao> avaliacoes;
+	
 	@Column(nullable=true) 
 	private boolean pagamento1;
 	
@@ -166,4 +172,21 @@ public class Projeto {
 	private boolean pagamento2;
 	
 	private Date dataInicio;
+	public List<Avaliacao> getAvaliacoes() {
+		return avaliacoes;
+	}
+
+	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+		this.avaliacoes = avaliacoes;
+	}
+	
+	public boolean jaAvaliado(String string){
+		boolean avaliado = false;
+		ProjetoDAO projDAO = new ProjetoDAO();
+		if(projDAO.getAvaliado(this, string) == true){
+			avaliado = true;
+		}
+		return avaliado;
+	}
+	
 }

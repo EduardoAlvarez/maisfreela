@@ -10,7 +10,7 @@
 </style>
 
 <div class='row main-list center' >
-	<div class='large-9 columns panel-list' style='float:none; margin:0 auto;'>
+	<div class='large-12 columns panel-list' style='float:none; margin:0 auto;'>
 		<div class='content' style='padding: 15px 15px 15px 15px;'>
 		<p>No MaisFreela, nós ajudamos nossos clientes a encontrar os melhores freelancers para trabalhar em seus projetos; Assim como ajudamos os freelancers a encontrar projetos para trabalhar, de acordo com suas preferências, habilidades, tempo, e faixa de preço. Juntamos as duas necessidades em uma plataforma segura para o desenvolvimento de projetos.</p>
 		
@@ -20,7 +20,8 @@
 		"C:/Users/André/Desktop/ComoFunciona.jpg"
 		<p>Se você se cadastrou como um freelancer, e está a procura de um projeto para trabalhar, basta ir em 
 		<a href='/maisfreela/projeto/visualizaProjetos'>"Projetos"</a> e procurar entre os projetos disponiveis um que seja de seu interesse. </p>
-		Simples, rápido e fácil! Bons projetos! :) 
+		Simples, rápido e fácil! Bons projetos! :)
+		<img src="<%=request.getContextPath()%>/maisfreela/img/ComoFunciona.jpg"/>
 		</div>	
 	</div>
 </div>
