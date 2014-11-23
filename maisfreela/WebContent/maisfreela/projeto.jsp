@@ -36,10 +36,14 @@
 					</div>
 					<br>			
 				
-				<%if(user.getEmpresario().isOwner(projeto, user)) { %>
+				<%
+				UserController usuario_logado = new UserController();
+				if(usuario_logado.isLogged("empresario", user) == true){
+					if(user.getEmpresario().isOwner(projeto, user)) { %>
 					<button type='submit'>Confirmar</button>
 					<button class='alert' type='submit'>Cancelar</button>					
-				<%} %>
+				<%	} 
+				}%>
 				
 				<div class='clear'></div>
 			</form> 
