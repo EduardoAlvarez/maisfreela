@@ -100,9 +100,8 @@ public class ServletUsuario extends HttpServlet {
 			case "cadastrarUsuarioAction":
 				String nome 	= request.getParameter("nome");
 				String sobre 	= request.getParameter("sobre");
-				String imagem 	= request.getParameter("imagem");
 				String login_u	= request.getParameter("login");
-				String senha1 	= request.getParameter("password");
+				String senha1 	= request.getParameter("senha_c");
 				String emp 		= request.getParameter("emp");
 				String dev 		= request.getParameter("dev");
 				Usuario user_p = new Usuario();
@@ -111,22 +110,33 @@ public class ServletUsuario extends HttpServlet {
 				user_p.setLogin(login_u);
 				user_p.setSenha(senha1);
 				UsuarioDAO userDao = new UsuarioDAO();
+				user_p.setEmail("");
+				user_p.setCpf("");
 				userDao.save(user_p);
-				if(emp == "on"){
+				user_p = userDao.getLast();
+				
+				if(emp.equals("on")){
 					Empresario emp_e = new Empresario();
 					user_p.setEmpresario(emp_e);
 					emp_e.setUsuario(user_p);
+					emp_e.setAvaliacao(0);
 					EmpresarioDAO empDao = new EmpresarioDAO();
-					empDao.save(emp);
+					empDao.save(emp_e);
+					
+					user_p.setEmpresario(emp_e);
 				}
-				if(dev == "on"){
+				if(dev.equals("on")){
 					Desenvolvedor dev_d = new Desenvolvedor();
 					user_p.setDesenvolvedor(dev_d);
+					dev_d.setAvaliacao(0);
 					dev_d.setUsuario(user_p);
 					DesenvolvedorDAO devDao = new DesenvolvedorDAO();
 					devDao.save(dev_d);
+					user_p.setDesenvolvedor(dev_d);
 				}
 				
+				userDao.update(user_p);
+				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request, response);
 			break;
 		}
 	}

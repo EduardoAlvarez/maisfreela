@@ -63,5 +63,9 @@ public class UsuarioDAO extends GenericDAO{
 		//System.out.println(avaliacoes);
 		return avaliacoes;
 	}
+
+	public Usuario getLast() {
+		return (Usuario)super.getLast("Usuario");
+	}
 	
 }

@@ -7,6 +7,11 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
+<style>
+	.link_projeto{
+		float:none;
+	}
+</style>
 <div class='row main-list'>
 	<div class='large-3 columns menu-left'>
 		<div class='content'>

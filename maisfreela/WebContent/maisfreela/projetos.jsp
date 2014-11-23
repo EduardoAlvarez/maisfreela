@@ -83,6 +83,10 @@
 						<%for(Tag tag : tags){ %>
 						<span class='tag'><%=tag.getNome()%></span>
 						<%} %>
+						<span class= 'statusProj'>
+						<span class= 'status-label'>Status:</span>
+						<span class= 'status'><%=proj.getStatus()%></span>
+					</span>
 					</div>
 					<% }%>
 				</div>

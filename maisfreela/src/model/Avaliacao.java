@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
@@ -36,6 +41,10 @@ public class Avaliacao {
 	@JoinColumn(name="id_usuario_remetente", nullable=true)
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Usuario remetente;
+	
+	@OneToOne 
+	@JoinColumn(name = "id_projeto")
+	private Projeto projeto;
 
 	public long getId() {
 		return id;
@@ -83,6 +92,15 @@ public class Avaliacao {
 
 	public void setEmpresarioDestino(Empresario empresarioDestino) {
 		this.empresarioDestino = empresarioDestino;
+		
+	}
+
+	public Projeto getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(Projeto projeto) {
+		this.projeto = projeto;
 	}
 	
 	

@@ -69,4 +69,12 @@ public class GenericDAO{
 		session.close();
 		return results2.get(0);
 	}
+	public Object getLast(String table) {
+		Session session = this.Connection();
+		String hql = "FROM "+table+" t order by t.id desc";
+		Query query = session.createQuery(hql);
+		ArrayList<Object> results3 = (ArrayList<Object>) query.list();
+		session.close();
+		return results3.get(0);
+	}
 }
