@@ -142,9 +142,8 @@ public class ServletProjeto extends HttpServlet {
 				pDAO.save(lance);
 				
 				NotifyController.enviarNotificacao("Lance dado", "Seu projeto: "
-						+ "<a class='link_projeto' href=/maisfreela/projeto/visualizarProjeto?id_projeto="+p.getId()+">"+
-						p.getTitulo()+"</a> recebeu um lance, clique no tï¿½tulo do projeto para mais informaï¿½ï¿½es.", p.getEmpresario().getUsuario());
-				
+				+ "<a class='link_projeto' href='/maisfreela/projeto/visualizarProjeto?id_projeto="+p.getId()+"'>"+
+				p.getTitulo()+"</a> recebeu um lance, clique no título do projeto para mais informações.", p.getEmpresario().getUsuario());	
 				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
 					
 			break;
@@ -161,6 +160,12 @@ public class ServletProjeto extends HttpServlet {
 				
 				lanceDao.update(lance1);
 				projDao.update(projeto_blok);
+				
+				NotifyController.enviarNotificacao("Lance Aceito", "Parabéns! O lance efetuado no projeto: "
+						+ "<a class='link_projeto' href='/maisfreela/projeto/visualizarProjeto?id_projeto="+projeto_blok.getId()+"'>"+
+						projeto_blok.getTitulo()+"</a> foi aceito, aguarde o contato do proprietário do projeto para acertar os detalhes. "
+								+ "Para mais informações clique no titulo do projeto.", lance1.getDesenvolvedor().getUsuario());
+				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			case "reabrirProjetoAction":
@@ -168,6 +173,15 @@ public class ServletProjeto extends HttpServlet {
 				ProjetoDAO projeDao = new ProjetoDAO();
 				Projeto reabrir_proj = projeDao.getById(Integer.valueOf(id_projeto2));
 				reabrir_proj.setStatus("pendente");
+				
+				List<Lance> lances = reabrir_proj.getLances();
+				LanceDAO lanceDao1 = new LanceDAO();
+				
+				for(Lance reabrir_lance : lances){
+					reabrir_lance.setEscolhido(false);
+					lanceDao1.update(reabrir_lance);
+				}
+								
 				projeDao.update(reabrir_proj);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
