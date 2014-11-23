@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Desenvolvedor;
+import model.Empresario;
 import model.Usuario;
-import controller.NotifyController;
 import dao.DesenvolvedorDAO;
+import dao.EmpresarioDAO;
 import dao.UsuarioDAO;
 
 /**
@@ -101,9 +102,31 @@ public class ServletUsuario extends HttpServlet {
 				String sobre 	= request.getParameter("sobre");
 				String imagem 	= request.getParameter("imagem");
 				String login_u	= request.getParameter("login");
-				String password = request.getParameter("password");
+				String senha1 	= request.getParameter("password");
 				String emp 		= request.getParameter("emp");
 				String dev 		= request.getParameter("dev");
+				Usuario user_p = new Usuario();
+				user_p.setNome(nome);
+				user_p.setSobre(sobre);
+				user_p.setLogin(login_u);
+				user_p.setSenha(senha1);
+				UsuarioDAO userDao = new UsuarioDAO();
+				userDao.save(user_p);
+				if(emp == "on"){
+					Empresario emp_e = new Empresario();
+					user_p.setEmpresario(emp_e);
+					emp_e.setUsuario(user_p);
+					EmpresarioDAO empDao = new EmpresarioDAO();
+					empDao.save(emp);
+				}
+				if(dev == "on"){
+					Desenvolvedor dev_d = new Desenvolvedor();
+					user_p.setDesenvolvedor(dev_d);
+					dev_d.setUsuario(user_p);
+					DesenvolvedorDAO devDao = new DesenvolvedorDAO();
+					devDao.save(dev_d);
+				}
+				
 			break;
 		}
 	}

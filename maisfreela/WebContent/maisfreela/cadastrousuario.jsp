@@ -33,15 +33,12 @@
 
 	<div class= 'row main-list'>
 		<div class='large-12 columns panel-list'>
-			<form class='form-center' method="post" enctype="multipart/form-data" action='<%=request.getContextPath()%>/usuario/cadastrarUsuarioAction'>
+			<form class='form-center' method="post" action='<%=request.getContextPath()%>/usuario/cadastrarUsuarioAction'>
 				<label for="nome">Nome Completo</label>
 				<input required type='text' name='nome' id='nome'>
 				
 				<label for="sobre">Sobre</label>
 				<textarea id='sobre' name='sobre'></textarea>
-				
-				<label for="imagem">Imagem</label>
-				<input type='file' name='foto' id='imagem'>
 				
 				<label for="login">Login</label>
 				<input required type='text' name='login' id='login'>
