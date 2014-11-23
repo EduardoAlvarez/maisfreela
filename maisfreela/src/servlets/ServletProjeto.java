@@ -48,7 +48,7 @@ public class ServletProjeto extends HttpServlet {
 		String acao = aux[aux.length-1];
 		switch (acao) {
 			case "visualizaProjetos":
-				ArrayList<Projeto> projetos = projetoDao.getAll();
+				ArrayList<Projeto> projetos = projetoDao.getProjetosDisponiveis(0);
 				request.setAttribute("projetos", projetos);
 				request.getRequestDispatcher("/maisfreela/projetos.jsp").forward(request,response);
 			break;			
