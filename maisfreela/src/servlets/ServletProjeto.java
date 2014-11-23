@@ -177,7 +177,6 @@ public class ServletProjeto extends HttpServlet {
 			case "encerrarProjetoAction":
 				String id_projeto4 = request.getParameter("id_projeto");
 				Projeto encerrar_proje = projetoDao.getById(Integer.valueOf(id_projeto4));
-<<<<<<< HEAD
 				encerrar_proje.setStatus("cancelado");
 				projDao.update(encerrar_proje);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
@@ -188,10 +187,6 @@ public class ServletProjeto extends HttpServlet {
 				projetoI.setStatus("aguardando inicio");
 				projetoI.setPagamento1(true);
 				projDao.update(projetoI);
-=======
-				encerrar_proje.setStatus("aguardando encerramento");
-				projetoDao.update(encerrar_proje);
->>>>>>> f0ddeada63e3b4ebe55e41f90d747d401e2b3269
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			case "confirmarEncerramentoProjetoAction":
