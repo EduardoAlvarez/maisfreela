@@ -34,9 +34,9 @@ public class ServletHome extends HttpServlet {
 			break;
 		case "home":
 			System.out.println("Vc esta na Home");
-			ArrayList<Desenvolvedor> lista = devDao.getAll();
+			ArrayList<Desenvolvedor> lista = devDao.getAllLimited("Desenvolvedor", 3);
 			request.setAttribute("desenvolvedores", lista);
-			ArrayList<Projeto> projetos = projetoDao.getAll();
+			ArrayList<Projeto> projetos = projetoDao.getAllLimited("Projeto", 3);
 			request.setAttribute("projetos", projetos);
 			request.getRequestDispatcher("maisfreela/home.jsp").forward(request, response);
 			break;
