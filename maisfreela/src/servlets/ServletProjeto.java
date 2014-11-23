@@ -24,15 +24,11 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
-<<<<<<< HEAD
-@WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjetoAction","/projeto/reabrirProjeto","/projeto/encerrarProjeto","/projeto/darLance","/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
-=======
 
 @WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", 
 	"/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto",
 	"/projeto/reabrirProjeto","/projeto/cancelarProjeto","/projeto/darLance",
 	"/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
->>>>>>> 465eb29a18f237a0089888ac2835ad68f527d8b0
 	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction",
 	"/projeto/cancelarProjetoAction", "/projeto/encerrarProjetoAction"})
 public class ServletProjeto extends HttpServlet {
