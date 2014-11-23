@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.NotifyController;
+import model.Avaliacao;
 import model.Empresario;
 import model.Lance;
+import model.Notificacao;
 import model.Projeto;
 import model.Tag;
 import model.Usuario;
+import dao.GenericDAO;
 import dao.LanceDAO;
 import dao.ProjetoDAO;
 import dao.TagDAO;
@@ -126,8 +129,7 @@ public class ServletProjeto extends HttpServlet {
 				String id_projeto = request.getParameter("id_projeto");
 				
 				HttpSession sessionLance = request.getSession();
-				Usuario userLance = (Usuario)sessionLance.getAttribute("usuario");
-				
+				Usuario userLance = (Usuario)sessionLance.getAttribute("usuario");				
 				
 				ProjetoDAO pDAO = new ProjetoDAO();
 				Projeto p = pDAO.getById(Integer.valueOf(id_projeto));				
@@ -138,7 +140,13 @@ public class ServletProjeto extends HttpServlet {
 				lance.setDesenvolvedor(userLance.getDesenvolvedor());
 				lance.setProjeto(p);
 				pDAO.save(lance);
+				
+				NotifyController.enviarNotificacao("Lance dado", "Seu projeto: "
+						+ "<a class='link_projeto' href=/maisfreela/projeto/visualizarProjeto?id_projeto="+p.getId()+">"+
+						p.getTitulo()+"</a> recebeu um lance, clique no título do projeto para mais informações.", p.getEmpresario().getUsuario());
+				
 				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
+					
 			break;
 			case "aceitarLanceAction":
 				String id_projeto1 = request.getParameter("id_projeto");
@@ -189,6 +197,44 @@ public class ServletProjeto extends HttpServlet {
 				Projeto encerrar_proje = projetoDao.getById(Integer.valueOf(id_projeto4));
 				encerrar_proje.setStatus("aguardando encerramento");
 				projetoDao.update(encerrar_proje);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+			break;
+			case "avaliarEmpresario":
+				String ava_comentario = request.getParameter("comentario");
+				double ava_avaliacao = Double.parseDouble(request.getParameter("avaliacao"));
+				Integer id_projeto_ava = Integer.parseInt(request.getParameter("id_projeto"));
+							
+				HttpSession sessionAvaliacao = request.getSession();
+				Usuario userAvaliacao = (Usuario)sessionAvaliacao.getAttribute("usuario");
+				
+				ProjetoDAO projetoDAO = new ProjetoDAO();
+				Projeto projeto = projetoDAO.getById(Integer.valueOf(id_projeto_ava));				
+				Avaliacao avalia_emp = new Avaliacao();
+				avalia_emp.setComentario(ava_comentario);
+				avalia_emp.setGrau(ava_avaliacao);
+				avalia_emp.setEmpresarioDestino(projeto.getEmpresario());
+				avalia_emp.setRemetente(userAvaliacao);
+				GenericDAO save_ava = new GenericDAO();
+				save_ava.save(avalia_emp);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+			break;
+			case "avaliarDesenvolvedor":
+				String ava_comentario2 = request.getParameter("comentario");
+				double ava_avaliacao2 = Double.parseDouble(request.getParameter("avaliacao"));
+				Integer id_projeto_ava2 = Integer.parseInt(request.getParameter("id_projeto"));
+							
+				HttpSession sessionAvaliacao2 = request.getSession();
+				Usuario userAvaliacao2 = (Usuario)sessionAvaliacao2.getAttribute("usuario");
+				
+				ProjetoDAO projetoDAO2 = new ProjetoDAO();
+				Projeto projeto2 = projetoDAO2.getById(Integer.valueOf(id_projeto_ava2));				
+				Avaliacao avalia_emp2 = new Avaliacao();
+				avalia_emp2.setComentario(ava_comentario2);
+				avalia_emp2.setGrau(ava_avaliacao2);
+				avalia_emp2.setDesenvolvedorDestino(projeto2.getDesenvolvedor());
+				avalia_emp2.setRemetente(userAvaliacao2);
+				GenericDAO save_ava2 = new GenericDAO();
+				save_ava2.save(avalia_emp2);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 		}

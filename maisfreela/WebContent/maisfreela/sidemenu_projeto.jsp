@@ -88,7 +88,7 @@ display:none;
 			<a 	href="#" data-reveal-id="encerrarProjeto" id='encerrarProjeto_btn' type='button'>Encerrar o projeto</a>
 			<a 	href="#" data-reveal-id="cancelarProjeto" type='button'>Cancelar o projeto</a>		
 		<%}
-		if(emp.isOwner(projeto,user) && projeto.getStatus().equals("finalizado")){%>
+		if(emp.isOwner(projeto,user) && projeto.getStatus().equals("finalizado") && !projeto.jaAvaliado("desenvolvedor")){%>
 		<a 	href="<%=request.getContextPath()%>/projeto/avaliarDesenvolvedor" 	type='button'>Avaliar Desenvolvedor</a>
 		<%} %>
 	<%} %>
@@ -110,7 +110,7 @@ display:none;
 			if(projeto.getStatus().equals("aguardando encerramento")){%>
 			<a 	href="#" data-reveal-id="confirmarEncerramento" type='button'>Confirmar Encerramento</a>
 			<%} 
-			if(projeto.getStatus().equals("finalizado")){%>
+			if(projeto.getStatus().equals("finalizado") && !projeto.jaAvaliado("empresario")){%>
 			<a 	href="<%=request.getContextPath()%>/projeto/avaliarEmpresario" 		type='button'>Avaliar Empresário</a>
 		<%} }%>	
 	<%} %>
