@@ -7,6 +7,7 @@
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
+
 <script>
 $(function(){
 	var url = location.pathname.split("/");
@@ -27,10 +28,20 @@ $(function(){
     function onFinishCallback(){
       $('#wizard').smartWizard('showMessage','Finish Clicked');
       //alert('Finish Clicked');
-    }     
+    }
+    var cancelar = $("<div class='button cancel alert'>Cancelar<div>")
+    cancelar.click(function(){
+    	$(".reveal-modal-bg").click();
+    });
+    $("#iniciarProjeto .actionBar").append(cancelar);    
 });
 </script>
 <style>
+.cancel{
+	padding: 6px;
+	margin: 4px;
+	border-radius: 5px;
+}
 #wizard{
 	width: 100%;
 }
@@ -74,10 +85,14 @@ $(function(){
 		<a 	href="<%=request.getContextPath()%>/projeto/avaliarDesenvolvedor" 	type='button'>Avaliar Desenvolvedor</a>
 		<%} %>
 	<%} %>
-	
 	<%
-	if(UserController.isLogged("desenvolvedor",user)){		
-		if(projeto.getStatus().equals("pendente") ||  projeto.getStatus().equals("novo")){%>
+	if(UserController.isLogged("desenvolvedor",user)){
+		boolean owner = false;
+		if(UserController.isLogged("empresario",user)){
+			Empresario emp = user.getEmpresario();		
+			owner = emp.isOwner(projeto, user);
+		}
+		if(!owner && (projeto.getStatus().equals("pendente") ||  projeto.getStatus().equals("novo"))){%>
 			<a 	href="<%=request.getContextPath()%>/projeto/darLance" type='button'>Dar um lance</a>
 		<%}
 		Desenvolvedor dev = user.getDesenvolvedor();
