@@ -162,7 +162,6 @@ public class ServletProjeto extends HttpServlet {
 				projetDao.update(cancelar_proj);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
-			
 		}
 	}
 }
