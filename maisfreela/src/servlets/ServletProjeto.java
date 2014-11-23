@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import controller.NotifyController;
 import model.Empresario;
 import model.Lance;
+import model.Notificacao;
 import model.Projeto;
 import model.Tag;
 import model.Usuario;
@@ -126,8 +127,7 @@ public class ServletProjeto extends HttpServlet {
 				String id_projeto = request.getParameter("id_projeto");
 				
 				HttpSession sessionLance = request.getSession();
-				Usuario userLance = (Usuario)sessionLance.getAttribute("usuario");
-				
+				Usuario userLance = (Usuario)sessionLance.getAttribute("usuario");				
 				
 				ProjetoDAO pDAO = new ProjetoDAO();
 				Projeto p = pDAO.getById(Integer.valueOf(id_projeto));				
@@ -138,7 +138,13 @@ public class ServletProjeto extends HttpServlet {
 				lance.setDesenvolvedor(userLance.getDesenvolvedor());
 				lance.setProjeto(p);
 				pDAO.save(lance);
+				
+				NotifyController.enviarNotificacao("Lance dado", "Seu projeto: "
+						+ "<a class='link_projeto' href=/maisfreela/projeto/visualizarProjeto?id_projeto="+p.getId()+">"+
+						p.getTitulo()+"</a> recebeu um lance, clique no título do projeto para mais informações.", p.getEmpresario().getUsuario());
+				
 				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
+					
 			break;
 			case "aceitarLanceAction":
 				String id_projeto1 = request.getParameter("id_projeto");
