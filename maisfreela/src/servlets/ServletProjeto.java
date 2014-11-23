@@ -24,6 +24,7 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
+
 @WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", 
 	"/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto",
 	"/projeto/reabrirProjeto","/projeto/cancelarProjeto","/projeto/darLance",
