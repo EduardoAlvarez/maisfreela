@@ -146,13 +146,6 @@ public class ServletProjeto extends HttpServlet {
 				projDao.update(projeto_blok);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
-<<<<<<< HEAD
-			case "cancelarProjeto":
-				String id_projeto2 = request.getParameter("id_projeto");
-				ProjetoDAO projDaoCancelar = new ProjetoDAO();
-				Projeto projetoCancelar = projDaoCancelar.getById(Integer.valueOf(id_projeto2));
-				projetoCancelar.setStatus("cancelado");				
-=======
 			case "reabrirProjetoAction":
 				String id_projeto2 = request.getParameter("id_projeto");
 				ProjetoDAO projeDao = new ProjetoDAO();
@@ -169,8 +162,6 @@ public class ServletProjeto extends HttpServlet {
 				projetDao.update(cancelar_proj);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
-			
->>>>>>> 93585798fd6d2fb4a102b5530701fa0a01c7bec1
 		}
 	}
 }
