@@ -27,12 +27,23 @@ $(function(){
 	});
     var cancelar = $("<div class='button cancel alert'>Cancelar<div>")
     cancelar.click(function(){
-    	$(".reveal-modal-bg").click();
+    	$("#action_encerrar").hide();
     });
-    $("#iniciarProjeto .actionBar").append(cancelar);    
+    $("#iniciarProjeto .actionBar").append(cancelar);
+    $(".pay").click(function(){
+    	$("#action_encerrar").show('slow');
+    	$("#action_pay").hide('slow');
+    });
+    $("#cancelar_encerramento").click(function(){
+    	$("#action_encerrar").hide();
+    	$("#action_pay").show();
+    })
 });
 </script>
 <style>
+#action_encerrar{
+display:none;
+}
 .cancel{
 	padding: 6px;
 	margin: 4px;
@@ -74,7 +85,7 @@ $(function(){
 			<a 	href="#" data-reveal-id="reabrirProjeto" type='button'>Re-abrir o projeto</a>
 		<%}
 		if(emp.isOwner(projeto,user) && projeto.getStatus().equals("iniciado")){%>
-			<a 	href="#" data-reveal-id="encerrarProjeto" type='button'>Encerrar o projeto</a>
+			<a 	href="#" data-reveal-id="encerrarProjeto" id='encerrarProjeto_btn' type='button'>Encerrar o projeto</a>
 			<a 	href="#" data-reveal-id="cancelarProjeto" type='button'>Cancelar o projeto</a>		
 		<%}
 		if(emp.isOwner(projeto,user) && projeto.getStatus().equals("finalizado")){%>
@@ -176,9 +187,19 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
   <form method='post' action='<%=request.getContextPath()%>/projeto/encerrarProjetoAction'>
   	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
 	  <h3>Tem certeza que deseja encerrar o projeto?</h3>
-	  <p class="lead">Essa ação enviará uma notificação ao desenvolvedor para que ele possa confirma-lá</p>
-	  <button type='submit'>Confirmar</button>
-	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
+	  <div id='action_pay'>
+		  Anter de encerrar o projeto você precisa efetuar o pagamento final.
+		  Qual será a forma de pagamento?
+	  	  <br><br>
+		  <a href='#' class='pay button' style='float:none;'>Boleto</a>
+		  <a href='#' class='pay button' style='float:none;'>PagSeguro</a>
+	  </div>
+	  <div id='action_encerrar'>
+	  	<p class="lead">Pagamento efetuado!</p>
+	  	<p class="lead">Confirme para que o usuário possa receber uma notificação e encerrar o projeto também!</p>
+	  	<button type='submit'>Confirmar</button>
+	  </div>
+	  <a  onclick="fechar()" class='button alert' id='cancelar_encerramento'>Cancelar</a>
 	  <a class="close-reveal-modal">&#215;</a>
   </form>
 </div>
