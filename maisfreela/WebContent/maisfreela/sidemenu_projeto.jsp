@@ -105,10 +105,10 @@ display:none;
 		Desenvolvedor dev = user.getDesenvolvedor();
 		if(dev.isWorker(projeto , user)){
 			if(projeto.getStatus().equals("aguardando inicio")){%>
-			<a 	href="<%=request.getContextPath()%>/projeto/confirmarProjeto" 		type='button'>Confirmar inicio</a>
+			<a 	href="#" data-reveal-id="confirmarInicioProjeto" type='button'>Confirmar início</a>
 			<%} 
 			if(projeto.getStatus().equals("aguardando encerramento")){%>
-			<a 	href="<%=request.getContextPath()%>/projeto/confirmarEncerramento" 	type='button'>Confirmar encerramento</a>
+			<a 	href="#" data-reveal-id="confirmarEncerramento" type='button'>Confirmar Encerramento</a>
 			<%} 
 			if(projeto.getStatus().equals("finalizado")){%>
 			<a 	href="<%=request.getContextPath()%>/projeto/avaliarEmpresario" 		type='button'>Avaliar Empresário</a>
@@ -213,6 +213,27 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
 	  <a class="close-reveal-modal">&#215;</a>
   </form>
 </div>
+<div id="confirmarEncerramento" class="reveal-modal" data-reveal>
+ <form method='post' action='<%=request.getContextPath()%>/projeto/confirmarEncerramentoProjetoAction'>
+  	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
+	  <h3>Tem certeza que deseja confirmar o encerramento do projeto?</h3>
+	  <p class="lead">O Empresario será notificado do encerramento deste Projeto.</p>
+	  <button type='submit'>Confirmar</button>
+	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
+	  <a class="close-reveal-modal">&#215;</a>
+  </form>
+</div>
+
+<div id="confirmarInicioProjeto" class="reveal-modal" data-reveal>
+ <form method='post' action='<%=request.getContextPath()%>/projeto/confirmarInicioProjetoAction'>
+  	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
+	  <h3>Tem certeza que deseja confirmar o início do projeto?</h3>
+	  <button type='submit'>Confirmar</button>
+	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
+	  <a class="close-reveal-modal">&#215;</a>
+  </form>
+</div>
+
 
 <script>
 function fechar(){

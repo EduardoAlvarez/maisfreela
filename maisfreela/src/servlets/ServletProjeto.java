@@ -29,11 +29,13 @@ import dao.UsuarioDAO;
 
 
 @WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", 
-"/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto",
-"/projeto/reabrirProjeto","/projeto/cancelarProjeto","/projeto/darLance",
-"/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
-"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction",
-"/projeto/cancelarProjetoAction", "/projeto/encerrarProjetoAction","/projeto/confirmarInicioProjetoAction", "/projeto/iniciarProjetoAction"})
+	"/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto",
+	"/projeto/reabrirProjeto","/projeto/cancelarProjeto","/projeto/darLance",
+	"/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
+	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction",
+	"/projeto/cancelarProjetoAction", "/projeto/encerrarProjetoAction","/projeto/confirmarInicioProjetoAction", 
+	"/projeto/confirmarEncerramentoProjetoAction"})
+
 public class ServletProjeto extends HttpServlet {
 	
 	private ProjetoDAO projetoDao = new ProjetoDAO();
@@ -169,16 +171,18 @@ public class ServletProjeto extends HttpServlet {
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			case "confirmarInicioProjetoAction":
+				System.out.println("Confirmar inicio");
 				String iniciar_id_projeto = request.getParameter("id_projeto");
 				ProjetoDAO iniciar_projetDao = new ProjetoDAO();
 				Projeto iniciar_proj = iniciar_projetDao.getById(Integer.valueOf(iniciar_id_projeto));
 				iniciar_proj.setStatus("iniciado");
 				iniciar_projetDao.update(iniciar_proj);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			case "encerrarProjetoAction":
+				System.out.println("Encerrar");
 				String id_projeto4 = request.getParameter("id_projeto");
 				Projeto encerrar_proje = projetoDao.getById(Integer.valueOf(id_projeto4));
-<<<<<<< HEAD
-				encerrar_proje.setStatus("cancelado");
+				encerrar_proje.setStatus("aguardando encerramento");
 				projDao.update(encerrar_proje);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
@@ -188,10 +192,13 @@ public class ServletProjeto extends HttpServlet {
 				projetoI.setStatus("aguardando inicio");
 				projetoI.setPagamento1(true);
 				projDao.update(projetoI);
-=======
-				encerrar_proje.setStatus("aguardando encerramento");
-				projetoDao.update(encerrar_proje);
->>>>>>> f0ddeada63e3b4ebe55e41f90d747d401e2b3269
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+			break;
+			case "confirmarEncerramentoProjetoAction":
+				String id_projeto5 = request.getParameter("id_projeto");
+				Projeto confirmar_fim_proj = projetoDao.getById(Integer.valueOf(id_projeto5));
+				confirmar_fim_proj.setStatus("finalizado");
+				projetoDao.update(confirmar_fim_proj);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 		}
