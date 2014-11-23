@@ -24,7 +24,7 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
-@WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto","/projeto/reabrirProjeto","/projeto/encerrarProjeto","/projeto/darLance","/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
+@WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjetoAction","/projeto/reabrirProjeto","/projeto/encerrarProjeto","/projeto/darLance","/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
 	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction",
 	"/projeto/cancelarProjetoAction"})
 public class ServletProjeto extends HttpServlet {
@@ -160,6 +160,14 @@ public class ServletProjeto extends HttpServlet {
 				Projeto cancelar_proj = projetDao.getById(Integer.valueOf(id_projeto3));
 				cancelar_proj.setStatus("cancelado");
 				projetDao.update(cancelar_proj);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+			break;
+			case "iniciarProjetoAction":
+				String iniciar_id_projeto = request.getParameter("id_projeto");
+				ProjetoDAO iniciar_projetDao = new ProjetoDAO();
+				Projeto iniciar_proj = iniciar_projetDao.getById(Integer.valueOf(iniciar_id_projeto));
+				iniciar_proj.setStatus("iniciado");
+				iniciar_projetDao.update(iniciar_proj);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 		}
