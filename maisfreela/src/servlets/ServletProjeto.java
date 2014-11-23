@@ -169,12 +169,15 @@ public class ServletProjeto extends HttpServlet {
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			case "confirmarInicioProjetoAction":
+				System.out.println("Confirmar inicio");
 				String iniciar_id_projeto = request.getParameter("id_projeto");
 				ProjetoDAO iniciar_projetDao = new ProjetoDAO();
 				Projeto iniciar_proj = iniciar_projetDao.getById(Integer.valueOf(iniciar_id_projeto));
 				iniciar_proj.setStatus("iniciado");
 				iniciar_projetDao.update(iniciar_proj);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			case "encerrarProjetoAction":
+				System.out.println("Encerrar");
 				String id_projeto4 = request.getParameter("id_projeto");
 				ProjetoDAO projetoDao = new ProjetoDAO();
 				Projeto encerrar_proje = projetoDao.getById(Integer.valueOf(id_projeto4));
