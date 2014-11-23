@@ -24,11 +24,15 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
+<<<<<<< HEAD
+@WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjetoAction","/projeto/reabrirProjeto","/projeto/encerrarProjeto","/projeto/darLance","/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
+=======
 
 @WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", 
 	"/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto",
 	"/projeto/reabrirProjeto","/projeto/cancelarProjeto","/projeto/darLance",
 	"/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
+>>>>>>> 465eb29a18f237a0089888ac2835ad68f527d8b0
 	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction",
 	"/projeto/cancelarProjetoAction", "/projeto/encerrarProjetoAction"})
 public class ServletProjeto extends HttpServlet {
@@ -166,6 +170,12 @@ public class ServletProjeto extends HttpServlet {
 				projetDao.update(cancelar_proj);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
+			case "iniciarProjetoAction":
+				String iniciar_id_projeto = request.getParameter("id_projeto");
+				ProjetoDAO iniciar_projetDao = new ProjetoDAO();
+				Projeto iniciar_proj = iniciar_projetDao.getById(Integer.valueOf(iniciar_id_projeto));
+				iniciar_proj.setStatus("iniciado");
+				iniciar_projetDao.update(iniciar_proj);
 			case "encerrarProjetoAction":
 				String id_projeto4 = request.getParameter("id_projeto");
 				ProjetoDAO projetoDao = new ProjetoDAO();
