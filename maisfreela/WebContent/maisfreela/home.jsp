@@ -52,7 +52,7 @@
 			 <% 	 
 		 }		
 	} catch (Exception e) {
-		out.print("Sem desenvolvedores...");
+		out.print("Sem desenvolvedores!");
 	} 
 	 %>
     <hr/>
@@ -77,7 +77,7 @@
 			 <% 	 
 		 }		
 	} catch (Exception e) {
-		out.print("Sem desenvolvedores...");
+		out.print("Sem Projetos!");
 	} 
 	 %>
 

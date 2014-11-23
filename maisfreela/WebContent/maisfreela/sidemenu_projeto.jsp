@@ -22,13 +22,9 @@ $(function(){
 	    labelPrevious:'Anterior', // label for Previous button
 	    labelFinish:'Finalizar',  // label for Finish button
 	    onFinish:function(){
-	    	alert("Finalizado!!");
+	    	$("#form_iniciar").submit();
 	    }
 	});
-    function onFinishCallback(){
-      $('#wizard').smartWizard('showMessage','Finish Clicked');
-      //alert('Finish Clicked');
-    }
     var cancelar = $("<div class='button cancel alert'>Cancelar<div>")
     cancelar.click(function(){
     	$(".reveal-modal-bg").click();
@@ -101,7 +97,7 @@ $(function(){
 			<a 	href="#" data-reveal-id="confirmarInicioProjeto" type='button'>Confirmar início</a>
 			<%} 
 			if(projeto.getStatus().equals("aguardando encerramento")){%>
-			<a 	href="<%=request.getContextPath()%>/projeto/confirmarEncerramento" 	type='button'>Confirmar encerramento</a>
+			<a 	href="#" data-reveal-id="confirmarEncerramento" type='button'>Confirmar Encerramento</a>
 			<%} 
 			if(projeto.getStatus().equals("finalizado")){%>
 			<a 	href="<%=request.getContextPath()%>/projeto/avaliarEmpresario" 		type='button'>Avaliar Empresário</a>
@@ -139,7 +135,8 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
   			<div id="step-1">	
             	<h2 class="StepTitle">O projeto</h2>
             	<p>Tem certeza que deseja iniciar o projeto?</p>
-            	<p>Ele terá inicio dia: e término dia: .</p>
+            	<p>A data de inicio do projeto será a partir do momento que o Desenvolvedor confirmar o inicio.</p>
+            	<p>A data de término será calculada de acordo com o prazo que você cadastrou.</p>
 			</div>
 			<div id="step-2">	
             	<h2 class="StepTitle">Forma de pagamento</h2>
@@ -148,15 +145,18 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
 		            	Qual será sua forma de pagamento?
 	            	</p>
 	            	<div>
-	            		<button>PagSeguro</button>
-	            		<button>Boleto</button>
+	            		<a href="#" class='button'>PagSeguro</a>
+	            		<a href="#" class='button'>Boleto</a>
 	            	</div>
             	
 			</div>
 			<div id="step-3">	
             	<h2 class="StepTitle">Resumo</h2>
             	<p>O desenvolvedor receberá uma notificação avisando do inicio do projeto.</p> 
-            	<p>Aguarde até que ele confirme.</p> 
+            	<p>Aguarde até que ele confirme.</p>
+            	<form id='form_iniciar' method='post' action='<%=request.getContextPath()%>/projeto/iniciarProjetoAction'>
+            		<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
+            	</form> 
 			</div>
 	</div>
 </div>
@@ -174,7 +174,7 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
 </div>
 <div id="encerrarProjeto" class="reveal-modal" data-reveal>
   <form method='post' action='<%=request.getContextPath()%>/projeto/encerrarProjetoAction'>
-  	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>>
+  	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
 	  <h3>Tem certeza que deseja encerrar o projeto?</h3>
 	  <p class="lead">Essa ação enviará uma notificação ao desenvolvedor para que ele possa confirma-lá</p>
 	  <button type='submit'>Confirmar</button>
@@ -187,6 +187,16 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
   	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
 	  <h3>Tem certeza que deseja cancelar o projeto?</h3>
 	  <p class="lead">Você não receberá o valor já pago pelo projeto</p>
+	  <button type='submit'>Confirmar</button>
+	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
+	  <a class="close-reveal-modal">&#215;</a>
+  </form>
+</div>
+<div id="confirmarEncerramento" class="reveal-modal" data-reveal>
+ <form method='post' action='<%=request.getContextPath()%>/projeto/confirmarEncerramentoProjetoAction'>
+  	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
+	  <h3>Tem certeza que deseja confirmar o encerramento do projeto?</h3>
+	  <p class="lead">O Empresario será notificado do encerramento deste Projeto.</p>
 	  <button type='submit'>Confirmar</button>
 	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
 	  <a class="close-reveal-modal">&#215;</a>
