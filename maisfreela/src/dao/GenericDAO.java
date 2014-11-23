@@ -54,8 +54,9 @@ public class GenericDAO{
 	public ArrayList getAllLimited(String table , int limit){
 		//TODO
 		Session session = this.Connection();
-		String hql = "FROM "+table+" limit "+limit;
+		String hql = "FROM "+table;
 		Query query = session.createQuery(hql);
+		query.setMaxResults(limit);
 		ArrayList<Object> results2 = (ArrayList<Object>) query.list();
 		session.close();
 		return results2;
