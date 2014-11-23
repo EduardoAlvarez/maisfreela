@@ -143,7 +143,7 @@ public class ServletProjeto extends HttpServlet {
 				
 				NotifyController.enviarNotificacao("Lance dado", "Seu projeto: "
 						+ "<a class='link_projeto' href=/maisfreela/projeto/visualizarProjeto?id_projeto="+p.getId()+">"+
-						p.getTitulo()+"</a> recebeu um lance, clique no título do projeto para mais informações.", p.getEmpresario().getUsuario());
+						p.getTitulo()+"</a> recebeu um lance, clique no tï¿½tulo do projeto para mais informaï¿½ï¿½es.", p.getEmpresario().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
 					
@@ -177,6 +177,11 @@ public class ServletProjeto extends HttpServlet {
 				Projeto cancelar_proj = projetDao.getById(Integer.valueOf(id_projeto3));
 				cancelar_proj.setStatus("cancelado");
 				projetDao.update(cancelar_proj);
+				////notificaÃ§Ã£o
+				NotifyController.enviarNotificacao("Projeto cancelado", 
+				"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! "
+			  + "VocÃª receberÃ¡ 40% do valor jÃ¡ pago.", projetDao.getUsuarioByProjeto(cancelar_proj));
+				//
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			case "confirmarInicioProjetoAction":

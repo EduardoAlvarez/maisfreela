@@ -8,6 +8,7 @@ import model.Desenvolvedor;
 import model.Empresario;
 import model.Lance;
 import model.Projeto;
+import model.Usuario;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -93,6 +94,14 @@ public class ProjetoDAO extends GenericDAO {
 		ArrayList<Object> projetosDisponiveis = (ArrayList<Object>) query.list();
 		session.close();
 		return projetosDisponiveis;
+	}
+	public Usuario getUsuarioByProjeto(Projeto p){
+		Session session = this.Connection();
+		String hql = "SELECT desenvolvedor FROM Projeto p where p.id = "+p.getId();
+		Query query = session.createQuery(hql);
+		ArrayList<Object> desenvolvedor = (ArrayList<Object>) query.list();
+		session.close();
+		return (Usuario)desenvolvedor.get(0);
 	}
 	
 	
