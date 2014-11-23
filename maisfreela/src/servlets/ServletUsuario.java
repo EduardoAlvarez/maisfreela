@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
-
 import model.Desenvolvedor;
+import model.Empresario;
 import model.Usuario;
 import dao.DesenvolvedorDAO;
+import dao.EmpresarioDAO;
 import dao.UsuarioDAO;
 
 /**
@@ -22,24 +22,14 @@ import dao.UsuarioDAO;
  */
 @WebServlet({ "/usuario/cadastraUsuario", "/usuario/visualizaDesenvolvedores",
 		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario" , "/usuario/sair","/usuario/perfil",
-		"/usuario/dadosPessoais","/usuario/dadosFinanceiros","/usuario/minhasAvaliacoes", "/usuario/visualizarNotificacoes"})
+		"/usuario/dadosPessoais","/usuario/dadosFinanceiros","/usuario/minhasAvaliacoes", "/usuario/visualizarNotificacoes",
+		"/usuario/cadastrarUsuarioAction"})
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO userDao = new UsuarioDAO();
 	private DesenvolvedorDAO devDao = new DesenvolvedorDAO();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  /*Usuario usuario = new Usuario();
-		usuario.setNome("Henrique Barjas");
-		usuario.setCpf("123456543300"); 
-		usuario.setLogin("henrique.barjar");
-		usuario.setSenha("54321");
-		usuario.setSobre("Descrição do usuário");
-		userDao.save(usuario);
-		Desenvolvedor dev = new Desenvolvedor(usuario);
-		devDao.save(dev);
-		ArrayList<Desenvolvedor> lista = devDao.getAll();
-		request.setAttribute("desenvolvedor", lista);*/
 		String url = request.getRequestURI();
 		String[] aux = url.split("/");
 		String acao = aux[aux.length-1];
@@ -92,22 +82,52 @@ public class ServletUsuario extends HttpServlet {
 		String[] aux = url.split("/");
 		String acao = aux[aux.length - 1];
 		switch (acao) {
-		case "logar":
-			String login = request.getParameter("login");
-			String senha = request.getParameter("senha");
-			Usuario user = Usuario.logar(login, senha);
-			if (user != null) {
-				request.setAttribute("status", "1");
-				HttpSession session = request.getSession();
-				session.setAttribute("usuario", user); 
-				System.out.println(session);
-				response.sendRedirect("/maisfreela/home");
-			} else {
-				request.setAttribute("status", "0");
-				request.getRequestDispatcher("/maisfreela/login.jsp").forward(request, response);
-			}
+			case "logar":
+				String login = request.getParameter("login");
+				String senha = request.getParameter("senha");
+				Usuario user = Usuario.logar(login, senha);
+				if (user != null) {
+					request.setAttribute("status", "1");
+					HttpSession session = request.getSession();
+					session.setAttribute("usuario", user); 
+					System.out.println(session);
+					response.sendRedirect("/maisfreela/home");
+				} else {
+					request.setAttribute("status", "0");
+					request.getRequestDispatcher("/maisfreela/login.jsp").forward(request, response);
+				}
 			break;
-			
+			case "cadastrarUsuarioAction":
+				String nome 	= request.getParameter("nome");
+				String sobre 	= request.getParameter("sobre");
+				String imagem 	= request.getParameter("imagem");
+				String login_u	= request.getParameter("login");
+				String senha1 	= request.getParameter("password");
+				String emp 		= request.getParameter("emp");
+				String dev 		= request.getParameter("dev");
+				Usuario user_p = new Usuario();
+				user_p.setNome(nome);
+				user_p.setSobre(sobre);
+				user_p.setLogin(login_u);
+				user_p.setSenha(senha1);
+				UsuarioDAO userDao = new UsuarioDAO();
+				userDao.save(user_p);
+				if(emp == "on"){
+					Empresario emp_e = new Empresario();
+					user_p.setEmpresario(emp_e);
+					emp_e.setUsuario(user_p);
+					EmpresarioDAO empDao = new EmpresarioDAO();
+					empDao.save(emp);
+				}
+				if(dev == "on"){
+					Desenvolvedor dev_d = new Desenvolvedor();
+					user_p.setDesenvolvedor(dev_d);
+					dev_d.setUsuario(user_p);
+					DesenvolvedorDAO devDao = new DesenvolvedorDAO();
+					devDao.save(dev_d);
+				}
+				
+			break;
 		}
 	}
 
