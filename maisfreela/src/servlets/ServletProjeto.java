@@ -177,7 +177,7 @@ public class ServletProjeto extends HttpServlet {
 			case "encerrarProjetoAction":
 				String id_projeto4 = request.getParameter("id_projeto");
 				Projeto encerrar_proje = projetoDao.getById(Integer.valueOf(id_projeto4));
-				encerrar_proje.setStatus("cancelado");
+				encerrar_proje.setStatus("aguardando encerramento");
 				projDao.update(encerrar_proje);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
