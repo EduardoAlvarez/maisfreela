@@ -101,7 +101,7 @@ $(function(){
 			<a 	href="<%=request.getContextPath()%>/projeto/confirmarProjeto" 		type='button'>Confirmar inicio</a>
 			<%} 
 			if(projeto.getStatus().equals("aguardando encerramento")){%>
-			<a 	href="<%=request.getContextPath()%>/projeto/confirmarEncerramento" 	type='button'>Confirmar encerramento</a>
+			<a 	href="#" data-reveal-id="confirmarEncerramento" type='button'>Confirmar Encerramento</a>
 			<%} 
 			if(projeto.getStatus().equals("finalizado")){%>
 			<a 	href="<%=request.getContextPath()%>/projeto/avaliarEmpresario" 		type='button'>Avaliar Empresário</a>
@@ -187,6 +187,16 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
   	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
 	  <h3>Tem certeza que deseja cancelar o projeto?</h3>
 	  <p class="lead">Você não receberá o valor já pago pelo projeto</p>
+	  <button type='submit'>Confirmar</button>
+	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
+	  <a class="close-reveal-modal">&#215;</a>
+  </form>
+</div>
+<div id="confirmarEncerramento" class="reveal-modal" data-reveal>
+ <form method='post' action='<%=request.getContextPath()%>/projeto/confirmarEncerramentoProjetoAction'>
+  	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
+	  <h3>Tem certeza que deseja confirmar o encerramento do projeto?</h3>
+	  <p class="lead">O Empresario será notificado do encerramento deste Projeto.</p>
 	  <button type='submit'>Confirmar</button>
 	  <a  onclick="fechar()" class='button alert'>Cancelar</a>
 	  <a class="close-reveal-modal">&#215;</a>
