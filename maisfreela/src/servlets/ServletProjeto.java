@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -174,6 +175,10 @@ public class ServletProjeto extends HttpServlet {
 				String iniciar_id_projeto = request.getParameter("id_projeto");
 				ProjetoDAO iniciar_projetDao = new ProjetoDAO();
 				Projeto iniciar_proj = iniciar_projetDao.getById(Integer.valueOf(iniciar_id_projeto));
+				
+				Date dataInicio = new Date();
+				iniciar_proj.setDataInicio(dataInicio);
+								
 				iniciar_proj.setStatus("iniciado");
 				iniciar_projetDao.update(iniciar_proj);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
