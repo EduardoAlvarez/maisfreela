@@ -158,7 +158,8 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
   </form>
 </div>
 <div id="encerrarProjeto" class="reveal-modal" data-reveal>
-  <form>
+  <form method='post' action='<%=request.getContextPath()%>/projeto/encerrarProjetoAction'>
+  	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>>
 	  <h3>Tem certeza que deseja encerrar o projeto?</h3>
 	  <p class="lead">Essa ação enviará uma notificação ao desenvolvedor para que ele possa confirma-lá</p>
 	  <button type='submit'>Confirmar</button>

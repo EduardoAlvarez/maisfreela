@@ -24,9 +24,12 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
-@WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", "/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto","/projeto/reabrirProjeto","/projeto/encerrarProjeto","/projeto/cancelarProjeto","/projeto/darLance","/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
+@WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", 
+	"/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto",
+	"/projeto/reabrirProjeto","/projeto/cancelarProjeto","/projeto/darLance",
+	"/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
 	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction",
-	"/projeto/cancelarProjetoAction"})
+	"/projeto/cancelarProjetoAction", "/projeto/encerrarProjetoAction"})
 public class ServletProjeto extends HttpServlet {
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private UsuarioDAO userDao = new UsuarioDAO();
@@ -160,6 +163,14 @@ public class ServletProjeto extends HttpServlet {
 				Projeto cancelar_proj = projetDao.getById(Integer.valueOf(id_projeto3));
 				cancelar_proj.setStatus("cancelado");
 				projetDao.update(cancelar_proj);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+			break;
+			case "encerrarProjetoAction":
+				String id_projeto4 = request.getParameter("id_projeto");
+				ProjetoDAO projetoDao = new ProjetoDAO();
+				Projeto encerrar_proje = projetoDao.getById(Integer.valueOf(id_projeto4));
+				encerrar_proje.setStatus("cancelado");
+				projetoDao.update(encerrar_proje);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 		}
