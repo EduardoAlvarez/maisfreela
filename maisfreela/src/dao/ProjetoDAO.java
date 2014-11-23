@@ -83,4 +83,14 @@ public class ProjetoDAO extends GenericDAO {
 		}
 		return avaliado;
 	}
+	public ArrayList getProjetosDisponiveis(int limit){
+		Session session = this.Connection();
+		String hql = "FROM Projeto p where p.status = 'pendente' OR p.status = 'novo'";
+		Query query = session.createQuery(hql);
+		query.setMaxResults(limit);
+		ArrayList<Object> projetosDisponiveis = (ArrayList<Object>) query.list();
+		session.close();
+		return projetosDisponiveis;
+	}
+	
 }
