@@ -24,11 +24,13 @@ import dao.UsuarioDAO;
 /**
  * Servlet implementation class ServletProjeto
  */
+
+
+
 @WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", 
 	"/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto",
 	"/projeto/reabrirProjeto","/projeto/cancelarProjeto","/projeto/darLance",
 	"/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
-
 	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction",
 	"/projeto/cancelarProjetoAction", "/projeto/encerrarProjetoAction","/projeto/confirmarInicioProjetoAction"})
 public class ServletProjeto extends HttpServlet {
@@ -176,7 +178,7 @@ public class ServletProjeto extends HttpServlet {
 				String id_projeto4 = request.getParameter("id_projeto");
 				ProjetoDAO projetoDao = new ProjetoDAO();
 				Projeto encerrar_proje = projetoDao.getById(Integer.valueOf(id_projeto4));
-				encerrar_proje.setStatus("cancelado");
+				encerrar_proje.setStatus("aguardando encerramento");
 				projetoDao.update(encerrar_proje);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
