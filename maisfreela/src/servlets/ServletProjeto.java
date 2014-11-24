@@ -140,12 +140,13 @@ public class ServletProjeto extends HttpServlet {
 				lance.setDesenvolvedor(userLance.getDesenvolvedor());
 				lance.setProjeto(p);
 				pDAO.save(lance);
-				
-				NotifyController.enviarNotificacao("Lance dado", "Seu projeto: "
-				+ "<a class='link_projeto' href='/maisfreela/projeto/visualizarProjeto?id_projeto="+p.getId()+"'>"+
-				p.getTitulo()+"</a> recebeu um lance, clique no título do projeto para mais informações.", p.getEmpresario().getUsuario());	
-				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
+
+				//Notificação
+				NotifyController.enviarNotificacao("Lance dado", 
+						"Seu projeto:<a class='link_projeto' href='/maisfreela/projeto/visualizarProjeto?id_projeto="+p.getId()+"'>"+p.getTitulo()+"</a> recebeu um lance, clique no título do projeto para mais informações.", 
+						p.getEmpresario().getUsuario());	
 					
+				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
 			break;
 			case "aceitarLanceAction":
 				String id_projeto1 = request.getParameter("id_projeto");
@@ -160,28 +161,32 @@ public class ServletProjeto extends HttpServlet {
 				
 				lanceDao.update(lance1);
 				projDao.update(projeto_blok);
-				
-				NotifyController.enviarNotificacao("Lance Aceito", "Parabéns! O lance efetuado no projeto: "
-						+ "<a class='link_projeto' href='/maisfreela/projeto/visualizarProjeto?id_projeto="+projeto_blok.getId()+"'>"+
-						projeto_blok.getTitulo()+"</a> foi aceito, aguarde o contato do proprietário do projeto para acertar os detalhes. "
-								+ "Para mais informações clique no titulo do projeto.", lance1.getDesenvolvedor().getUsuario());
+
+				//Notificação
+				NotifyController.enviarNotificacao("Lance aceito", 
+						"Seu lance foi aceito no projeto", 
+						lance1.getDesenvolvedor().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			case "reabrirProjetoAction":
 				String id_projeto2 = request.getParameter("id_projeto");
-				ProjetoDAO projeDao = new ProjetoDAO();
+				ProjetoDAO projeDao = new ProjetoDAO();				
 				Projeto reabrir_proj = projeDao.getById(Integer.valueOf(id_projeto2));
 				reabrir_proj.setStatus("pendente");
 				
-				List<Lance> lances = reabrir_proj.getLances();
-				LanceDAO lanceDao1 = new LanceDAO();
 				
+				LanceDAO lanceDao1 = new LanceDAO();
+				List<Lance> lances = reabrir_proj.getLances();				
+				
+				/* LÓGICA PARA VOTAR O ESCOLHIDO PARA FALSE - NÃO DEU CERTO
 				for(Lance reabrir_lance : lances){
 					reabrir_lance.setEscolhido(false);
 					lanceDao1.update(reabrir_lance);
 				}
-								
+				*/
+				
+				
 				projeDao.update(reabrir_proj);
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
@@ -191,11 +196,12 @@ public class ServletProjeto extends HttpServlet {
 				Projeto cancelar_proj = projetDao.getById(Integer.valueOf(id_projeto3));
 				cancelar_proj.setStatus("cancelado");
 				projetDao.update(cancelar_proj);
-				////notificaÃ§Ã£o
+				
+				//Notificação
 				NotifyController.enviarNotificacao("Projeto cancelado", 
-				"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! "
-			  + "VocÃª receberÃ¡ 40% do valor jÃ¡ pago.", projetDao.getUsuarioByProjeto(cancelar_proj));
-				//
+						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Você receberá 40% do valor já pago.", 
+						projetDao.getUsuarioByProjeto(cancelar_proj));
+								
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			case "confirmarInicioProjetoAction":
@@ -208,6 +214,12 @@ public class ServletProjeto extends HttpServlet {
 								
 				iniciar_proj.setStatus("iniciado");
 				iniciar_projetDao.update(iniciar_proj);
+				
+				//Notificação
+				NotifyController.enviarNotificacao("Início do projeto confirmado",
+						"Início do projeto confirmado pelo desenvolvedor!", 
+						iniciar_proj.getDesenvolvedor().getUsuario());
+				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			case "encerrarProjetoAction":
@@ -235,6 +247,12 @@ public class ServletProjeto extends HttpServlet {
 				avalia_emp.setRemetente(userAvaliacao);
 				GenericDAO save_ava = new GenericDAO();
 				save_ava.save(avalia_emp);
+				
+				//Notificação
+				NotifyController.enviarNotificacao("Avaliação recebida",
+						"Você foi aavaliado, para mais informação, favor acessar seu perfil.", 
+						avalia_emp.getEmpresarioDestino().getUsuario());
+				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 			case "avaliarDesenvolvedor":
@@ -254,6 +272,12 @@ public class ServletProjeto extends HttpServlet {
 				avalia_emp2.setRemetente(userAvaliacao2);
 				GenericDAO save_ava2 = new GenericDAO();
 				save_ava2.save(avalia_emp2);
+				
+				//Notificação
+				NotifyController.enviarNotificacao("Avaliação recebida",
+						"Você foi aavaliado, para mais informação, favor acessar seu perfil.", 
+						avalia_emp2.getDesenvolvedorDestino().getUsuario());
+				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
 		}
