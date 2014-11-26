@@ -101,7 +101,8 @@ import="java.util.List"
 							<!-- Projetos do emp -->
 							<div class='user-projetos'> Projetos criados </div>
 							<%
-							List<Projeto> projetos = emp.getProjetosPublicados(); 
+							ProjetoDAO projDAO = new ProjetoDAO();
+							List<Projeto> projetos = projDAO.getProjetosByEmpresario(emp); 
 							if(projetos.size() > 0){
 								out.print("<ul>");
 									for(Projeto p : projetos){

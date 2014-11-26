@@ -41,14 +41,16 @@
 	 ArrayList<Desenvolvedor> desenvolvedores = (ArrayList<Desenvolvedor>)request.getAttribute("desenvolvedores");
 	try{
 		 for(Desenvolvedor dev : desenvolvedores){
-			 %>
-			 <a href="<%=request.getContextPath()%>/usuario/visualizaUsuario?id_usuario=<%out.println(dev.getUsuario().getId());%>">
-				 <div class="large-4 columns">
-			      <img src="http://placehold.it/400x300&text=[Freela1]"/>
-			      <h4><%out.println(dev.getUsuario().getNome());%></h4>
-			      <p><h4><%out.println(dev.getUsuario().getSobre());%></h4></p>
-			    </div>
-			 </a>
+			 %>			 
+		 	<div class="large-4 columns">
+		 	<% String link = request.getContextPath()+"/usuario/visualizaUsuario?id_usuario="+dev.getId();%>
+				<a href="<%=link%>">
+					<img src="http://placehold.it/400x300&text=[Freela1]"/>
+					</a>
+			    	<h5><a href='<%=link%>'><%out.println(dev.getUsuario().getNome());%></a></h5>
+			    
+			    <p><%out.println(dev.getUsuario().getSobre());%></p>
+			</div> 
 			 <% 	 
 		 }		
 	} catch (Exception e) {
@@ -70,9 +72,12 @@
 		 for(Projeto proj : projetos){
 			 %>
 			 <div class="large-4 columns">
-		      <img src="http://placehold.it/400x300&text=[Freela1]"/>
-		      <h4><%out.println(proj.getTitulo());%></h4>
-		      <p><h4><%out.println(proj.getDescricao());%></h4></p>
+			 <% String link = request.getContextPath()+"/projeto/visualizarProjeto?id_projeto="+proj.getId();%>
+		     <a href="<%=link%>">
+			      <img src="http://placehold.it/400x300&text=[Freela1]"/>
+			      <h5><a href='<%=link%>'><%out.println(proj.getTitulo());%></a></h5>
+		      </a>
+		      <p><%out.println(proj.getDescricao());%></p>
 		    </div>
 			 <% 	 
 		 }		
