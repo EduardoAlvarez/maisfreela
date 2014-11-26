@@ -43,11 +43,12 @@
 								</div>
 
 							</div>
-							<div class='large-3 columns'>
+							
+							<!--  div class='large-3 columns'>
 								<button class='success' href="#" data-reveal-id="responder" type='submit'>Responder</button>
 							</div>
 
-							<div id="responder" class="reveal-modal" data-reveal>
+							div id="responder" class="reveal-modal" data-reveal>
 								<form>
 									<h3>Insira a sua resposta no campo abaixo:</h3>
 									<textarea name='comentario' id='comentario'></textarea>
@@ -55,7 +56,7 @@
 									<a onclick="fechar()" class='button alert'>Cancelar</a> <a
 										class="close-reveal-modal">&#215;</a>
 									<button type='submit'>Encaminhar</button>
-							</div>
+							</div  -->
 						</div>
 					</div>
 				</div>
