@@ -95,6 +95,9 @@ public class ProjetoDAO extends GenericDAO {
 		session.close();
 		return projetosDisponiveis;
 	}
+	
+	
+	
 	public Usuario getUsuarioByProjeto(Projeto p){
 		Session session = this.Connection();
 		String hql = "SELECT desenvolvedor FROM Projeto p where p.id = "+p.getId();

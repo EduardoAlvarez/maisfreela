@@ -141,9 +141,9 @@ public class ServletProjeto extends HttpServlet {
 				lance.setProjeto(p);
 				pDAO.save(lance);
 
-				//Notificação
+				//Notificaï¿½ï¿½o
 				NotifyController.enviarNotificacao("Lance dado", 
-						"Seu projeto:<a class='link_projeto' href='/maisfreela/projeto/visualizarProjeto?id_projeto="+p.getId()+"'>"+p.getTitulo()+"</a> recebeu um lance, clique no título do projeto para mais informações.", 
+						"Seu projeto:<a class='link_projeto' href='/maisfreela/projeto/visualizarProjeto?id_projeto="+p.getId()+"'>"+p.getTitulo()+"</a> recebeu um lance, clique no tï¿½tulo do projeto para mais informaï¿½ï¿½es.", 
 						p.getEmpresario().getUsuario());	
 					
 				request.getRequestDispatcher("/maisfreela/lancesdados.jsp").forward(request,response);
@@ -161,8 +161,7 @@ public class ServletProjeto extends HttpServlet {
 				
 				lanceDao.update(lance1);
 				projDao.update(projeto_blok);
-
-				//Notificação
+				
 				NotifyController.enviarNotificacao("Lance aceito", 
 						"Seu lance foi aceito no projeto", 
 						lance1.getDesenvolvedor().getUsuario());
@@ -177,14 +176,13 @@ public class ServletProjeto extends HttpServlet {
 				
 				
 				LanceDAO lanceDao1 = new LanceDAO();
-				List<Lance> lances = reabrir_proj.getLances();				
 				
-				/* LÓGICA PARA VOTAR O ESCOLHIDO PARA FALSE - NÃO DEU CERTO
+				List<Lance> lances = projeDao.getLancesByProjeto(reabrir_proj);				
 				for(Lance reabrir_lance : lances){
 					reabrir_lance.setEscolhido(false);
 					lanceDao1.update(reabrir_lance);
 				}
-				*/
+				
 				
 				
 				projeDao.update(reabrir_proj);
@@ -197,9 +195,9 @@ public class ServletProjeto extends HttpServlet {
 				cancelar_proj.setStatus("cancelado");
 				projetDao.update(cancelar_proj);
 				
-				//Notificação
+				//Notificaï¿½ï¿½o
 				NotifyController.enviarNotificacao("Projeto cancelado", 
-						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Você receberá 40% do valor já pago.", 
+						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Vocï¿½ receberï¿½ 40% do valor jï¿½ pago.", 
 						projetDao.getUsuarioByProjeto(cancelar_proj));
 								
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
@@ -215,9 +213,9 @@ public class ServletProjeto extends HttpServlet {
 				iniciar_proj.setStatus("iniciado");
 				iniciar_projetDao.update(iniciar_proj);
 				
-				//Notificação
-				NotifyController.enviarNotificacao("Início do projeto confirmado",
-						"Início do projeto confirmado pelo desenvolvedor!", 
+				//Notificaï¿½ï¿½o
+				NotifyController.enviarNotificacao("Inï¿½cio do projeto confirmado",
+						"Inï¿½cio do projeto confirmado pelo desenvolvedor!", 
 						iniciar_proj.getDesenvolvedor().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
@@ -248,9 +246,9 @@ public class ServletProjeto extends HttpServlet {
 				GenericDAO save_ava = new GenericDAO();
 				save_ava.save(avalia_emp);
 				
-				//Notificação
-				NotifyController.enviarNotificacao("Avaliação recebida",
-						"Você foi aavaliado, para mais informação, favor acessar seu perfil.", 
+				//Notificaï¿½ï¿½o
+				NotifyController.enviarNotificacao("Avaliaï¿½ï¿½o recebida",
+						"Vocï¿½ foi aavaliado, para mais informaï¿½ï¿½o, favor acessar seu perfil.", 
 						avalia_emp.getEmpresarioDestino().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
@@ -273,9 +271,9 @@ public class ServletProjeto extends HttpServlet {
 				GenericDAO save_ava2 = new GenericDAO();
 				save_ava2.save(avalia_emp2);
 				
-				//Notificação
-				NotifyController.enviarNotificacao("Avaliação recebida",
-						"Você foi aavaliado, para mais informação, favor acessar seu perfil.", 
+				//Notificaï¿½ï¿½o
+				NotifyController.enviarNotificacao("Avaliaï¿½ï¿½o recebida",
+						"Vocï¿½ foi aavaliado, para mais informaï¿½ï¿½o, favor acessar seu perfil.", 
 						avalia_emp2.getDesenvolvedorDestino().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
