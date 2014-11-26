@@ -104,7 +104,7 @@ public class ServletProjeto extends HttpServlet {
 				proj.setTitulo(titulo);
 				proj.setDescricao(desc);
 				proj.setPrazo(Integer.valueOf(prazo));
-				proj.setValor(Integer.valueOf(valor));
+				proj.setValor(Float.valueOf(  valor.replace(",",".")));
 				HttpSession session = request.getSession();
 				Usuario user = (Usuario)session.getAttribute("usuario");
 				Empresario emp = user.getEmpresario();

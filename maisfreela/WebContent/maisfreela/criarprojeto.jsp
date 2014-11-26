@@ -17,7 +17,7 @@
 			<textarea required id="desc" name="desc"></textarea>		
 			
 			<label for="valor">Valor</label>
-			<input required type='text' name='valor' id='valor'>
+			<input required type='text' pattern='^\d*(\,\d{2}$)' name='valor' id='valor'>
 			
 			<label for="prazo">Prazo <small>(Em dias)</small></label>
 			<input required type='number' name='prazo' id='prazo'>
