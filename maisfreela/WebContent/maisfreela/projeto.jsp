@@ -14,7 +14,7 @@
 			<%@include file="sidemenu_projeto.jsp"%>
 		</div>
 	</div>
-</div>
+
 <div class='large-9 columns panel-list'>
 	<div class='content'>
 		<form method='post'
@@ -56,6 +56,7 @@
 	</div>
 
 
+</div>
 </div>
 </div>
 <%@include file="footer.jsp"%>
