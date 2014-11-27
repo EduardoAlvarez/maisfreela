@@ -190,9 +190,14 @@ public class ServletProjeto extends HttpServlet {
 				this.projetoDao.update(cancelar_proj);
 				
 				//Notificação
-				NotifyController.enviarNotificacao("Projeto cancelado", 
-						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Você receberá 40% do valor já pago.", 
-						this.projetoDao.getUsuarioByProjeto(cancelar_proj));
+				try {
+					NotifyController.enviarNotificacao("Projeto cancelado", 
+					"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Você receberá 40% do valor já pago.", 
+					this.projetoDao.getUsuarioByProjeto(cancelar_proj));	
+				} catch (Exception e) {
+					//Quer dizer que nao tem dev 
+				}
+				
 								
 				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
