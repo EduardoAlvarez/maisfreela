@@ -37,7 +37,8 @@ import dao.UsuarioDAO;
 	"/projeto/reabrirProjeto","/projeto/cancelarProjeto","/projeto/darLance",
 	"/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
 	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction",
-	"/projeto/cancelarProjetoAction", "/projeto/encerrarProjetoAction","/projeto/confirmarInicioProjetoAction","/projeto/iniciarProjetoAction"})
+	"/projeto/cancelarProjetoAction", "/projeto/encerrarProjetoAction","/projeto/confirmarInicioProjetoAction","/projeto/iniciarProjetoAction",
+	"/projeto/atualizarProjetoAction"})
 public class ServletProjeto extends HttpServlet {
 	
 	private ProjetoDAO projetoDao = new ProjetoDAO();
@@ -292,6 +293,21 @@ public class ServletProjeto extends HttpServlet {
 				inicia_proje.getDesenvolvedor().getUsuario());
 				
 				
+				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
+			break;	
+			case "atualizarProjetoAction":
+				String id_proj_at = request.getParameter("id_projeto");
+				String at_titulo = request.getParameter("titulo");
+				String at_desc = request.getParameter("descricao");
+				String at_valor = request.getParameter("valor");
+				String at_prazo = request.getParameter("prazo");
+				Projeto atualiza_proje = this.projetoDao.getById(Integer.valueOf(id_proj_at));
+				atualiza_proje.setTitulo(at_titulo);
+				atualiza_proje.setDescricao(at_desc);
+				atualiza_proje.setPrazo(Integer.valueOf(at_prazo));
+				atualiza_proje.setValor(Float.valueOf(  at_valor.replace(",",".")));
+				this.projetoDao.update(atualiza_proje);
+				inicia_proje = this.projetoDao.getById(atualiza_proje.getId()); //atualiza!!!
 				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;	
 		}

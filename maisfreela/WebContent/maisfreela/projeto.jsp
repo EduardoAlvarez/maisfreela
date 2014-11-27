@@ -21,6 +21,7 @@
 		<div class='content'>
 			<form method='post' action='<%=request.getContextPath()%>/projeto/atualizarProjetoAction'>
 			<div class='header_projeto'><%=projeto.getTitulo()%></div>
+			<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
 				<label for='titulo'>Titulo:</label>
 				<input required value='<%=projeto.getTitulo()%>' type='text' name='titulo' id='titulo'>
 				<label for='valor'>Valor;</label>
