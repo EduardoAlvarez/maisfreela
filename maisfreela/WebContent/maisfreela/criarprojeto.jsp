@@ -2,6 +2,21 @@
 <%@page import="model.Tag"%>
 <%@ page language="java"%>
 <%@include file="header.jsp"%>
+
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/js/multipleSelect/multiple-select.css" />
+<script src="<%=request.getContextPath()%>/maisfreela/js/multipleSelect/jquery.multiple.select.js" type="text/javascript"></script>
+<script>
+$(function(){
+    $("select").multipleSelect({
+        filter: true,
+        position: 'top',
+        selectAllText:'Selecionar Todos',
+        allSelected:'Todos selecionados',
+        countSelected:'# de % selecionados',
+       	noMatchesFound: 'Sua pesquina não encontrou nada'
+    });
+})
+</script>
 <style>
 	textarea {
 		height: 100px;
