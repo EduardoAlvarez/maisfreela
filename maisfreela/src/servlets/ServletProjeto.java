@@ -162,7 +162,7 @@ public class ServletProjeto extends HttpServlet {
 						"Seu lance foi aceito no projeto", 
 						lance1.getDesenvolvedor().getUsuario());
 				
-				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
 			case "reabrirProjetoAction":
 				String id_projeto2 = request.getParameter("id_projeto");				
@@ -181,7 +181,7 @@ public class ServletProjeto extends HttpServlet {
 				
 				
 				this.projetoDao.update(reabrir_proj);
-				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
 			case "cancelarProjetoAction":
 				String id_projeto3 = request.getParameter("id_projeto");
@@ -194,7 +194,7 @@ public class ServletProjeto extends HttpServlet {
 						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Você receberá 40% do valor já pago.", 
 						this.projetoDao.getUsuarioByProjeto(cancelar_proj));
 								
-				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
 			case "confirmarInicioProjetoAction":
 				String iniciar_id_projeto = request.getParameter("id_projeto");
