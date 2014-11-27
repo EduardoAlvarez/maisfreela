@@ -216,14 +216,14 @@ public class ServletProjeto extends HttpServlet {
 						"Início do projeto confirmado pelo desenvolvedor!", 
 						iniciar_proj.getDesenvolvedor().getUsuario());
 				
-				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+				request.getRequestDispatcher("/maisfreela/projetosatuados.jsp").forward(request,response);
 			break;
 			case "encerrarProjetoAction":
 				String id_projeto4 = request.getParameter("id_projeto");
 				Projeto encerrar_proje = this.projetoDao.getById(Integer.valueOf(id_projeto4));
 				encerrar_proje.setStatus("aguardando encerramento");
 				this.projetoDao.update(encerrar_proje);
-				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
 			case "avaliarEmpresario":
 				String ava_comentario = request.getParameter("comentario");
@@ -292,7 +292,7 @@ public class ServletProjeto extends HttpServlet {
 				inicia_proje.getDesenvolvedor().getUsuario());
 				
 				
-				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;	
 		}
 	}

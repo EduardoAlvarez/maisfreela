@@ -19,7 +19,7 @@
 </div>
 	<div class='large-9 columns panel-list'>
 		<div class='content'>
-			<form method='post'>
+			<form method='post' action='<%=request.getContextPath()%>/projeto/atualizarProjetoAction'>
 			<div class='header_projeto'><%=projeto.getTitulo()%></div>
 				<label for='titulo'>Titulo:</label>
 				<input required value='<%=projeto.getTitulo()%>' type='text' name='titulo' id='titulo'>
