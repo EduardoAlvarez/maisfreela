@@ -51,10 +51,10 @@
 				
 				<fieldset>
 					<legend>Perfil</legend>
-					<input type='checkbox' id='dev' name='dev'>
+					<input type='checkbox' id='perfilDev' name='dev'>
 					<label for="perfilDev">Desenvolvedor</label> <br>
 					
-					<input type='checkbox' id='emp' name='emp'>
+					<input type='checkbox' id='perfilEmpresario' name='emp'>
 					<label for="perfilEmpresario">Empresário</label>					
 				</fieldset>
 				
