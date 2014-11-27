@@ -45,7 +45,7 @@
 		 	<div class="large-4 columns">
 		 	<% String link = request.getContextPath()+"/usuario/visualizaUsuario?id_usuario="+dev.getUsuario().getId();%>
 				<a href="<%=link%>">
-					<img src="http://placehold.it/400x300&text=[Freela]"/>
+					<img src="<%=request.getContextPath()%>/maisfreela/img/usuario2.png" style='width:400px;height:300;'/>
 					</a>
 			    	<h5><a href='<%=link%>'><%out.println(dev.getUsuario().getNome());%></a></h5>
 			    
@@ -74,8 +74,8 @@
 			 <div class="large-4 columns">
 			 <% String link = request.getContextPath()+"/projeto/visualizarProjeto?id_projeto="+proj.getId();%>
 		     <a href="<%=link%>">
-			      <img src="http://placehold.it/400x300&text=[Projeto]"/>
-			      <h5><a href='<%=link%>'><%out.println(proj.getTitulo());%></a></h5>
+		     	<img src="<%=request.getContextPath()%>/maisfreela/img/projeto1.png" style='width:400px;height:300;'/>
+			    <h5><a href='<%=link%>'><%out.println(proj.getTitulo());%></a></h5>
 		      </a>
 		      <p><%out.println(proj.getDescricao());%></p>
 		    </div>
