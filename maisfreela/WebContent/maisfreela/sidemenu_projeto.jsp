@@ -193,7 +193,7 @@ String prox = dateFormat.format(c.getTime());  // dt is now the new date
   	<input type='hidden' value='<%=projeto.getId()%>' name='id_projeto'>
 	  <h3>Tem certeza que deseja encerrar o projeto?</h3>
 	  <div id='action_pay'>
-		  Anter de encerrar o projeto você precisa efetuar o pagamento final.
+		  Antes de encerrar o projeto você precisa efetuar o pagamento final.
 		  Qual será a forma de pagamento?
 	  	  <br><br>
 		  <a href='#' class='pay button' style='float:none;'>Boleto</a>
