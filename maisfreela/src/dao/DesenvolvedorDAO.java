@@ -18,4 +18,9 @@ public class DesenvolvedorDAO extends GenericDAO{
 		}
 		return temp;
 	}
+
+	public Desenvolvedor getLast() {
+		Desenvolvedor dev = (Desenvolvedor)super.getLast("Desenvolvedor");
+		return dev;
+	}
 }

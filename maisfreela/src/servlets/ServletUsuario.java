@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,9 +13,11 @@ import javax.servlet.http.HttpSession;
 
 import model.Desenvolvedor;
 import model.Empresario;
+import model.Tag;
 import model.Usuario;
 import dao.DesenvolvedorDAO;
 import dao.EmpresarioDAO;
+import dao.TagDAO;
 import dao.UsuarioDAO;
 
 /**
@@ -45,6 +48,9 @@ public class ServletUsuario extends HttpServlet {
 				request.getRequestDispatcher("/maisfreela/minhasavaliacoes.jsp").forward(request,response);
 			break;
 			case "cadastraUsuario":
+				TagDAO tagdao = new TagDAO();
+				ArrayList<Tag> tags = tagdao.getAll(); 
+				request.setAttribute("tags", tags);
 				request.getRequestDispatcher("/maisfreela/cadastrousuario.jsp").forward(request,response);
 			break;
 			case "visualizaUsuario":
@@ -134,7 +140,19 @@ public class ServletUsuario extends HttpServlet {
 						dev_d.setUsuario(user_p);
 						DesenvolvedorDAO devDao = new DesenvolvedorDAO();
 						devDao.save(dev_d);
+						dev_d = devDao.getLast();
 						user_p.setDesenvolvedor(dev_d);
+						
+						String[] tags = request.getParameterValues("tags[]");
+						List<Tag> tags_list = new ArrayList<Tag>();
+						TagDAO tagDAO = new TagDAO();
+						for(String tag_id : tags){
+							Tag tag = (Tag)tagDAO.getById("Tag", Integer.valueOf(tag_id));
+							tags_list.add(tag);
+						}
+						dev_d.setTags(tags_list);
+						devDao.update(dev_d);
+						
 					}
 				}
 				

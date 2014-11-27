@@ -1,3 +1,5 @@
+<%@page import="model.Tag"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" 
 contentType="text/html" 
 pageEncoding="ISO-8859-1" 
@@ -5,7 +7,30 @@ pageEncoding="ISO-8859-1"
 
 <%@include file="header.jsp"%>
 
+<link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/js/multipleSelect/multiple-select.css" />
+<script src="<%=request.getContextPath()%>/maisfreela/js/multipleSelect/jquery.multiple.select.js" type="text/javascript"></script>
+<script>
+$(function(){
+	
+    $("select").multipleSelect({
+        filter: true,
+        position: 'top',
+        selectAllText:'Selecionar Todos',
+        allSelected:'Todos selecionados',
+        countSelected:'# de % selecionados',
+       	noMatchesFound: 'Sua pesquina não encontrou nada'
+    });
+    $(".tags").hide();
+    $("#perfilDev").change(function(){
+    	$(".tags").slideToggle();
+    });
+})
+</script>
+
 <style>
+	.tags{
+		display:none;
+	}
 	textarea {
 		height: 100px;
 	}			
@@ -56,11 +81,28 @@ pageEncoding="ISO-8859-1"
 					<legend>Perfil</legend>
 					<input type='checkbox' id='perfilDev' name='dev'>
 					<label for="perfilDev">Desenvolvedor</label> <br>
-					
+					<div class='tags'>
+						<label for="descricao">Tags</label>
+						<select	multiple name='tags[]' id='tags' style="height:100px;">
+							<%
+							ArrayList<Tag> tags = (ArrayList<Tag>)request.getAttribute("tags");
+							try{
+								 for(Tag tag : tags){
+									 out.print("<option value="+tag.getId()+">"+tag.getNome()+"</option>");	 
+								 }
+							}catch(Exception e){
+								out.print("<option>Nenhuma Tag cadastrada!</option>");
+							}
+								 %>
+						</select>
+					</div>
+			
 					<input type='checkbox' id='perfilEmpresario' name='emp'>
 					<label for="perfilEmpresario">Empresário</label>					
 				</fieldset>
-				
+					
+					
+									
 				<button id='submit' type='submit'>Cadastrar</button>
 				<button class="alert" type='button'>Cancelar</button>
 			</form>							
