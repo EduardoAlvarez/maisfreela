@@ -106,6 +106,20 @@ public class ProjetoDAO extends GenericDAO {
 		session.close();
 		return (Usuario)desenvolvedor.get(0);
 	}
+
+	public Lance getLanceAtivoByProjeto(Projeto p) {
+		Session session = super.Connection();
+		String hql = "FROM Lance l where l.projeto.id = '" + p.getId() + "' and l.escolhido = 1";
+		Query query = session.createQuery(hql);
+		Lance lance = (Lance)query.list().get(0);
+		session.close();
+		return lance;
+	}
+
+	public Projeto getLast() {
+		Projeto p = (Projeto)super.getLast("Projeto");
+		return p;
+	}
 	
 	
 }
