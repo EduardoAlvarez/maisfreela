@@ -193,8 +193,8 @@ public class ServletProjeto extends HttpServlet {
 				//Notificação
 				try {
 					NotifyController.enviarNotificacao("Projeto cancelado", 
-					"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Você receberá 40% do valor já pago.", 
-					this.projetoDao.getUsuarioByProjeto(cancelar_proj));	
+						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Voce recebera 40% do valor ja� pago.", 
+						this.projetoDao.getUsuarioByProjeto(cancelar_proj));	
 				} catch (Exception e) {
 					//Quer dizer que nao tem dev 
 				}
@@ -212,9 +212,9 @@ public class ServletProjeto extends HttpServlet {
 				this.projetoDao.update(iniciar_proj);
 				
 				//Notificação
-				NotifyController.enviarNotificacao("Início do projeto confirmado",
-						"Início do projeto confirmado pelo desenvolvedor!", 
-						iniciar_proj.getDesenvolvedor().getUsuario());
+				NotifyController.enviarNotificacao("Inicio do projeto confirmado",
+						"Inicio do projeto confirmado pelo desenvolvedor!", 
+						iniciar_proj.getEmpresario().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projetosatuados.jsp").forward(request,response);
 			break;
