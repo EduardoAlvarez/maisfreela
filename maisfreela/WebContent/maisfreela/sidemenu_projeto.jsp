@@ -13,8 +13,11 @@ $(function(){
 	var url = location.pathname.split("/");
 	var acao = url[url.length - 1];
 	$.each($(".sidemenu a"), function(){
-		if($(this).attr('href').indexOf(acao) !==-1){
-			$(this).addClass('active'); 
+		var href = $(this).attr('href');
+		if(href != undefined){
+			if(href.indexOf(acao) !==-1){
+				$(this).addClass('active'); 
+			}
 		}
 	})
 	$('#wizard').smartWizard({
