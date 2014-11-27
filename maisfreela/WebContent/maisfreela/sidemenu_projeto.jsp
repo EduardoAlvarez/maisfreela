@@ -78,7 +78,7 @@ display:none;
 	<a 	href="<%=request.getContextPath()%>/projeto/visualizarProjeto" 		type='button'>O projeto</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/lancesDados" 			type='button'>Lances dados</a>
 	<%
-	if(UserController.isLogged("empresario",user)){
+	if(UserController.isLogged("empresario",user) && !projeto.getStatus().equals("cancelado")){
 		Empresario emp = user.getEmpresario();
 		if(emp.isOwner(projeto, user)){%>
 			<a 	href="#" data-reveal-id="cancelarProjeto" type='button'>Cancelar o projeto</a>
