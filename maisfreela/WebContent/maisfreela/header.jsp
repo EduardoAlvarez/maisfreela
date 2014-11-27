@@ -1,6 +1,8 @@
 <%@page import="controller.UserController"%>
-<%@ page language="java" contentType="text/html;charset=UTF-8"
-	pageEncoding="UTF-8" import="model.Usuario"%>
+<%@ page language="java" 
+	contentType="text/html" 
+	pageEncoding="ISO-8859-1"  
+	import="model.Usuario"%>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -107,7 +109,7 @@
 			<%if(user == null){%>
 					<a href="<%=request.getContextPath()%>/usuario/cadastraUsuario" class="button">Quero me cadastrar</a>
 					<%}else{ %>
-					<a href="<%=request.getContextPath()%>/usuario/visualizarNotificacoes" class="button">NotificaÃ§Ãµes</a>
+					<a href="<%=request.getContextPath()%>/usuario/visualizarNotificacoes" class="button">Notificações</a>
 					<%} %>
 			</div>
 		</div>

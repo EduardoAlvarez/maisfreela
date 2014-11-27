@@ -1,9 +1,12 @@
 <%@ page language="java" 
+contentType="text/html" 
+pageEncoding="ISO-8859-1" 
+
     import="java.util.ArrayList"
 	import="model.Projeto"
 	import="java.util.List"
 	import="model.Tag"%>
-
+	
 
 <%@include file="header.jsp"%>
 
