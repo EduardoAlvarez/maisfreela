@@ -16,7 +16,7 @@ $(function(){
 	<a 	href="<%=request.getContextPath()%>/usuario/minhasAvaliacoes" type='button'>Minhas Avaliações</a>
 	<a 	href="<%=request.getContextPath()%>/usuario/dadosFinanceiros" type='button'>Dados Financeiros</a>
 	<%if(UserController.isLogged("empresario", user)){ %>
-		<a 	href="<%=request.getContextPath()%>/projeto/projetosPublicados" type='button'>Projetos publicados</a>
+		<a 	href="<%=request.getContextPath()%>/projeto/projetosPublicados" type='button'>Projetos Publicados</a>
 	<%}%>
 	<%if(UserController.isLogged("desenvolvedor", user)){ %>
 		<a 	href="<%=request.getContextPath()%>/projeto/projetosAtuados" type='button'>Projetos Atuados</a>

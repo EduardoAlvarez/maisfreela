@@ -8,7 +8,9 @@
 				<div class="large-6 columns">
 					<ul class="inline-list right">
 						<li><a href="#">Regras de negócio</a></li>
-						<li><a href="#">Fale conosco</a></li>
+											
+						<li><a 	href="<%=request.getContextPath()%>/home/faleConosco" type='button'>Fale conosco</a></li>
+						
 						<li><a href="#">Termos de uso</a></li>
 						<li><a href="#">Manual</a></li>
 					</ul>
