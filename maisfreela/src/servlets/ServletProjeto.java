@@ -287,7 +287,7 @@ public class ServletProjeto extends HttpServlet {
 				inicia_proje.getDesenvolvedor().getUsuario());
 				
 				
-				//request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
+				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;	
 		}
 	}
