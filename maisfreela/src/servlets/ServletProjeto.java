@@ -193,7 +193,7 @@ public class ServletProjeto extends HttpServlet {
 				//NotificaÃ§Ã£o
 				try {
 					NotifyController.enviarNotificacao("Projeto cancelado", 
-						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Voce recebera 40% do valor jaï¿½ pago.", 
+						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Voce recebera 40% do valor já pago.", 
 						this.projetoDao.getUsuarioByProjeto(cancelar_proj));	
 				} catch (Exception e) {
 					//Quer dizer que nao tem dev 
@@ -224,6 +224,12 @@ public class ServletProjeto extends HttpServlet {
 				encerrar_proje.setPagamento2(true);
 				encerrar_proje.setStatus("aguardando encerramento");
 				this.projetoDao.update(encerrar_proje);
+				
+				NotifyController.enviarNotificacao("Projeto Encerrado",
+						"O projeto "+encerrar_proje.getTitulo()+ " foi encerrado pelo Empresário "+encerrar_proje.getEmpresario().getUsuario().getNome()+ 
+						", favor confirmar o encerramento do projeto! Não se esqueça de avaliar o Empresário!",  
+						encerrar_proje.getDesenvolvedor().getUsuario());
+				
 				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
 			case "avaliarEmpresario":
@@ -246,8 +252,8 @@ public class ServletProjeto extends HttpServlet {
 				projeto.getEmpresario().getUsuario().recalculaMedia();
 				
 				//NotificaÃ§Ã£o
-				NotifyController.enviarNotificacao("AvaliaÃ§Ã£o recebida",
-						"VocÃª foi aavaliado, para mais informaÃ§Ã£o, favor acessar seu perfil.", 
+				NotifyController.enviarNotificacao("Avalição recebida",
+						"Você foi avaliado, para mais informações, favor acessar seu perfil.", 
 						avalia_emp.getEmpresarioDestino().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
@@ -274,8 +280,8 @@ public class ServletProjeto extends HttpServlet {
 				projeto2.getDesenvolvedor().getUsuario().recalculaMedia();
 				
 				//NotificaÃ§Ã£o
-				NotifyController.enviarNotificacao("AvaliaÃ§Ã£o recebida",
-						"VocÃª foi avaliado, para mais informaÃ§Ã£o, favor acessar seu perfil.", 
+				NotifyController.enviarNotificacao("Avalição recebida",
+						"Você foi avaliado, para mais informações, favor acessar seu perfil.", 
 						avalia_emp2.getDesenvolvedorDestino().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
@@ -294,8 +300,9 @@ public class ServletProjeto extends HttpServlet {
 				//
 				
 				//NotificaÃ§Ã£o
-				NotifyController.enviarNotificacao("AvaliaÃ§Ã£o recebida",
-				"VocÃª foi aavaliado, para mais informaÃ§Ã£o, favor acessar seu perfil.", 
+				NotifyController.enviarNotificacao("Projeto Iniciado",
+				"O projeto "+inicia_proje.getTitulo()+ " foi iniciado pelo Empresário "+inicia_proje.getEmpresario().getUsuario().getNome()+ 
+					", favor confirmar o inicio do projeto!", 
 				inicia_proje.getDesenvolvedor().getUsuario());
 				
 				
@@ -321,6 +328,12 @@ public class ServletProjeto extends HttpServlet {
 				Projeto conf_encer_proje = this.projetoDao.getById(Integer.valueOf(id_projeto_conf_enc));
 				conf_encer_proje.setStatus("finalizado");
 				this.projetoDao.update(conf_encer_proje);
+				
+				NotifyController.enviarNotificacao("Projeto Encerrado com Sucesso",
+						"O encerramento do projeto "+conf_encer_proje.getTitulo()+ " foi confirmado pelo Desenvolvedor "+conf_encer_proje.getDesenvolvedor().getUsuario().getNome()+ 
+						", favor avaliar o Desenvolvedor!",  
+						conf_encer_proje.getEmpresario().getUsuario());
+				
 				request.getRequestDispatcher("/maisfreela/projetosatuados.jsp").forward(request,response);	
 			break;
 		}
