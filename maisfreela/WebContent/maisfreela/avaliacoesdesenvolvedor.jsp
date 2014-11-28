@@ -14,7 +14,7 @@ import="java.util.List"
 		<div class='large-3 columns menu-left'>
 			<div class='content perfil-usuario'>
 				<div class='image-content'>
-					<img class='imagem' src="http://placehold.it/200x200&text=[Freela1]" />
+					<img src="<%=request.getContextPath()%>/maisfreela/img/usuario2.png" style='width:200px;height:180px;'/>
 				</div>
 				<div class='nome-usuario'>
 					<%
