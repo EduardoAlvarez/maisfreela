@@ -48,8 +48,7 @@
 			%>
 			<div class='row'>
 				<div class='large-12 columns'>
-					<img class='imagem'
-						src="http://placehold.it/150x150&text=[Freela1]" />
+					<img src="<%=request.getContextPath()%>/maisfreela/img/usuario2.png" style='width:122px;height:100px;float:left;'/>
 					<div class='nome-desenvolvedor'>
 						<a href="/maisfreela/usuario/visualizaUsuario?id_usuario=<%=dev.getUsuario().getId()%>"><%=dev.getUsuario().getNome()%></a>
 					</div>
