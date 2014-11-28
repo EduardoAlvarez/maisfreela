@@ -23,8 +23,8 @@
 				<input required type='text' name='email' id='email' value='<%=user.getEmail()%>'>
 				<label  for='cpf'>CPF</label>
 				<input required type='text' name='cpf' id='cpf' value='<%=user.getCpf()%>'>
-				<button type='submit'>Confirmar</button>
-				<button class='alert' type='submit'>Cancelar</button>
+				<button type='button'>Confirmar</button>
+				<button class='alert' type='button'>Cancelar</button>
 				<div class='clear'></div>
 			</form> 
 		</div>
