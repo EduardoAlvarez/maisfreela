@@ -337,7 +337,7 @@ public class ServletProjeto extends HttpServlet {
 				this.projetoDao.update(conf_encer_proje);
 				
 				NotifyController.enviarNotificacao("Projeto Encerrado com Sucesso",
-						"O encerramento do projeto "+conf_encer_proje.getTitulo()+ " foi confirmado pelo Desenvolvedor "+conf_encer_proje.getEmpresario().getUsuario().getNome()+ 
+						"O encerramento do projeto "+conf_encer_proje.getTitulo()+ " foi confirmado pelo Desenvolvedor "+conf_encer_proje.getDesenvolvedor().getUsuario().getNome()+ 
 						", favor avaliar o Desenvolvedor!",  
 						conf_encer_proje.getEmpresario().getUsuario());
 				
