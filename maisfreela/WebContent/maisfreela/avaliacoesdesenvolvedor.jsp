@@ -4,6 +4,8 @@ import="model.Usuario"
 import="model.Empresario"
 import="model.Desenvolvedor"
 import="model.Projeto"
+import="model.Avaliacao"
+import="dao.UsuarioDAO"
 import="java.util.List"
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/maisfreela/css/maisfreela/usuario.css"/>
@@ -16,16 +18,16 @@ import="java.util.List"
 				</div>
 				<div class='nome-usuario'>
 					<%
-					Usuario usuario = (Usuario)request.getAttribute("v_usuario");					
+					Usuario usuario = (Usuario)request.getAttribute("v_aval_usuario");					
 					out.print(usuario.getNome());
 					%></div>
 					<div>
-					<a href="/maisfreela/usuario/visualizaAvaliacoes?id_usuario=<%=usuario.getId()%>">Avaliações Recebidas</a>
+					<a href="/maisfreela/usuario/visualizaUsuario?id_usuario=<%=usuario.getId()%>">Perfil do Desenvolvedor</a>
 					</div>
 				 
 			</div>
 		</div>
-		<div class='large-9 columns panel-list panel-user'>
+	<div class='large-9 columns panel-list panel-user'>
 			<div class='content'>
 				<div class='row'>
 					<div class='large-12 columns'>
@@ -38,6 +40,7 @@ import="java.util.List"
 						<%
 						Desenvolvedor dev = usuario.getDesenvolvedor();
 						Empresario emp = usuario.getEmpresario();
+						UsuarioDAO userDAO = new UsuarioDAO();
 						if(dev != null){
 							%>
 							<div class='aval-title'>Desenvolvedor</div> 
@@ -60,21 +63,21 @@ import="java.util.List"
 							 	%>
 							</div>
 							<!-- Projetos do dev -->
-							<div class='user-projetos'> Projetos atuados </div>
+							
 							<%
-							ProjetoDAO projDAO = new ProjetoDAO();
-							List<Projeto> projetos = projDAO.getProjetosByDesenvolvedor(dev);
-							if(projetos.size() > 0){
+							
+							List<Avaliacao> avaliacoes_dev = userDAO.getAvaliacoesbyDesenvolvedor(dev);
+							if(avaliacoes_dev.size() > 0){
 								out.print("<ul>");
-									for(Projeto p : projetos){
+									for(Avaliacao a : avaliacoes_dev){
 										out.print("<li>");
-										out.print("<div class='title-projeto'>"+p.getTitulo()+"</div>");
-										out.print("<div class='desc-projeto'>"+p.getDescricao()+"</div>");
+										out.print("<div class='title-projeto'>"+a.getRemetente().getNome()+"</div>");
+										out.print("<div class='desc-projeto'>"+a.getComentario()+"<span Style='Float:right'>"+a.getGrau()+"</span></div>");
 										out.print("</li>");
 									}
 								out.print("</ul>");
 							}else{
-								out.print("Ainda não atuou em projetos...");
+								out.print("Ainda não possui avaliações como Desenvolvedor.");
 							}
 						}
 						if(emp != null &&  dev != null){
@@ -82,7 +85,7 @@ import="java.util.List"
 						}
 						if(emp != null){
 							%>
-							<div class='aval-title'>Empresário</div>
+							<div class='aval-title'>Empresario</div> 
 							<div class='estrelas'>
 								<%
 								Float nota = emp.getAvaliacao();
@@ -102,22 +105,20 @@ import="java.util.List"
 							 	%>
 							</div>
 							<!-- Projetos do emp -->
-							<div class='user-projetos'> Projetos criados </div>
+							
 							<%
-							ProjetoDAO projDAO = new ProjetoDAO();
-							List<Projeto> projetos = projDAO.getProjetosByEmpresario(emp); 
-							if(projetos.size() > 0){
+							List<Avaliacao> avaliacoes_emp = userDAO.getAvaliacoesbyEmpresario(emp);
+							if(avaliacoes_emp.size() > 0){
 								out.print("<ul>");
-									for(Projeto p : projetos){
+									for(Avaliacao a : avaliacoes_emp){
 										out.print("<li>");
-										out.print("<div class='title-projeto'>"+p.getTitulo()+"</div>");
-										out.print("<div class='desc-projeto'>"+p.getDescricao()+"</div>");
+										out.print("<div class='title-projeto'>"+a.getRemetente().getNome()+"</div>");
+										out.print("<div class='desc-projeto'>"+a.getComentario()+"<span Style='Float:right'>"+a.getGrau()+"</span></div>");
 										out.print("</li>");
-										
 									}
 								out.print("</ul>");
 							}else{
-								out.print("Ainda não criou projetos...");
+								out.print("Ainda não possui avaliações como Empresário.");
 							}
 						}
 						%>
@@ -125,5 +126,6 @@ import="java.util.List"
 				</div>			
 			</div>
 		</div>
+		
 	</div>
-	<%@include file="footer.jsp"%>
+<%@include file="footer.jsp"%>
