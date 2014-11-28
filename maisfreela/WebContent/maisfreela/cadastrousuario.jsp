@@ -43,17 +43,22 @@ $(function(){
 <script type="text/javascript">
 	$(function(){
 		$("#submit").click(function(e){
-			if($("#senha_c").val() != $("#cSenha").val()){
-				if($("#required_pass").length == 0 ){
-					$("#senha").after("<div id='required_pass'>As senhas devem ser iguais</div>");
+			if(  $("#perfilDev").prop('checked') || $("#perfilEmpresario").prop('checked')){
+				if($("#senha_c").val() != $("#cSenha").val()){
+					if($("#required_pass").length == 0 ){
+						$("#senha_c").after("<div id='required_pass'>As senhas devem ser iguais</div>");
+					}
+					$("#senha_c").css('border-color','red');
+					$("#cSenha").css('border-color','red');
+					e.preventDefault();
+				}else{
+					$("#required_pass").remove();
+					$("#senha_c").css('border-color','#ccc');
+					$("#cSenha").css('border-color','#ccc');
 				}
-				$("#senha_c").css('border-color','red');
-				$("#cSenha").css('border-color','red');
-				e.preventDefault();
 			}else{
-				$("#required_pass").remove();
-				$("#senha_c").css('border-color','#ccc');
-				$("#cSenha").css('border-color','#ccc');
+				alert('Você deve escolher pelo menos um perfil');
+				e.preventDefault();
 			}
 		})
 	});

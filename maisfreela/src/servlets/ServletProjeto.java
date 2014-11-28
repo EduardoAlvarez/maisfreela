@@ -269,8 +269,8 @@ public class ServletProjeto extends HttpServlet {
 				
 
 				Projeto projeto2 = this.projetoDao.getById(Integer.valueOf(id_projeto_ava2));				
-				Avaliacao avalia_emp2 = new Avaliacao();
-				avalia_emp2.setComentario(ava_comentario2);
+				Avaliacao avalia_emp2 = new Avaliacao();									
+				avalia_emp2.setComentario(ava_comentario2);									
 				avalia_emp2.setGrau(ava_avaliacao2);
 				avalia_emp2.setProjeto(projeto2);
 				avalia_emp2.setDesenvolvedorDestino(projeto2.getDesenvolvedor());
