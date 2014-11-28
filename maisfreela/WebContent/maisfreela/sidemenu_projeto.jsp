@@ -81,11 +81,12 @@ display:none;
 	<a 	href="<%=request.getContextPath()%>/projeto/visualizarProjeto" 		type='button'>O projeto</a>
 	<a 	href="<%=request.getContextPath()%>/projeto/lancesDados" 			type='button'>Lances dados</a>
 	<%
-	if(UserController.isLogged("empresario",user) && !projeto.getStatus().equals("cancelado")){
+	if(UserController.isLogged("empresario",user) ){
 		Empresario emp = user.getEmpresario();
-		if(emp.isOwner(projeto, user)){%>
+		if(emp.isOwner(projeto, user)){
+		if(!projeto.getStatus().equals("cancelado") && !projeto.getStatus().equals("finalizado")){%>
 			<a 	href="#" data-reveal-id="cancelarProjeto" type='button'>Cancelar o projeto</a>
-		<% 
+		<% }
 		if(projeto.getStatus().equals("bloqueado")){%>
 			<a 	href="#" data-reveal-id="iniciarProjeto" type='button'>Iniciar projeto</a>
 			<a 	href="#" data-reveal-id="reabrirProjeto" type='button'>Re-abrir o projeto</a>
