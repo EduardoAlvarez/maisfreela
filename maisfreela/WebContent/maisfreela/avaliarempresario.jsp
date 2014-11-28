@@ -13,7 +13,7 @@
 
 	<div class='large-9 columns panel-list'>
 		<div class='content'>
-			<form method='post'>
+			<form method='post'action='<%=request.getContextPath()%>/projeto/avaliarEmpresarioAction'>
 				<span class='titulo'><%=projeto.getTitulo()%></span> <label for='usuario'>Empresário:</label> 
 				<input name='id_projeto' required id='id_projeto' type="hidden" value= <%=projeto.getId()%>></imput>
 				<span class='titulo' name='empresario'><%=projeto.getEmpresario().getUsuario().getNome()%></span>
