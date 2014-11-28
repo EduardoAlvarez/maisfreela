@@ -143,4 +143,39 @@ public class Usuario  {
 		}
 		return null;
 	}
+
+	public void recalculaMedia() {
+		Desenvolvedor dev = this.getDesenvolvedor();
+		Empresario emp = this.getEmpresario();
+		if(dev != null){
+			//se ele for um dev
+			UsuarioDAO userDAO = new UsuarioDAO();
+			List<Avaliacao> avaliacoes = userDAO.getAvaliacoesbyDesenvolvedor(dev);
+			int qtde = avaliacoes.size();
+			float soma = 0;
+			for(Avaliacao aval : avaliacoes){
+				soma += aval.getGrau();
+			}
+			dev.setAvaliacao(soma/qtde);
+			DesenvolvedorDAO devDao = new DesenvolvedorDAO();
+			devDao.update(dev);
+		}
+		if(emp != null){
+			///se ele for um emp
+			UsuarioDAO userDAO = new UsuarioDAO();
+			List<Avaliacao> avaliacoes = userDAO.getAvaliacoesbyEmpresario(emp);
+			int qtde = avaliacoes.size();
+			float soma = 0;
+			for(Avaliacao aval : avaliacoes){
+				soma += aval.getGrau();
+			}
+			emp.setAvaliacao(soma/qtde);
+			EmpresarioDAO empDao = new EmpresarioDAO();
+			empDao.update(emp);
+		}
+		
+		
+	}
+
+	
 }

@@ -68,33 +68,5 @@ public class UsuarioDAO extends GenericDAO{
 		return (Usuario)super.getLast("Usuario");
 	}
 
-	public Usuario recalculaMedia(Usuario user) {
-		Desenvolvedor dev = user.getDesenvolvedor();
-		Empresario emp = user.getEmpresario();
-		UsuarioDAO userDAO = new UsuarioDAO();
-		if(dev != null){
-			//se ele for um dev
-			List<Avaliacao> avaliacoes = userDAO.getAvaliacoesbyDesenvolvedor(dev);
-			int qtde = avaliacoes.size();
-			float soma = 0;
-			for(Avaliacao aval : avaliacoes){
-				soma += aval.getGrau();
-			}
-			dev.setAvaliacao(soma/qtde);
-			DesenvolvedorDAO devDao = new DesenvolvedorDAO();
-		}
-		if(emp != null){
-			///se ele for um emp
-			List<Avaliacao> avaliacoes = userDAO.getAvaliacoesbyEmpresario(emp);
-			int qtde = avaliacoes.size();
-			float soma = 0;
-			for(Avaliacao aval : avaliacoes){
-				soma += aval.getGrau();
-			}
-			emp.setAvaliacao(soma/qtde);
-			EmpresarioDAO empDao = new EmpresarioDAO();
-		}
-		return user;
-	}
 	
 }
