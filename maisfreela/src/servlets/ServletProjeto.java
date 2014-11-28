@@ -176,7 +176,11 @@ public class ServletProjeto extends HttpServlet {
 				for(Lance reabrir_lance : lances){
 					reabrir_lance.setEscolhido(false);
 					lanceDao1.update(reabrir_lance);
-				}				
+				}
+				
+				NotifyController.enviarNotificacao("Projeto reaberto", 
+						"O projeto: <a class='link_projeto' href='/maisfreela/projeto/visualizarProjeto?id_projeto="+reabrir_proj.getId()+"'>"+reabrir_proj.getTitulo()+ "</a> foi reaberto! Se deseja efetuar um novo lance, clique no título.", 
+						reabrir_proj.getDesenvolvedor().getUsuario());
 				
 				this.projetoDao.update(reabrir_proj);
 				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
@@ -191,9 +195,7 @@ public class ServletProjeto extends HttpServlet {
 				try {
 					NotifyController.enviarNotificacao("Projeto cancelado", 
 							"O projeto: <a class='link_projeto' href='/maisfreela/projeto/visualizarProjeto?id_projeto="+cancelar_proj.getId()+"'>"+cancelar_proj.getTitulo()+ "</a> foi cancelado! Voce recebera 40% do valor pago.", 
-							this.projetoDao.getUsuarioByProjeto(cancelar_proj));	
-					
-					
+							cancelar_proj.getDesenvolvedor().getUsuario());					
 					
 				} catch (Exception e) {
 					//Quer dizer que nao tem dev 
