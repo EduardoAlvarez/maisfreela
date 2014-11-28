@@ -13,6 +13,9 @@
 	margin:0 auto !important;
 	float:none !important;	
 }
+.perfil-usuario .user_botoes{
+	width: 50%;	
+}
 .aspas{
 	width: 15px;
 	margin-top: -11px;

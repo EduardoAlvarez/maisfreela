@@ -24,7 +24,7 @@ import dao.UsuarioDAO;
  * Servlet implementation class ServletUsuario
  */
 @WebServlet({ "/usuario/cadastraUsuario", "/usuario/visualizaDesenvolvedores",
-		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario" , "/usuario/sair","/usuario/perfil",
+		"/usuario/login", "/usuario/logar"  , "/usuario/visualizaUsuario", "/usuario/visualizaAvaliacoes" , "/usuario/sair","/usuario/perfil",
 		"/usuario/dadosPessoais","/usuario/dadosFinanceiros","/usuario/minhasAvaliacoes", "/usuario/visualizarNotificacoes",
 		"/usuario/cadastrarUsuarioAction"})
 public class ServletUsuario extends HttpServlet {
@@ -59,6 +59,13 @@ public class ServletUsuario extends HttpServlet {
 				Usuario usuario = userDao.getById(Integer.valueOf(id)); 
 				request.setAttribute("v_usuario",usuario);
 				request.getRequestDispatcher("/maisfreela/usuario.jsp").forward(request,response);
+			break;
+			case "visualizaAvaliacoes":
+				String id2 = request.getParameter("id_usuario");
+				UsuarioDAO userDAO2 = new UsuarioDAO();
+				Usuario usuario2 = userDAO2.getById(Integer.valueOf(id2)); 
+				request.setAttribute("v_aval_usuario",usuario2);
+				request.getRequestDispatcher("/maisfreela/avaliacoesdesenvolvedor.jsp").forward(request,response);
 			break;
 			case "visualizaDesenvolvedores":
 				ArrayList<Desenvolvedor> lista = devDao.getAll();
