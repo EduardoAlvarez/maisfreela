@@ -172,6 +172,7 @@ public class Projeto {
 	private boolean pagamento2;
 	
 	private Date dataInicio;
+	
 	public List<Avaliacao> getAvaliacoes() {
 		return avaliacoes;
 	}

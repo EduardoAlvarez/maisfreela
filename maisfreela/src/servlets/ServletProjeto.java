@@ -35,7 +35,8 @@ import dao.UsuarioDAO;
 @WebServlet({"/projeto/visualizaProjetos", "/projeto/publicarProjeto", "/projeto/projetosPublicados", 
 	"/projeto/projetosAtuados", "/projeto/visualizarProjeto", "/projeto/lancesDados", "/projeto/iniciarProjeto",
 	"/projeto/reabrirProjeto","/projeto/cancelarProjeto","/projeto/darLance",
-	"/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario","/projeto/avaliarProjeto",
+	"/projeto/confirmarProjeto","/projeto/confirmarEncerramento","/projeto/avaliarEmpresario", "/projeto/avaliarEmpresarioAction",
+	"/projeto/avaliarDesenvolvedorAction", "/projeto/avaliarDesenvolvedor",
 	"/projeto/cadastraProjetoAction" , "/projeto/darLanceAction","/projeto/aceitarLanceAction","/projeto/reabrirProjetoAction",
 	"/projeto/cancelarProjetoAction", "/projeto/encerrarProjetoAction","/projeto/confirmarInicioProjetoAction","/projeto/iniciarProjetoAction",
 	"/projeto/atualizarProjetoAction", "/projeto/confirmarEncerramentoProjetoAction"})
@@ -226,7 +227,7 @@ public class ServletProjeto extends HttpServlet {
 				this.projetoDao.update(encerrar_proje);
 				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
-			case "avaliarEmpresario":
+			case "avaliarEmpresarioAction":
 				String ava_comentario = request.getParameter("comentario");
 				double ava_avaliacao = Double.parseDouble(request.getParameter("avaliacao"));
 				Integer id_projeto_ava = Integer.parseInt(request.getParameter("id_projeto"));
@@ -240,6 +241,7 @@ public class ServletProjeto extends HttpServlet {
 				avalia_emp.setGrau(ava_avaliacao);
 				avalia_emp.setEmpresarioDestino(projeto.getEmpresario());
 				avalia_emp.setRemetente(userAvaliacao);
+				avalia_emp.setProjeto(projeto);
 				GenericDAO save_ava = new GenericDAO();
 				save_ava.save(avalia_emp);
 				//
@@ -253,11 +255,11 @@ public class ServletProjeto extends HttpServlet {
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
-			case "avaliarDesenvolvedor":
+			case "avaliarDesenvolvedorAction":
 				String ava_comentario2 = request.getParameter("comentario");
 				double ava_avaliacao2 = Double.parseDouble(request.getParameter("avaliacao"));
 				Integer id_projeto_ava2 = Integer.parseInt(request.getParameter("id_projeto"));
-							
+											
 				HttpSession sessionAvaliacao2 = request.getSession();
 				Usuario userAvaliacao2 = (Usuario)sessionAvaliacao2.getAttribute("usuario");
 				
@@ -268,6 +270,7 @@ public class ServletProjeto extends HttpServlet {
 				avalia_emp2.setGrau(ava_avaliacao2);
 				avalia_emp2.setDesenvolvedorDestino(projeto2.getDesenvolvedor());
 				avalia_emp2.setRemetente(userAvaliacao2);
+				avalia_emp2.setProjeto(projeto2);
 				GenericDAO save_ava2 = new GenericDAO();
 				save_ava2.save(avalia_emp2);
 				//

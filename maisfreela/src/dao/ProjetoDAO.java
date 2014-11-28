@@ -82,6 +82,7 @@ public class ProjetoDAO extends GenericDAO {
 				avaliado = true;
 			}
 		}
+		System.out.println(avaliado);
 		return avaliado;
 	}
 	public ArrayList getProjetosDisponiveis(int limit){

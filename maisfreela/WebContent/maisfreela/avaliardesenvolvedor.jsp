@@ -14,7 +14,7 @@
 	
 	<div class='large-9 columns panel-list'>
 		<div class='content'>
-			<form method='post'>
+			<form method='post' action='<%=request.getContextPath()%>/projeto/avaliarDesenvolvedorAction'>
 			<span class='titulo'><%=projeto.getTitulo()%></span>
 				<label for='usuario'>Desenvolvedor:</label>
 				<input name='id_projeto' required id='id_projeto' type="hidden" value= <%=projeto.getId()%>></imput>
@@ -35,7 +35,7 @@
 				<button type='submit'>Confirmar</button>
 				<button class='alert' type='submit'>Cancelar</button>
 				<div class='clear'></div>
-				</form>
+			</form>
 		</div>
 	</div>
 </div>
