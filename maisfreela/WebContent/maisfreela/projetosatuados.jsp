@@ -30,6 +30,7 @@
 
 			<div class='row'>
 				<div class='large-12 columns'>
+					<img src="<%=request.getContextPath()%>/maisfreela/img/projeto1.png" style='margin-right: 15px;width:122px;height:100px;float:left;'/>
 					<div class='nome-projeto'>
 						<a href="<%=request.getContextPath()%>/projeto/visualizarProjeto?id_projeto=<%=proj.getId()%>"><%=proj.getTitulo()%></a>
 					</div>
