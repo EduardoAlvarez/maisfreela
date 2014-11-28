@@ -300,8 +300,9 @@ public class ServletProjeto extends HttpServlet {
 				//
 				
 				//Notificação
-				NotifyController.enviarNotificacao("Avaliação recebida",
-				"Você foi aavaliado, para mais informação, favor acessar seu perfil.", 
+				NotifyController.enviarNotificacao("Projeto Iniciado",
+				"O projeto "+inicia_proje.getTitulo()+ " foi iniciado pelo Empres�rio "+inicia_proje.getEmpresario().getUsuario().getNome()+ 
+					", favor confirmar o inicio do projeto!", 
 				inicia_proje.getDesenvolvedor().getUsuario());
 				
 				
