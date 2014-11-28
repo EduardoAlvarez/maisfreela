@@ -282,8 +282,8 @@ public class ServletProjeto extends HttpServlet {
 				projeto2.getDesenvolvedor().getUsuario().recalculaMedia();
 				
 				//Notificação
-				NotifyController.enviarNotificacao("Avali��o recebida",
-						"Voc� foi avaliado, para mais informa��es, favor acessar seu perfil.", 
+				NotifyController.enviarNotificacao("Avalição recebida",
+						"Você foi avaliado, para mais informações, favor acessar seu perfil.", 
 						avalia_emp2.getDesenvolvedorDestino().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
