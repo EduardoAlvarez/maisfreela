@@ -243,9 +243,9 @@ public class ServletProjeto extends HttpServlet {
 				GenericDAO save_ava = new GenericDAO();
 				save_ava.save(avalia_emp);
 				//
-				UsuarioDAO userDao = new UsuarioDAO();
-				userDao.recalcularMedia(projeto.getEmpresario().getUsuario());
-				
+				UsuarioDAO userDao3 = new UsuarioDAO();
+				Usuario user_x = userDao3.recalculaMedia(projeto.getEmpresario().getUsuario());
+				userDao3.save(user_x);
 				//Notificação
 				NotifyController.enviarNotificacao("Avaliação recebida",
 						"Você foi aavaliado, para mais informação, favor acessar seu perfil.", 
@@ -272,8 +272,9 @@ public class ServletProjeto extends HttpServlet {
 				save_ava2.save(avalia_emp2);
 				//
 				
-				UsuarioDAO userDao = new UsuarioDAO();
-				userDao.recalcularMedia(projeto2.getDesenvolvedor().getUsuario());
+				UsuarioDAO userDao2 = new UsuarioDAO();
+				Usuario user_y = userDao2.recalculaMedia(projeto2.getDesenvolvedor().getUsuario());
+				userDao2.save(user_y);
 				
 				
 				//Notificação
