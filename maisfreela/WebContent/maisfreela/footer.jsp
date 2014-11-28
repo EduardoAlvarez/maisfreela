@@ -12,7 +12,8 @@
 						<li><a 	href="<%=request.getContextPath()%>/home/faleConosco" type='button'>Fale conosco</a></li>
 						
 						<li><a href="#">Termos de uso</a></li>
-						<li><a href="#">Manual</a></li>
+						<li><a href="/maisfreela/doc/proposta.pdf">Documentação</a></li>
+												
 					</ul>
 				</div>
 			</div>
