@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import controller.NotifyController;
 import model.Avaliacao;
+import model.Desenvolvedor;
 import model.Empresario;
 import model.Lance;
-import model.Notificacao;
 import model.Projeto;
 import model.Tag;
 import model.Usuario;
+import controller.NotifyController;
 import dao.GenericDAO;
 import dao.LanceDAO;
 import dao.ProjetoDAO;
@@ -245,7 +245,9 @@ public class ServletProjeto extends HttpServlet {
 				GenericDAO save_ava = new GenericDAO();
 				save_ava.save(avalia_emp);
 				//
-				userAvaliacao.recalculaMedia();
+				UsuarioDAO userDao = new UsuarioDAO();
+				userDao.recalcularMedia(projeto.getEmpresario().getUsuario());
+				
 				//Notificação
 				NotifyController.enviarNotificacao("Avaliação recebida",
 						"Você foi aavaliado, para mais informação, favor acessar seu perfil.", 
@@ -273,7 +275,9 @@ public class ServletProjeto extends HttpServlet {
 				save_ava2.save(avalia_emp2);
 				//
 				
-				userAvaliacao2.recalculaMedia();
+				UsuarioDAO userDao = new UsuarioDAO();
+				userDao.recalcularMedia(projeto2.getDesenvolvedor().getUsuario());
+				
 				
 				//Notificação
 				NotifyController.enviarNotificacao("Avaliação recebida",

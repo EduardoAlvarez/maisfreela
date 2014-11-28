@@ -67,5 +67,10 @@ public class UsuarioDAO extends GenericDAO{
 	public Usuario getLast() {
 		return (Usuario)super.getLast("Usuario");
 	}
+
+	public void recalcularMedia(Usuario usuario) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
