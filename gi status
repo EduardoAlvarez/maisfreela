@@ -1,0 +1,520 @@
+[33mcommit 2c9f94acaf10cd53997ff68e47aecf571b5c7908[m
+Merge: 9f36cb8 e22dd3c
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Thu Nov 27 22:25:57 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 9f36cb8bda25149f39bb8845cdab16ba50650712[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Thu Nov 27 22:25:25 2014 -0200
+
+    botao cancelar não aparece mais apos cancelar ou finalizar o projeto
+
+[33mcommit e22dd3c1cd1dcbc5bfe302dd9b607f24d48f9c38[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Thu Nov 27 22:21:36 2014 -0200
+
+    bug de iniciado
+
+[33mcommit e0f6eec85142fa3520e63d5aa808e5e160c42800[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Thu Nov 27 20:44:24 2014 -0200
+
+    imagem dev e proj na home
+
+[33mcommit 244d35c6dfb9ed946dfe3789191bfe4f03e3b6cc[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Thu Nov 27 03:31:09 2014 -0200
+
+    correção na notificação confirmarInicio
+
+[33mcommit 4febc708f7fcd209f85b64ca4f26a74338853abe[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Thu Nov 27 01:40:03 2014 -0200
+
+    usuario tem tags agoragit add .
+
+[33mcommit 3a03638ff864114586da28c9d721aad835f18c14[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Thu Nov 27 01:11:02 2014 -0200
+
+    link para fale conosco na home
+
+[33mcommit 45c17f926e13fb52a4d4f64ddb0a4426685ec7a4[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Thu Nov 27 01:04:01 2014 -0200
+
+    multipleSelect nas tags de projeto!
+
+[33mcommit 649a14b51fb3ddc548c9ef92705432be362f848e[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Thu Nov 27 00:43:40 2014 -0200
+
+    Correção de acento!
+
+[33mcommit 633396edcf4c767d5d19c4dfafb07456f07eb8f6[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Thu Nov 27 00:34:10 2014 -0200
+
+    insercao de pagamentos no inicio e fim de projeto e confirmar encerramento feito
+
+[33mcommit 9020d1a2a09cebcee8ba9589a3ddae2c0f60b429[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Thu Nov 27 00:15:05 2014 -0200
+
+    conserto de div em projeto
+
+[33mcommit 5b79d4dd6434e3d0637af919f03f73001538fd4e[m
+Merge: 61dff1d d36821e
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Thu Nov 27 00:11:43 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 61dff1d1ce76f9ed976b7cb779685d9f79d91b88[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Thu Nov 27 00:11:28 2014 -0200
+
+    correção js
+
+[33mcommit d36821e1329f60a38c808a2fdcecd6c8cb911570[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Thu Nov 27 00:10:01 2014 -0200
+
+    busca de atuados e publicados com status na tela
+
+[33mcommit ad118382061aa6a71ff1d5fb2c8152f02389c6d5[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Wed Nov 26 23:51:34 2014 -0200
+
+    botao cancelar nao aparecer se ja tiver cancelado o proj
+
+[33mcommit 715bd49cea0a9a7e3eac7fbcc18d19ceada05c48[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Wed Nov 26 23:32:42 2014 -0200
+
+    update em projeto e botoes funcionais na tela de projeto
+
+[33mcommit 16deff941c53caeaaa7ebf2dc67cb5e4e51b13ed[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Wed Nov 26 23:27:25 2014 -0200
+
+    cadastro de usuario agora esta corretogit status
+
+[33mcommit 2a5a2419cecc5d78cfe6956c84b84dd2ce92e223[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Wed Nov 26 22:46:08 2014 -0200
+
+    direcionamento de proj atuados para enxergar o projeto apos confirmar inicio
+
+[33mcommit bdac1b4badc1f8ddb37cded253e24efd37f71d98[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Wed Nov 26 22:41:16 2014 -0200
+
+    botao de cancelar agora parece para o owner
+
+[33mcommit 31f9ca94c27427ab8e6eb6d1d2f61d64cb54868c[m
+Merge: dc84138 cc75b29
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Wed Nov 26 22:27:26 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit dc841384b6a1f890c02c81e0d4bba07d288df7bf[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Wed Nov 26 22:27:23 2014 -0200
+
+    redirect
+
+[33mcommit cc75b29eccfd2421e4bb5dd6938301d427a89afb[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Wed Nov 26 22:23:39 2014 -0200
+
+    redirect para proj publicados para forcar a atualizaçao de proejto apos mudanca de status
+
+[33mcommit b496e623b755eaeca80af2d167c2db3de5b15bee[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Wed Nov 26 22:20:35 2014 -0200
+
+    inicio de projeto
+
+[33mcommit 6d41f25141dcd5ea5d72378a6f99ba3eb340b1ab[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Wed Nov 26 21:09:54 2014 -0200
+
+    Correção do link de dev na home
+
+[33mcommit cf0be19b1fda1b1edea9058fbacba29e3c388afe[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Wed Nov 26 02:22:58 2014 -0200
+
+    OK cadastrar projeto com casa decimal
+
+[33mcommit 29ea2af7f00fb05cc6f052559e29c4d31564887d[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Wed Nov 26 00:11:17 2014 -0200
+
+    Correção dos links da homegit status
+
+[33mcommit 1b96763175b76706396aa98511ea8d1449f670fa[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Tue Nov 25 23:02:17 2014 -0200
+
+    remoção do botão de respoonder
+
+[33mcommit a4dff4eafd0922ae577c929e55e4049a3138f84e[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Tue Nov 25 22:47:48 2014 -0200
+
+    Correção da logica de voltar isEscolhido
+
+[33mcommit 2989906193f9d4d9ab3bca17fa728e6938a67ae3[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Tue Nov 25 20:04:31 2014 -0200
+
+    ajeitada no como funciona, mas ainda não está 100%, eu acho
+
+[33mcommit ebc44bd9dd45c52ab613edb6a859e6c86846bb02[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Mon Nov 24 20:44:38 2014 -0200
+
+    notificações, comentário no código, falta link para o projeto
+
+[33mcommit 893e6066c80a801bbec72bf2529dd48017e0e3ee[m
+Merge: 797bf70 a1b01af
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 20:40:32 2014 -0200
+
+    merge
+
+[33mcommit 797bf709ee78e5cdb2eb5302670bd21df30127d4[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 20:38:44 2014 -0200
+
+    notificação ccancelamento
+
+[33mcommit a1b01af01c912e7967714f9c4016fb8f4c0a30a4[m
+Merge: 30cdda8 c6db53f
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 20:37:07 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 30cdda8ffb82d7e31c7a22e383e9e6783adfde5c[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 20:36:56 2014 -0200
+
+    fazendo notificações para lance aceito
+
+[33mcommit c6db53f3f9d09caf1709159d7d16ecd4ef013def[m
+Merge: 041a444 b484fbb
+Author: andferreira <andrematosf@yahoo.com>
+Date:   Sun Nov 23 20:22:21 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 041a4443ff415ed37b96ce65e6808017c36cb714[m
+Author: andferreira <andrematosf@yahoo.com>
+Date:   Sun Nov 23 20:21:44 2014 -0200
+
+    Fale conosco
+
+[33mcommit b484fbb05d492b2369ed339cb0bb40983526892a[m
+Merge: 3c4742b 38a957e
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 20:04:58 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 3c4742be9ffde7a795b1a4aabce440e1291c1ddc[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 20:04:52 2014 -0200
+
+    busca de projetos somente com status pendente e novo  na tela de visualizaProjetos
+
+[33mcommit 38a957e7347754bcae9e2b7864bcfe217d602110[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 19:58:07 2014 -0200
+
+    correção do css  de stratus
+
+[33mcommit 57037b631a3900529e45a4d74b15b171bc665015[m
+Merge: 251b52c 814f147
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 19:51:06 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 251b52c653d80300dd8b61a90922a5e2702a616a[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 19:50:37 2014 -0200
+
+    cadastro de usuario
+
+[33mcommit 814f1470041409a0f8576ee8f87a28c0928fcef1[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 19:30:36 2014 -0200
+
+    busca de projetos na home arrumada - so traz novos e/ou pendentes
+
+[33mcommit 18008548f76bfe5171e86e74c7ff274abba97aca[m
+Author: andferreira <andrematosf@yahoo.com>
+Date:   Sun Nov 23 19:17:24 2014 -0200
+
+    atualização pag comofunciona
+
+[33mcommit 48aff9a00e76daef9922a3d5177ac16524a9aa16[m
+Merge: b5c048d 119ae92
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 19:16:14 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit b5c048d0c3edb1000105ba1142e6130d4931c9bf[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 19:15:59 2014 -0200
+
+    avaliacao dev e  emp pronta
+
+[33mcommit 119ae927e6ac0231509f2a882d11f8d65df01bde[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 19:02:53 2014 -0200
+
+    notificação para dar lance
+
+[33mcommit d4ccb742f9e6ac53bd1b09aa0007deee34a0ebde[m
+Merge: 416be4e 22729a4
+Author: andferreira <andrematosf@yahoo.com>
+Date:   Sun Nov 23 18:40:02 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 416be4eb4eae66235c91c66ac83ed5d0aa4d9942[m
+Author: andferreira <andrematosf@yahoo.com>
+Date:   Sun Nov 23 18:38:59 2014 -0200
+
+    comofunciona
+
+[33mcommit b1ca5d1da16272a2b2653a7df5a898e1a5ad762c[m
+Author: andferreira <andrematosf@yahoo.com>
+Date:   Sun Nov 23 18:36:36 2014 -0200
+
+    imagem como funciona
+
+[33mcommit 22729a416ae80dace5a372fa8d9ebe04f9162a07[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 18:23:56 2014 -0200
+
+    usuario cadastro
+
+[33mcommit 58da48832a48f62bf98dc324d80802709adb38d3[m
+Merge: 1cb0f3e 99d89a0
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 17:47:13 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 1cb0f3e5600adf1b4b493872f2cfdb0c1287a30a[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 17:43:17 2014 -0200
+
+    notificação
+
+[33mcommit 99d89a08bbccb35fd383ce1f13bd34796f548803[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 16:55:23 2014 -0200
+
+    confirmar inicio projeto 100%
+
+[33mcommit d8bbe53084a05fd02be8b254742366892592fc69[m
+Merge: 7c5fb48 6212c16
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 16:36:19 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 7c5fb481563fa4104e4a36edca54c1bf8e5956e4[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 16:35:43 2014 -0200
+
+    confirmar inicio de projeto 70%, falta datas
+
+[33mcommit 6212c16ad9ab6a175457a761808be900be056752[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 16:35:32 2014 -0200
+
+    merge de servlet projeto
+
+[33mcommit c3a00179738016e771fb3075387e9226bc11046f[m
+Merge: d48ec8c 3084c54
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 16:21:44 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit d48ec8c813d69232b8a0cb7a3689724ef607d876[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 16:21:05 2014 -0200
+
+    encerramento do projeto com pagamento!
+
+[33mcommit 3084c547a95b07c34e6d600a6c471e5a89f76830[m
+Merge: bcf43ce 3381715
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 16:15:56 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit bcf43ce45b62d05e4a362fcf96ce0f5e3b94084a[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 16:15:41 2014 -0200
+
+    tentando confirmar inicio
+
+[33mcommit 33817155ef3906800682ff499b5f9b320ff590b3[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 16:10:04 2014 -0200
+
+    status confirmaçao de encerramento
+
+[33mcommit 7d153a9ee3e64cc31cd8f33735330dd682d84f0e[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 16:08:16 2014 -0200
+
+    servlet merge
+
+[33mcommit 3178fbeb9c70c89c4730356bf4e8c582349ccfab[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 16:06:47 2014 -0200
+
+    servlet merge
+
+[33mcommit 77318f3071c819406a5d46903ed76d37caf673ea[m
+Merge: 7bbe820 36cf627
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 16:06:00 2014 -0200
+
+    servlet merge
+
+[33mcommit 7bbe8208d615babd9c4fccc3061531ecaf9d2088[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 16:05:02 2014 -0200
+
+    confirmar encerramento de proj OK
+
+[33mcommit 36cf627e19322a7b19c3016eb01ae56078b02a69[m
+Merge: 902fe78 f0ddead
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 15:37:22 2014 -0200
+
+    merge
+
+[33mcommit 902fe780de0319aa4c90654a99d3103c3b46e9d7[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 15:36:08 2014 -0200
+
+    iniciar projeto funcionando! \o
+
+[33mcommit f0ddeada63e3b4ebe55e41f90d747d401e2b3269[m
+Merge: b8fc33e d9bf305
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 15:15:21 2014 -0200
+
+    confirmar inicio de projeto
+
+[33mcommit b8fc33e99f1377fbb3acb014c3f233e38c47537b[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 15:12:25 2014 -0200
+
+    iniciar projeto
+
+[33mcommit d9bf305aa51da28a22661f670933f2c4baf9b76d[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 15:09:20 2014 -0200
+
+    arrumado erro de dev quando logado sem buscar detalhes do projeto
+
+[33mcommit 732e87942b3c3fda6deab2e3c48c99f654ae217b[m
+Merge: 7198164 7f9d1c4
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 15:07:05 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
+
+[33mcommit 7198164e7a5ce59bfd2add14fade8c49c33bcc40[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 15:06:48 2014 -0200
+
+    arrumado erro de dev quando logado sem buscar detalhes do projeto
+
+[33mcommit 7f9d1c4b34b3ba8b2793874dbdf5e9bc01109181[m
+Merge: bacdab9 465eb29
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 14:52:49 2014 -0200
+
+    iniciar projeto
+
+[33mcommit bacdab9c3c6115f33a55c9bbf3568659dd02f47d[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 14:51:25 2014 -0200
+
+    iniciar projeto
+
+[33mcommit 465eb29a18f237a0089888ac2835ad68f527d8b0[m
+Merge: ce4ea7a 120899a
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 14:48:51 2014 -0200
+
+    commit para alinhar
+
+[33mcommit ce4ea7ae9b35c8b039075e087fbb12cb4e7511a6[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sun Nov 23 14:46:10 2014 -0200
+
+    commit para alinhar
+
+[33mcommit 120899a9c6c16c466cbeb7bf9e0abffdc2981b2d[m
+Merge: 72207e4 a23835f
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 14:39:00 2014 -0200
+
+    merge
+
+[33mcommit 72207e48173dac9d69e9f412d0a68997ef76cf14[m
+Author: EduardoAlvarez <eduardo.alvarez1@hotmail.com>
+Date:   Sun Nov 23 14:38:43 2014 -0200
+
+    correções no git
+
+[33mcommit a23835fb67ed57ba2d719438e47cb76e57e1d8d7[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 14:30:47 2014 -0200
+
+    cancelar projeto arrumado
+
+[33mcommit c408109b86af4a21f24c1a04b3235a966e1f02af[m
+Merge: cb55767 9358579
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sun Nov 23 14:27:47 2014 -0200
+
+    Cancelar Projeto
+
+[33mcommit 93585798fd6d2fb4a102b5530701fa0a01c7bec1[m
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sat Nov 22 18:24:54 2014 -0200
+
+    sidemenu cancelar
+
+[33mcommit cb55767de33dc1b7cbeedbe91520a4adfe62e817[m
+Author: Anderson Cardoso <andersonfc2@gmail.com>
+Date:   Sat Nov 22 18:07:41 2014 -0200
+
+    cancelar projeto, falta rota para funcionar
+
+[33mcommit 9301e4a6264efa4fa3d17f2b4c265a867be13941[m
+Merge: 98d0609 48ed301
+Author: Henrique <henriquebarjas@gmail.com>
+Date:   Sat Nov 22 18:03:36 2014 -0200
+
+    Merge branch 'master' of https://github.com/EduardoAlvarez/maisfreela
