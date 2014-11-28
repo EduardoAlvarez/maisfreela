@@ -193,7 +193,7 @@ public class ServletProjeto extends HttpServlet {
 				//NotificaÃ§Ã£o
 				try {
 					NotifyController.enviarNotificacao("Projeto cancelado", 
-						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Voce recebera 40% do valor já pago.", 
+						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Voce recebera 40% do valor jï¿½ pago.", 
 						this.projetoDao.getUsuarioByProjeto(cancelar_proj));	
 				} catch (Exception e) {
 					//Quer dizer que nao tem dev 
@@ -226,13 +226,13 @@ public class ServletProjeto extends HttpServlet {
 				this.projetoDao.update(encerrar_proje);
 				
 				NotifyController.enviarNotificacao("Projeto Encerrado",
-						"O projeto "+encerrar_proje.getTitulo()+ " foi encerrado pelo Empresário "+encerrar_proje.getEmpresario().getUsuario().getNome()+ 
-						", favor confirmar o encerramento do projeto! Não se esqueça de avaliar o Empresário!",  
+						"O projeto "+encerrar_proje.getTitulo()+ " foi encerrado pelo Empresï¿½rio "+encerrar_proje.getEmpresario().getUsuario().getNome()+ 
+						", favor confirmar o encerramento do projeto! Nï¿½o se esqueï¿½a de avaliar o Empresï¿½rio!",  
 						encerrar_proje.getDesenvolvedor().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projetospublicados.jsp").forward(request,response);
 			break;
-			case "avaliarEmpresario":
+			case "avaliarEmpresarioAction":
 				String ava_comentario = request.getParameter("comentario");
 				double ava_avaliacao = Double.parseDouble(request.getParameter("avaliacao"));
 				Integer id_projeto_ava = Integer.parseInt(request.getParameter("id_projeto"));
@@ -244,6 +244,7 @@ public class ServletProjeto extends HttpServlet {
 				Avaliacao avalia_emp = new Avaliacao();
 				avalia_emp.setComentario(ava_comentario);
 				avalia_emp.setGrau(ava_avaliacao);
+				avalia_emp.setProjeto(projeto);
 				avalia_emp.setEmpresarioDestino(projeto.getEmpresario());
 				avalia_emp.setRemetente(userAvaliacao);
 				GenericDAO save_ava = new GenericDAO();
@@ -252,13 +253,13 @@ public class ServletProjeto extends HttpServlet {
 				projeto.getEmpresario().getUsuario().recalculaMedia();
 				
 				//NotificaÃ§Ã£o
-				NotifyController.enviarNotificacao("Avalição recebida",
-						"Você foi avaliado, para mais informações, favor acessar seu perfil.", 
+				NotifyController.enviarNotificacao("Avaliï¿½ï¿½o recebida",
+						"Vocï¿½ foi avaliado, para mais informaï¿½ï¿½es, favor acessar seu perfil.", 
 						avalia_emp.getEmpresarioDestino().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
 			break;
-			case "avaliarDesenvolvedor":
+			case "avaliarDesenvolvedorAction":
 				String ava_comentario2 = request.getParameter("comentario");
 				double ava_avaliacao2 = Double.parseDouble(request.getParameter("avaliacao"));
 				Integer id_projeto_ava2 = Integer.parseInt(request.getParameter("id_projeto"));
@@ -271,6 +272,7 @@ public class ServletProjeto extends HttpServlet {
 				Avaliacao avalia_emp2 = new Avaliacao();
 				avalia_emp2.setComentario(ava_comentario2);
 				avalia_emp2.setGrau(ava_avaliacao2);
+				avalia_emp2.setProjeto(projeto2);
 				avalia_emp2.setDesenvolvedorDestino(projeto2.getDesenvolvedor());
 				avalia_emp2.setRemetente(userAvaliacao2);
 				GenericDAO save_ava2 = new GenericDAO();
@@ -280,8 +282,8 @@ public class ServletProjeto extends HttpServlet {
 				projeto2.getDesenvolvedor().getUsuario().recalculaMedia();
 				
 				//NotificaÃ§Ã£o
-				NotifyController.enviarNotificacao("Avalição recebida",
-						"Você foi avaliado, para mais informações, favor acessar seu perfil.", 
+				NotifyController.enviarNotificacao("Avaliï¿½ï¿½o recebida",
+						"Vocï¿½ foi avaliado, para mais informaï¿½ï¿½es, favor acessar seu perfil.", 
 						avalia_emp2.getDesenvolvedorDestino().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);
@@ -301,7 +303,7 @@ public class ServletProjeto extends HttpServlet {
 				
 				//NotificaÃ§Ã£o
 				NotifyController.enviarNotificacao("Projeto Iniciado",
-				"O projeto "+inicia_proje.getTitulo()+ " foi iniciado pelo Empresário "+inicia_proje.getEmpresario().getUsuario().getNome()+ 
+				"O projeto "+inicia_proje.getTitulo()+ " foi iniciado pelo Empresï¿½rio "+inicia_proje.getEmpresario().getUsuario().getNome()+ 
 					", favor confirmar o inicio do projeto!", 
 				inicia_proje.getDesenvolvedor().getUsuario());
 				
