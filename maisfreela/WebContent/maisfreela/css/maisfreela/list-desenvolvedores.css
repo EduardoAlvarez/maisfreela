@@ -37,7 +37,7 @@
 	padding: 6px;
 	float: left;
 	margin-left: 4px;
-	background: brown;
+	background: url('../../img/Star-Half-Full.png');
 }
 
 .estrela-empty {
@@ -45,4 +45,5 @@
 	float: left;
 	margin-left: 4px;
 	background: gray;
+	background: url('../../img/Star-Empty.png');
 }
