@@ -3,7 +3,7 @@
 			<hr />
 			<div class="row">
 				<div class="large-5 columns">
-					<p style='font-size:0.98rem'>© Copyright Mais Freela - Todos os direitos reservados</p>
+					<p style='font-size:15px'>© Copyright Mais Freela - Todos os direitos reservados</p>
 				</div>
 				<div class="large-7 columns">
 					<ul class="inline-list right">
