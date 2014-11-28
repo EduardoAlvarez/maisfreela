@@ -193,7 +193,7 @@ public class ServletProjeto extends HttpServlet {
 				//Notificação
 				try {
 					NotifyController.enviarNotificacao("Projeto cancelado", 
-						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Voce recebera 40% do valor ja� pago.", 
+						"O projeto: "+cancelar_proj.getTitulo()+" foi cancelado! Voce recebera 40% do valor ja� pago.", 
 						this.projetoDao.getUsuarioByProjeto(cancelar_proj));	
 				} catch (Exception e) {
 					//Quer dizer que nao tem dev 
@@ -242,7 +242,8 @@ public class ServletProjeto extends HttpServlet {
 				avalia_emp.setRemetente(userAvaliacao);
 				GenericDAO save_ava = new GenericDAO();
 				save_ava.save(avalia_emp);
-				
+				//
+				userAvaliacao.recalculaMedia();
 				//Notificação
 				NotifyController.enviarNotificacao("Avaliação recebida",
 						"Você foi aavaliado, para mais informação, favor acessar seu perfil.", 
@@ -267,10 +268,13 @@ public class ServletProjeto extends HttpServlet {
 				avalia_emp2.setRemetente(userAvaliacao2);
 				GenericDAO save_ava2 = new GenericDAO();
 				save_ava2.save(avalia_emp2);
+				//
+				
+				userAvaliacao2.recalculaMedia();
 				
 				//Notificação
 				NotifyController.enviarNotificacao("Avaliação recebida",
-						"Você foi aavaliado, para mais informação, favor acessar seu perfil.", 
+						"Você foi avaliado, para mais informação, favor acessar seu perfil.", 
 						avalia_emp2.getDesenvolvedorDestino().getUsuario());
 				
 				request.getRequestDispatcher("/maisfreela/projeto.jsp").forward(request,response);

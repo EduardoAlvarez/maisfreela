@@ -147,5 +147,10 @@ public class Usuario  {
 		return null;
 	}
 
+	public void recalculaMedia() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
